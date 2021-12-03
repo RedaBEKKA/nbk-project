@@ -62,8 +62,6 @@ const Navigation = () => {
           <Typography color="inherit" component="h1" variant="h6">
             NBK-Project
           </Typography>
-
-        
         </Toolbar>
       </AppBar>
       <Drawer
@@ -86,13 +84,25 @@ const Navigation = () => {
             {open ? <ChevronLeftIcon /> : <MenuIcon />}
           </IconButton>
         </div>
-        <div className={classes.navigationLogoContainer}>
-          <img
-            className={classes.navigationLogo}
-            src={open ? Logo1 : Logo2}
-            alt="Quality Logo"
-          />
-        </div>
+        {!open && (
+          <div className={classes.navigationLogoContainer}>
+            <img
+              className={classes.navigationLogo}
+              src={Logo2}
+              alt="NBK Logo"
+            />
+          </div>
+        )}
+
+        {open && (
+          <div className={classes.navigationLogoContainer}>
+            <img
+              className={classes.navigationLogoFirst}
+              src={Logo1}
+              alt="NBK Logo"
+            />
+          </div>
+        )}
         <List className={classes.navigationList}>
           {routes.map((route, index) => {
             return (

@@ -15,8 +15,13 @@ export const useStyles = makeStyles((theme) => ({
       ...theme.mixins.toolbar,
     },
   },
+
   navigationLogo: {
-    width: "60%",
+    width: "50%",
+    cursor: "pointer",
+  },
+  navigationLogoFirst:{
+    width: "25%",
     cursor: "pointer",
   },
   navigationLogoContainer: {
