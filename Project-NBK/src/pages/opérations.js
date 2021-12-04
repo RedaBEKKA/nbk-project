@@ -1,7 +1,15 @@
 import React from "react";
+import Navigation from "../components/Navigation";
 
 const Operations = () => {
-  return <div>opérations</div>;
+  return (
+    <div>
+      <div className="App">
+        <Navigation />
+      </div>
+      <div>Operations</div>
+    </div>
+  );
 };
 
 export default Operations;

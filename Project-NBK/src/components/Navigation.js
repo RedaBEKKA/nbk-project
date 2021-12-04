@@ -26,7 +26,7 @@ import clsx from "clsx";
 
 // internal
 import MenuItem from "./MenuItem";
-import routes from "../routes";
+import routes from "./routes";
 import { useStyles } from "../styles";
 import { Mail, NotificationImportant, Search } from "@material-ui/icons";
 

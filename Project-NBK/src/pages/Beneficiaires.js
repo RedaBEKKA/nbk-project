@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import Navigation from "../components/Navigation";
 
 const Beneficiaires = () => {
-  return <div>Beneficiaires</div>;
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <div>
+        <div className="App">
+          <Navigation />
+        </div>
+        <div>Beneficiaires</div>
+      </div>
+    </div>
+  );
 };
 
 export default Beneficiaires;

@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(6),
   },
   navigationDrawer: {
-    width: 380,
+    width: 350,
     // border: "none",
     whiteSpace: "nowrap",
     overflowX: "hidden",
