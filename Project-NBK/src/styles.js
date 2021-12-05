@@ -3,9 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles((theme) => ({
   appRoot: {
     display: "flex",
+    
   },
   appBar: {
-    background: "#6EC177",
+    background: "#5bd542",
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
@@ -21,7 +22,7 @@ export const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
   navigationLogoFirst:{
-    width: "25%",
+    width: "60%",
     cursor: "pointer",
   },
   navigationLogoContainer: {
@@ -37,7 +38,9 @@ export const useStyles = makeStyles((theme) => ({
     overflowX: "hidden",
     position: "relative",
     height: "100vh",
-    marginRight:'5px'
+    marginRight:'0px',
+    position: 'sticky',
+
   },
   navigationDrawerCollapse: {
     width: theme.spacing(9),
@@ -46,7 +49,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
-    paddingRight: theme.spacing(1),
+    paddingRight: theme.spacing(0),
     ...theme.mixins.toolbar,
   },
   navigationToolbarCollapse: {
@@ -77,4 +80,5 @@ export const useStyles = makeStyles((theme) => ({
     opacity:'1'
 
   },
+  
 }));

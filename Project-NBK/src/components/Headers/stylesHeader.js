@@ -7,10 +7,13 @@ export const useStyles = makeStyles((theme) => ({
   toolbare: {
     display: "flex",
     justifyContent: "space-between",
-    backgroundColor: "#000",
-  },
+    backgroundColor: "#fff",
+    borderBottom:".5px solid #ccc"
+},
   logoLg: {
     display: "none",
+    marginLeft: theme.spacing(6),
+    paddingLeft: theme.spacing(6),
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
@@ -26,8 +29,8 @@ export const useStyles = makeStyles((theme) => ({
   search: {
     display: "flex",
     alignItems: "center",
-
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    color: "#000",
+    backgroundColor: alpha(theme.palette.common.black, 0.15),
     "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
@@ -38,9 +41,13 @@ export const useStyles = makeStyles((theme) => ({
       display: (props) => (props.open ? "flex" : "none"),
     },
   },
+  iconC:{
+    color:'#ccc',
+    fontSize:27
+  },
   inputa: {
     marginLeft: theme.spacing(2),
-    color: "white",
+    color: "#000",
   },
   icosn: {
     display: "flex",
@@ -56,6 +63,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   icosnBox: {
     margin: 5,
+    cursor:'pointer'
   },
   searchBtn: {
     margin: 5,
@@ -63,4 +71,7 @@ export const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  Langue:{
+    paddingLeft:theme.spacing(3),
+  }
 }));

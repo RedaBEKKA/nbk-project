@@ -1,36 +1,60 @@
-
 import React, { useState } from "react";
-import { Container, makeStyles, Typography } from "@material-ui/core";
-// import { Home } from "@material-ui/icons";
 import MaterialTable from "material-table";
 import Navigation from "../components/Navigation";
+import {
+  Container,
+  makeStyles,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@material-ui/core";
+import HeaderAppBare from "../components/Headers/HeaderAppBare";
+import { spacing } from "@mui/system";
 
 const useStyles = makeStyles((theme) => ({
   Container: {
     display: "flex",
+    background: "#eee",
+    width: "100%",
   },
   item: {
     display: "flex",
     alignItems: "center",
   },
   diver: {
-    width: "140vh",
     marginTop: theme.spacing(4),
-    marginLeft: theme.spacing(2),
+    marginLeft: theme.spacing(0),
+    width: "100%",
   },
-  
-  title:{
-    fontWeight:'700',
-    margin:'0px 0px 15px 0',
-    fontSize:20
-  }
+
+  title: {
+    fontWeight: "700",
+    margin: "0px 0px 15px 0",
+    fontSize: 20,
+    background: "#b1cd25 ",
+    width: "99%",
+    padding: "25px 0",
+    paddingLeft: 15,
+    color: "#fff",
+    [theme.breakpoints.down("xs")]: {
+      background: "#fff",
+      color: "#000",
+    },
+  },
+  separator: {
+    marginTop: theme.spacing(4),
+  },
+  containerTable: {
+    margin: 15,
+  },
 }));
 
 const Portefeuille = () => {
   const [tableData, setTableData] = useState([]);
   const classes = useStyles();
-  // const [tableData, settableData] = useState([]);
-  // const columns = [];
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("xs"));
+
   const columns = [
     { title: "Nom", field: "name" },
     { title: "Email", field: "email" },
@@ -43,9 +67,15 @@ const Portefeuille = () => {
       <div className="App">
         <Navigation />
       </div>
+
       <div className={classes.diver}>
-      <div className={classes.title}>Gestion Portefeuille :</div>
-        <MaterialTable columns={columns} data={tableData} />
+        <div className={classes.separator}></div>
+
+        <div className={classes.title}> Gestion des Portefeuille</div>
+        {!matches && <HeaderAppBare title={"Gestion des Portefeuille"} />}
+        <div className={classes.containerTable}>
+          <MaterialTable columns={columns} data={tableData} />
+        </div>
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ import {
 } from "@material-ui/core";
 
 // assets
-import Logo1 from "../assets/logo512.png";
+import Logo1 from "../assets/logo.png";
 import Logo2 from "../assets/logo512.png";
 // import Logo2 from "../assets/logo2.svg";
 
@@ -29,13 +29,14 @@ import MenuItem from "./MenuItem";
 import routes from "./routes";
 import { useStyles } from "../styles";
 import { Mail, NotificationImportant, Search } from "@material-ui/icons";
+import { useHistory } from "react-router";
 
 const Navigation = () => {
   const [open, setOpen] = useState(true);
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
-
+  const history = useHistory();
   const toggleNavigation = () => {
     setOpen(!open);
   };
@@ -48,7 +49,7 @@ const Navigation = () => {
 
   return (
     <div>
-      <AppBar className={classes.appBar}>
+      <AppBar className={classes.appBar} >
         <Toolbar>
           <IconButton
             onClick={toggleNavigation}
@@ -95,7 +96,12 @@ const Navigation = () => {
         )}
 
         {open && (
-          <div className={classes.navigationLogoContainer}>
+          <div
+            className={classes.navigationLogoContainer}
+            onClick={() => {
+              history.push("./");
+            }}
+          >
             <img
               className={classes.navigationLogoFirst}
               src={Logo1}

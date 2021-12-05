@@ -52,8 +52,8 @@ const routes = [
     component: portefeuille,
   },
   {
-    label: "Gestion des documents utilisateurs",
-    path: "/utilisateurs",
+    label: "Gestion documents utilisateurs",
+    path: "/documents",
     icon: docs,
     activeIcon: docsActive,
     component: Documents,
