@@ -19,22 +19,6 @@ const App = () => {
   const [state, setstate] = useState(true);
   return (
     <div className={classes.appRoot}>
-      {/* <Router>
-        <Navigation />
-        <div>
-          <div className={classes.appBarSpacer}></div>
-          <Switch>
-            {routes.map((route, index) => {
-              return (
-                <Route exact key={index} path={route.path}>
-                  {route.component}
-                </Route>
-              );
-            })}
-          </Switch>
-        </div>
-      </Router> */}
-
       <Router>
         <Switch>
           <Route exact path="/" component={Dashboard} />

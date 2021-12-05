@@ -9,7 +9,7 @@ import SettingsIconActive from "../assets/SettingsIconActive.svg";
 import SignOutIcon from "../assets/SignOutIcon.svg";
 import AccountsIcon from "../assets/AccountsIcon.svg";
 import AccountsIconActive from "../assets/AccountsIconActive.svg";
-import Dashboard from "../components/test/dashboard";
+import Dashboard from "../pages/Dashboard";
 import Utilisateurs from "../pages/Utilisateurs";
 import Operations from "../pages/opérations";
 import portefeuille from "../pages/portefeuille";

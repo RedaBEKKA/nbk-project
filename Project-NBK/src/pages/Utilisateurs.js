@@ -1,14 +1,17 @@
 
 
 import React, { useState } from "react";
-import { Container, makeStyles, Typography } from "@material-ui/core";
+import { Container, makeStyles, Typography, useMediaQuery, useTheme } from "@material-ui/core";
 // import { Home } from "@material-ui/icons";
 import MaterialTable from "material-table";
 import Navigation from "../components/Navigation";
+import HeaderAppBare from "../components/Headers/HeaderAppBare";
 
 const useStyles = makeStyles((theme) => ({
   Container: {
     display: "flex",
+    width: "240vh",
+
   },
   item: {
     display: "flex",
@@ -29,8 +32,11 @@ const useStyles = makeStyles((theme) => ({
 const Utilisateurs = () => {
   const [tableData, setTableData] = useState([]);
   const classes = useStyles();
-  // const [tableData, settableData] = useState([]);
-  // const columns = [];
+  const theme = useTheme();
+
+  const matches = useMediaQuery(theme.breakpoints.down("xs"));
+
+
   const columns = [
     { title: "Nom", field: "name" },
     { title: "Email", field: "email" },
@@ -43,10 +49,12 @@ const Utilisateurs = () => {
       <div className="App">
         <Navigation />
       </div>
-      <div className={classes.diver}>
-        <div className={classes.title}>Gestion des Utilisateurs :</div>
+    {!matches &&  <HeaderAppBare title={'Gestion des Utilisateurs'} />}
+
+      {/* <div className={classes.diver}>
+        <div className={classes.title}></div>
         <MaterialTable columns={columns} data={tableData} />
-      </div>
+      </div> */}
     </div>
   );
 };
