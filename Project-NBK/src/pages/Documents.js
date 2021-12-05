@@ -1,12 +1,15 @@
-import React from 'react'
+import React from "react";
+import Navigation from "../components/Navigation";
 
 function Documents() {
-    return (
-        <div>
-            Documents
-        </div>
-    )
+  return (
+    <div>
+      <div className="App">
+        <Navigation />
+      </div>
+      <div>Documents</div>
+    </div>
+  );
 }
 
-export default Documents
-    
+export default Documents;
