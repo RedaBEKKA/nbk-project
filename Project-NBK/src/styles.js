@@ -39,7 +39,6 @@ export const useStyles = makeStyles((theme) => ({
     position: "relative",
     height: "100vh",
     marginRight:'0px',
-    position: 'sticky',
 
   },
   navigationDrawerCollapse: {

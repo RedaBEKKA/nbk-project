@@ -1,15 +1,12 @@
+/* eslint-disable */
+
+/** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import MaterialTable from "material-table";
 import Navigation from "../components/Navigation";
-import {
-  Container,
-  makeStyles,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@material-ui/core";
+import { makeStyles, useMediaQuery, useTheme, Button } from "@material-ui/core";
 import HeaderAppBare from "../components/Headers/HeaderAppBare";
-import { spacing } from "@mui/system";
+import MTable from "../components/test/table";
+import VisualiserPortefeuille from "../components/VisualiserPortefeuille/VisualiserPortefeuille";
 
 const useStyles = makeStyles((theme) => ({
   Container: {
@@ -31,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "700",
     margin: "0px 0px 15px 0",
     fontSize: 20,
-    background: "#b1cd25 ",
-    width: "99%",
+    background: "linear-gradient(to right,  #a8e063,#56ab2f)",
+    width: "100%",
     padding: "25px 0",
     paddingLeft: 15,
     color: "#fff",
@@ -47,6 +44,26 @@ const useStyles = makeStyles((theme) => ({
   containerTable: {
     margin: 15,
   },
+  buttonContainer: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "flex-end",
+    padding: "0px 30px",
+  },
+  btn: {
+    padding: "0px 10px",
+  },
+  infoScreen: {
+    height: "100vh",
+    width: "30%",
+    position: "fixed",
+    right: 0,
+    background: "#fff",
+    marginTop: 65,
+    borderTopLeftRadius: 8,
+    borderBottomLeftRadius: 8,
+    border: "1px solid #ccc",
+  },
 }));
 
 const Portefeuille = () => {
@@ -54,14 +71,14 @@ const Portefeuille = () => {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
+  const [show, setShow] = useState(false);
 
-  const columns = [
-    { title: "Nom", field: "name" },
-    { title: "Email", field: "email" },
-    { title: "N° téléphone", field: "phone" },
-    { title: "Age", field: "age" },
-    { title: "Ville", field: "city" },
-  ];
+  const handelShowClose = () => {
+    setShow(false);
+  };
+  const handelShow = () => {
+    setShow(true);
+  };
   return (
     <div className={classes.Container}>
       <div className="App">
@@ -73,10 +90,31 @@ const Portefeuille = () => {
 
         <div className={classes.title}> Gestion des Portefeuille</div>
         {!matches && <HeaderAppBare title={"Gestion des Portefeuille"} />}
+        <div className={classes.buttonContainer}>
+          <Button
+            className={classes.btn}
+            variant="contained"
+            sx={{ bg: "btnBackground", color: "inverstText", marginRight: 15 }}
+          >
+            exporter
+          </Button>
+          <Button
+            variant="contained"
+            sx={{ bg: "btnBackground", color: "inverstText" }}
+          >
+            Ajouter
+          </Button>
+        </div>
         <div className={classes.containerTable}>
-          <MaterialTable columns={columns} data={tableData} />
+          {/* <MaterialTable columns={columns} data={tableData} /> */}
+          <MTable handelShow={handelShow} />
         </div>
       </div>
+      {show && (
+        <div className={classes.infoScreen}>
+          <VisualiserPortefeuille handelShowClose={handelShowClose} />
+        </div>
+      )}
     </div>
   );
 };

@@ -1,3 +1,7 @@
+/* eslint-disable */ 
+
+/** @jsxImportSource theme-ui */
+
 import React, { useState } from "react";
 import { useStyles } from "./stylesHeader";
 import {
@@ -30,15 +34,15 @@ import {
 } from "@material-ui/icons";
 import { buttonGroupClasses } from "@mui/material";
 const options = [
-  "English",
   "Français",
+  "English",
   "العربية",
 ];
 const HeaderAppBare = ({ title }) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false); // false=>visible
   const anchorRef = React.useRef(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
   const handleDrawerOpen = () => {
     setOpen(!open);
   };
@@ -64,8 +68,8 @@ const HeaderAppBare = ({ title }) => {
   };
   return (
     <div className={classes.appRoot}>
-      <AppBar position="fixed" open={open} elevation={0}>
-        <Toolbar className={classes.toolbare}>
+      <AppBar position="fixed" open={open} elevation={0} >
+        <Toolbar className={classes.toolbare} sx={{bg:'background'}}>
           <Typography variant="h6" className={classes.logoLg}>
             {/* {title} */}
           </Typography>
@@ -80,7 +84,7 @@ const HeaderAppBare = ({ title }) => {
             <div className={classes.lefticons}>
               <Search
                 className={classes.searchBtn}
-                onCLick={handleDrawerOpen}
+                onClick={handleDrawerOpen}
               />
 
               <Badge
@@ -147,7 +151,7 @@ const HeaderAppBare = ({ title }) => {
                             {options.map((option, index) => (
                               <MenuItem
                                 key={option}
-                                disabled={index === 2}
+                                disabled={index === 2 && 1}
                                 selected={index === selectedIndex}
                                 onClick={(event) =>
                                   handleMenuItemClick(event, index)

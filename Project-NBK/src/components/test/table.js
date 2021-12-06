@@ -1,5 +1,9 @@
+/* eslint-disable */
+
+/** @jsxImportSource theme-ui */
+
 import faker from "faker";
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Table,
@@ -14,7 +18,12 @@ import {
   Typography,
   TablePagination,
   TableFooter,
+  Container,
+  FormGroup,
+  Checkbox,
+  FormControlLabel,
 } from "@material-ui/core";
+import { ArrowDownward } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -23,12 +32,27 @@ const useStyles = makeStyles((theme) => ({
   tableContainer: {
     borderRadius: 5,
     margin: "10px 10px",
-    maxWidth: "90%",
+    maxWidth: "98%",
+    border: "none",
   },
   tableHeaderCell: {
     fontWeight: "bold",
     backgroundColor: "#000",
     color: theme.palette.getContrastText(theme.palette.primary.dark),
+    border: "none",
+    padding:'0px 25px'
+  },
+  tableHeaderCellStatus: {
+    fontWeight: "bold",
+    backgroundColor: "#000",
+    color: theme.palette.getContrastText(theme.palette.primary.dark),
+    padding: "0px 0px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    color: "#fff",
+    height: "100%",
+    padding: "0px 16px",
   },
   avatar: {
     backgroundColor: theme.palette.primary.light,
@@ -37,21 +61,49 @@ const useStyles = makeStyles((theme) => ({
   name: {
     fontWeight: "bold",
     color: theme.palette.primary.dark,
+    marginLeft:25
   },
   status: {
     fontWeight: "bold",
     fontSize: "0.75rem",
     color: "white",
-    backgroundColor: "grey",
+    backgroundColor: "gry",
     borderRadius: 8,
     padding: "3px 10px",
     display: "inline-block",
+    marginLeft:25
+  },
+  statusNav: {
+    fontWeight: "bold",
+    color: "white",
+    border: "none",
+  },
+  boxIcon: {
+    cursor: "pointer",
+  },
+  conatinerChekc: {
+    background: "#fff",
+    position: "absolute",
+    marginLeft: -150,
+    marginTop: -145,
+    border: "1px solid #ccc",
+    borderRadius: 8,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "10px 50px",
+  },
+  rowTable: {
+    cursor: "pointer",
+    "&:hover": {
+      background: "#eee",
+    },
   },
 }));
 
 let USERS = [],
-  STATUSES = ["Active", "Inactive"];
-for (let i = 0; i < 14; i++) {
+  STATUSES = ["Actif", "Inactif"];
+for (let i = 0; i < 25; i++) {
   USERS[i] = {
     name: faker.name.findName(),
     email: faker.internet.email(),
@@ -63,11 +115,12 @@ for (let i = 0; i < 14; i++) {
   };
 }
 
-function MTable() {
+function MTable({ handelShow }) {
   const classes = useStyles();
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(8);
+  const [showStatus, setShowStatus] = useState(false);
+  const [OpenVisualiser, setOpenVisualiser] = useState(false);
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -76,7 +129,12 @@ function MTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-
+  const handeShow = () => {
+    setShowStatus(!showStatus);
+  };
+  const handelOpen = (name) => {
+    setOpenVisualiser(true);
+  };
   return (
     <TableContainer component={Paper} className={classes.tableContainer}>
       <Table className={classes.table} aria-label="simple table">
@@ -89,7 +147,32 @@ function MTable() {
             <TableCell className={classes.tableHeaderCell}>Téléphone</TableCell>
             <TableCell className={classes.tableHeaderCell}>Pays</TableCell>
             <TableCell className={classes.tableHeaderCell}>Ville</TableCell>
-            <TableCell className={classes.tableHeaderCell}>Status</TableCell>
+
+            <div className={classes.tableHeaderCellStatus}>
+              {showStatus && (
+                <div
+                  className={classes.conatinerChekc}
+                  sx={{ bg: "background" }}
+                >
+                  <FormGroup>
+                    <FormControlLabel
+                      control={<Checkbox defaultChecked />}
+                      label="Actif"
+                      sx={{ bg: "background", color: "text" }}
+                    />
+                    <FormControlLabel
+                      control={<Checkbox defaultChecked />}
+                      label="Inactif"
+                      sx={{ bg: "background", color: "text" }}
+                    />
+                  </FormGroup>
+                </div>
+              )}
+              <TableCell className={classes.statusNav}>Status </TableCell>
+              <div className={classes.boxIcon} onClick={handeShow}>
+                <ArrowDownward />
+              </div>
+            </div>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -97,13 +180,17 @@ function MTable() {
             page * rowsPerPage,
             page * rowsPerPage + rowsPerPage
           ).map((row) => (
-            <TableRow key={row.name}>
+            <TableRow
+              key={row.name}
+              className={classes.rowTable}
+              onClick={handelShow}
+            >
               <TableCell>
                 <Grid container>
                   <Grid item lg={2}>
                     <Avatar alt={row.name} src="." className={classes.avatar} />
                   </Grid>
-                  <Grid item lg={10}>
+                  <Grid item >
                     <Typography className={classes.name}>{row.name}</Typography>
                   </Grid>
                 </Grid>
@@ -135,8 +222,8 @@ function MTable() {
                   className={classes.status}
                   style={{
                     backgroundColor:
-                      (row.status === "Active" && "green") ||
-                      (row.status === "Inactive" && "gray"),
+                      (row.status === "Actif" && "green") ||
+                      (row.status === "Inactif" && "red"),
                   }}
                 >
                   {row.status}
@@ -147,7 +234,7 @@ function MTable() {
         </TableBody>
         <TableFooter>
           <TablePagination
-            rowsPerPageOptions={[5, 10, 15]}
+            rowsPerPageOptions={[15]}
             component="div"
             count={USERS.length}
             rowsPerPage={rowsPerPage}

@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 import { makeStyles } from "@material-ui/core/styles";
 import { alpha } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({

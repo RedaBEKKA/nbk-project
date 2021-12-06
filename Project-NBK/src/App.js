@@ -1,3 +1,5 @@
+/* eslint-disable */ 
+
 import React, { useState } from "react";
 import Navigation from "./components/Navigation";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -18,7 +20,7 @@ const App = () => {
   const classes = useStyles();
   const [state, setstate] = useState(true);
   return (
-    <div className={classes.appRoot}>
+    <div >
       <Router>
         <Switch>
           <Route exact path="/" component={Dashboard} />

@@ -1,3 +1,6 @@
+/* eslint-disable */ 
+
+
 import React, { useState } from "react";
 import MaterialTable from "material-table";
 import Navigation from "../components/Navigation";

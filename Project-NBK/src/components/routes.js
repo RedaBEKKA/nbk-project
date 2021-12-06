@@ -1,3 +1,6 @@
+/* eslint-disable */ 
+
+
 import DashboardIcon from "../assets/DashboardIcon.svg";
 import DashboardIconActive from "../assets/DashboardIconActive.svg";
 import TransactionsIcon from "../assets/TransactionsIcon.svg";
