@@ -9,8 +9,3 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-
-.slider-wrapper {
-  height: 100vh !important;
-  color: #b1cd25 #f9d549 #5bd542 #7ad84d;
-}

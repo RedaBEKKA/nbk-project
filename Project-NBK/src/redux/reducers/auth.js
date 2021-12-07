@@ -1,8 +1,8 @@
-import * as type from '../types';
+import * as type from '../types/authTypes';
 
 const initialState = {
   isAuth: false,
-  appToken: null,
+  appToken: process.env.REACT_APP_TOKEN,
   appExpire: null,
   accessToken: null,
   accessExpire: null,
@@ -10,7 +10,10 @@ const initialState = {
   idToken: null,
   userId: null,
   loading: false,
-  errors: null,
+  error: null,
+  resetError: null,
+  forgetStatus: null,
+  ResetStatus: null,
 };
 
 export default function auth(state = initialState, action) {
@@ -30,10 +33,64 @@ export default function auth(state = initialState, action) {
       console.log('login payload', action.payload);
       return {
         ...state,
-        // appToken: action.payload.data.data.AccessToken,
-        // appExpire: action.payload.data.data.ExpiresIn,
+        isAuth: true,
+        accessToken: action.payload.data.AccessToken,
+        accessExpire: action.payload.data.ExpiresIn,
+        RefreshToken: action.payload.data.RefreshToken,
+        idToken: action.payload.data.IdToken,
+        userId: action.payload.data.userId,
+        error: null,
+        loading: false,
       };
-
+    case type.LOGIN_FAILED:
+      console.log('login payload', action.payload);
+      return {
+        ...state,
+        error: action.payload.data?.StatusDescription,
+        loading: false,
+      };
+    case type.RESET_FAILED:
+      console.log('login payload', action.payload);
+      return {
+        ...state,
+        resetError: action.payload.data?.StatusDescription,
+        loading: false,
+      };
+    case type.AUTH_LOADING:
+      return {
+        ...state,
+        loading: true,
+      };
+    case type.FORGET_SUCCESS:
+      return {
+        ...state,
+        forgetStatus: action.payload.status,
+        loading: false,
+      };
+    case type.RESET_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        resetStatus: action.payload.status,
+      };
+    case type.FORGET_FAILED:
+      return {
+        ...state,
+        forgetStatus: action.payload.status,
+        loading: false,
+      };
+    case 'REDIRECT':
+      window.location.replace(action.payload);
+      return state;
+    case 'RESET_AUTH_STATE':
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        resetError: null,
+        forgetStatus: null,
+        ResetStatus: null,
+      };
     default:
       return state;
   }

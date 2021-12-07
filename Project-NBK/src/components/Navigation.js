@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 // @material-ui
 import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -29,12 +30,14 @@ import MenuItem from './MenuItem';
 import routes from '../routes';
 import { useStyles } from '../styles';
 import { Mail, NotificationImportant, Search } from '@material-ui/icons';
+import { useDispatch } from 'react-redux';
 
 const Navigation = () => {
   const [open, setOpen] = useState(true);
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
+  const dispatch = useDispatch();
 
   const toggleNavigation = () => {
     setOpen(!open);
@@ -100,6 +103,7 @@ const Navigation = () => {
             );
           })}
         </List>
+        <Button onClick={() => dispatch({ type: 'LOGOUT' })}>logout</Button>
       </Drawer>
     </div>
   );

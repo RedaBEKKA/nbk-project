@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navigation from './components/Navigation';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import routes from './routes';
 import { useStyles } from './styles';
 import Dashboard from '../src/pages/Dashboard';
@@ -19,7 +19,20 @@ import ConfirmReset from './pages/auth/ConfirmReset';
 import { createTheme, ThemeProvider } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+const GuardedRoute = ({ component: Component, auth, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) => (auth.isAuth ? <Component {...props} /> : <Redirect to="/login" />)}
+  />
+);
+const Unprotected = ({ component: Component, auth, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) => (!auth.isAuth ? <Component {...props} /> : <Redirect to="/" />)}
+  />
+);
 
 const theme = createTheme({
   palette: {
@@ -28,10 +41,14 @@ const theme = createTheme({
 });
 
 const App = () => {
-  const dispatch = useDispatch();
-  dispatch({ type: 'GET_APP_TOKEN' });
   const classes = useStyles();
   const [state, setstate] = useState(true);
+  const auth = useSelector((state) => state.auth);
+  //reset hub
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: 'RESET_AUTH_STATE' });
+  }, [dispatch]);
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.appRoot}>
@@ -53,18 +70,18 @@ const App = () => {
 
         <Router>
           <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/Beneficiaires" component={Beneficiaires} />
-            <Route exact path="/Login" component={Login} />
-            <Route exact path="/resetPassword" component={ResetPassword} />
-            <Route exact path="/confirmReset" component={ConfirmReset} />
-            <Route exact path="/Cartes" component={Cartes} />
-            <Route exact path="/Documents" component={Documents} />
-            <Route exact path="/Transactions" component={Transactions} />
-            <Route exact path="/opérations" component={opérations} />
-            <Route exact path="/Utilisateurs" component={Utilisateurs} />
-            <Route exact path="/portefeuille" component={portefeuille} />
-            <Route exact path="/Transferts" component={Transferts} />
+            <GuardedRoute exact auth={auth} path="/" component={Dashboard} />
+            <GuardedRoute exact auth={auth} path="/Beneficiaires" component={Beneficiaires} />
+            <GuardedRoute exact auth={auth} path="/Cartes" component={Cartes} />
+            <GuardedRoute exact auth={auth} path="/Documents" component={Documents} />
+            <GuardedRoute exact auth={auth} path="/Transactions" component={Transactions} />
+            <GuardedRoute exact auth={auth} path="/opérations" component={opérations} />
+            <GuardedRoute exact auth={auth} path="/Utilisateurs" component={Utilisateurs} />
+            <GuardedRoute exact auth={auth} path="/portefeuille" component={portefeuille} />
+            <GuardedRoute exact auth={auth} path="/Transferts" component={Transferts} />
+            <Unprotected auth={auth} exact path="/Login" component={Login} />
+            <Unprotected auth={auth} exact path="/resetPassword" component={ResetPassword} />
+            <Unprotected auth={auth} exact path="/confirmReset" component={ConfirmReset} />
           </Switch>
         </Router>
       </div>

@@ -14,7 +14,7 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(function (config) {
   console.log(JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth).appToken);
   let token =
-    JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth).accessToken ||
+    // JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth).accessToken ||
     JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth).appToken;
   config.headers.Authorization = `Bearer ${token}`;
 
