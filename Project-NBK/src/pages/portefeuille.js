@@ -7,77 +7,28 @@ import { makeStyles, useMediaQuery, useTheme, Button } from "@material-ui/core";
 import HeaderAppBare from "../components/Headers/HeaderAppBare";
 import MTable from "../components/test/table";
 import VisualiserPortefeuille from "../components/VisualiserPortefeuille/VisualiserPortefeuille";
-
-const useStyles = makeStyles((theme) => ({
-  Container: {
-    display: "flex",
-    background: "#eee",
-    width: "100%",
-  },
-  item: {
-    display: "flex",
-    alignItems: "center",
-  },
-  diver: {
-    marginTop: theme.spacing(4),
-    marginLeft: theme.spacing(0),
-    width: "100%",
-  },
-
-  title: {
-    fontWeight: "700",
-    margin: "0px 0px 15px 0",
-    fontSize: 20,
-    background: "linear-gradient(to right,  #a8e063,#56ab2f)",
-    width: "100%",
-    padding: "25px 0",
-    paddingLeft: 15,
-    color: "#fff",
-    [theme.breakpoints.down("xs")]: {
-      background: "#fff",
-      color: "#000",
-    },
-  },
-  separator: {
-    marginTop: theme.spacing(4),
-  },
-  containerTable: {
-    margin: 15,
-  },
-  buttonContainer: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "flex-end",
-    padding: "0px 30px",
-  },
-  btn: {
-    padding: "0px 10px",
-  },
-  infoScreen: {
-    height: "100vh",
-    width: "30%",
-    position: "fixed",
-    right: 0,
-    background: "#fff",
-    marginTop: 65,
-    borderTopLeftRadius: 8,
-    borderBottomLeftRadius: 8,
-    border: "1px solid #ccc",
-  },
-}));
-
+import useStyles from "./styles/PortefeuilleStyle";
+import WalletForm from "../components/WalletForm/WalletForm";
 const Portefeuille = () => {
   const [tableData, setTableData] = useState([]);
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
   const [show, setShow] = useState(false);
+  const [showFormUser, setShowFormUser] = useState(false);
 
   const handelShowClose = () => {
     setShow(false);
   };
   const handelShow = () => {
     setShow(true);
+  };
+
+  const handelClose = () => {
+    setShowFormUser(false);
+  };
+  const handelOpen = () => {
+    setShowFormUser(true);
   };
   return (
     <div className={classes.Container}>
@@ -101,18 +52,24 @@ const Portefeuille = () => {
           <Button
             variant="contained"
             sx={{ bg: "btnBackground", color: "inverstText" }}
+            onClick={handelOpen}
           >
             Ajouter
           </Button>
         </div>
         <div className={classes.containerTable}>
-          {/* <MaterialTable columns={columns} data={tableData} /> */}
           <MTable handelShow={handelShow} />
         </div>
       </div>
       {show && (
         <div className={classes.infoScreen}>
           <VisualiserPortefeuille handelShowClose={handelShowClose} />
+        </div>
+      )}
+
+      {showFormUser && (
+        <div className={classes.infoScreen}>
+          <WalletForm handelClose={handelClose} />
         </div>
       )}
     </div>

@@ -31,17 +31,17 @@ export const useStyles = makeStyles((theme) => ({
   search: {
     display: "flex",
     alignItems: "center",
-    color: "#000",
+    // color: "#000",
     backgroundColor: alpha(theme.palette.common.black, 0.15),
     "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    borderRadius: theme.shape.borderRadius,
+    // borderRadius: theme.shape.borderRadius,
     width: "30%",
-    padding: 3,
-    [theme.breakpoints.down("sm")]: {
-      display: (props) => (props.open ? "flex" : "none"),
-    },
+    // padding: 3,
+    // [theme.breakpoints.down("sm")]: {
+    //   display: (props) => (props.open ? "flex" : "none"),
+    // },
   },
   iconC:{
     color:'#ccc',

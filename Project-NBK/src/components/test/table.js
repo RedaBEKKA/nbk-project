@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   tableContainer: {
     borderRadius: 5,
     margin: "10px 10px",
-    maxWidth: "98%",
+    maxWidth: "97%",
     border: "none",
   },
   tableHeaderCell: {
@@ -118,7 +118,7 @@ for (let i = 0; i < 25; i++) {
 function MTable({ handelShow }) {
   const classes = useStyles();
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(8);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [showStatus, setShowStatus] = useState(false);
   const [OpenVisualiser, setOpenVisualiser] = useState(false);
   const handleChangePage = (event, newPage) => {

@@ -76,24 +76,24 @@ const HeaderAppBare = ({ title }) => {
 
           {/* <MenuOutlined className={classes.logoSm} /> */}
           <div className={classes.search}>
-            <Search />
-            <InputBase placeholder="Search…" className={classes.inputa} />
+            {/* <Search /> */}
+            {/* <InputBase placeholder="Search…" className={classes.inputa} /> */}
           </div>
 
           <div className={classes.icosn}>
             <div className={classes.lefticons}>
-              <Search
+              {/* <Search
                 className={classes.searchBtn}
                 onClick={handleDrawerOpen}
-              />
+              /> */}
 
-              <Badge
+              {/* <Badge
                 badgeContent={5}
                 color="secondary"
                 className={classes.icosnBox}
               >
                 <Mail className={classes.iconC} />
-              </Badge>
+              </Badge> */}
               <Badge
                 badgeContent={1}
                 color="secondary"
@@ -151,7 +151,7 @@ const HeaderAppBare = ({ title }) => {
                             {options.map((option, index) => (
                               <MenuItem
                                 key={option}
-                                disabled={index === 2 && 1}
+                                disabled={!index === 0}
                                 selected={index === selectedIndex}
                                 onClick={(event) =>
                                   handleMenuItemClick(event, index)

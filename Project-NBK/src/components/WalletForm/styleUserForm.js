@@ -1,21 +1,35 @@
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent:'center',
+    "& .MuiFormControl-root": {
+      width: "96%",
+      height: theme.spacing(8),
+    },
+  },
+
   Container: {
     display: "flex",
     width: "100%",
     flexDirection: "column",
     padding: "5px",
+    alignItems: "center",
   },
   header: {
     display: "flex",
-    width: "100%",
+    width: "97%",
     backgroundColor: "#fff",
     marginBottom: 8,
     borderRadius: "6px",
     alignItems: "center",
     padding: 20,
     elevation: 1,
+    margin:'15px 0px',
+    alignSelf: "center",
   },
   left: {
     margin: 0,
@@ -56,18 +70,28 @@ const useStyles = makeStyles((theme) => ({
       color: "green",
     },
   },
-  ContainerForm:{
-      height:'50vh',
-      width:'100%',
-      padding:10
+  ContainerForm: {
+    height: "50vh",
+    width: "100%",
+    padding: 10,
   },
-  containerInputs:{
-    width:'100%',
+  containerInputs: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  TextInput: {
+    margin: 5,
+    width: "240px",
+    height: "60px",
+  },
+  boxPaper:{
+    margin:'45px 0px',
     display:'flex',
-    justifyContent:'space-between'
-  },
-  TextInput:{
-      margin:5
+    justifyContent:'flex-end',
+    '& .MuiButtonBase-root ':{
+      marginLeft:20
+    }
   }
 }));
 

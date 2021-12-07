@@ -35,12 +35,7 @@ function VisualiserPortefeuille({ handelShowClose }) {
           <Delete className={classes.icon} />
         </div>
       </div>
-      {/* <Paper className={classes.headerInfo}>
-        <div>Apreçue</div>
-        <div>Info</div>
-        <div>BLs associés</div>
-        <div>Facture</div>
-      </Paper> */}
+     
       <div className={classes.bodyInfo}>
         <Paper className={classes.Card}>
           <Box className={classes.Content}>
