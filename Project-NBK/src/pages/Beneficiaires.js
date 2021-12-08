@@ -3,7 +3,7 @@
 
 import React, { useState } from "react";
 import MaterialTable from "material-table";
-import Navigation from "../components/Navigation";
+import Navigation from "../components/LeftSideBares/Navigation";
 import {
   Container,
   makeStyles,

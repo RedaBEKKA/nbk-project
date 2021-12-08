@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles((theme) => ({
   appRoot: {
     display: "flex",
-    
   },
   appBar: {
     background: "#5bd542",
@@ -21,7 +20,7 @@ export const useStyles = makeStyles((theme) => ({
     width: "50%",
     cursor: "pointer",
   },
-  navigationLogoFirst:{
+  navigationLogoFirst: {
     width: "60%",
     cursor: "pointer",
   },
@@ -38,8 +37,7 @@ export const useStyles = makeStyles((theme) => ({
     overflowX: "hidden",
     position: "relative",
     height: "100vh",
-    marginRight:'0px',
-
+    marginRight: "0px",
   },
   navigationDrawerCollapse: {
     width: theme.spacing(9),
@@ -61,23 +59,27 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     flex: 1,
   },
+  navigationListItem: {
+
+    '& .MuiTypography-body2':{
+      fontSize: "18px",
+      fontWeight: "bold",
+    }
+  },
   navigationSpacer: {
     flex: 1,
   },
   menuItemIcon: {
     width: "100%",
-
   },
   menuItem: {
     width: "80%",
     borderRadius: theme.spacing(1),
     marginBottom: theme.spacing(1),
-    opacity:'.6'
+    opacity: ".6",
   },
   menuItemActive: {
     backgroundColor: "#EBEBEC",
-    opacity:'1'
-
+    opacity: "1",
   },
-  
 }));

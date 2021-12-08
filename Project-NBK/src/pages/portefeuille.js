@@ -2,11 +2,11 @@
 
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import Navigation from "../components/Navigation";
+import Navigation from "../components/LeftSideBares/Navigation";
 import { makeStyles, useMediaQuery, useTheme, Button } from "@material-ui/core";
 import HeaderAppBare from "../components/Headers/HeaderAppBare";
 import MTable from "../components/test/table";
-import VisualiserPortefeuille from "../components/VisualiserPortefeuille/VisualiserPortefeuille";
+import Visualiser from "../components/RightSideBares/UseVisualiser/Visualiser";
 import useStyles from "./styles/PortefeuilleStyle";
 import WalletForm from "../components/WalletForm/WalletForm";
 const Portefeuille = () => {
@@ -63,7 +63,11 @@ const Portefeuille = () => {
       </div>
       {show && (
         <div className={classes.infoScreen}>
-          <VisualiserPortefeuille handelShowClose={handelShowClose} />
+          <Visualiser handelShowClose={handelShowClose} titre={'Visualiser Un Portefeuille'} />
+          <div className={classes.boxButton}>
+            <Button variant="contained" sx={{bg:'btnBackground' , color:'inverstText'}} className={classes.mrBtn}>Valider</Button>
+            <Button variant="outlined" sx={{ color:'btnBackground'}} className={classes.mrBtn}>Annuler</Button>
+          </div>
         </div>
       )}
 

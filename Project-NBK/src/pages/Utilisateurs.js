@@ -2,18 +2,16 @@
 
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import Navigation from "../components/Navigation";
-import { useMediaQuery, useTheme, Button } from "@material-ui/core";
+import Navigation from "../components/LeftSideBares/Navigation";
+import { useMediaQuery, useTheme, Button, Grid } from "@material-ui/core";
 import HeaderAppBare from "../components/Headers/HeaderAppBare";
 import MTable from "../components/test/table";
 import { useColorMode } from "@theme-ui/color-modes";
-import Visualiser from "../components/Visualiser/Visualiser";
-import UserForm from "../components/WalletForm/WalletForm";
+import Visualiser from "../components/RightSideBares/UseVisualiser/Visualiser";
 import useStyles from "./styles/UsersStyle";
-import Separator from "../components/Separator/Separator";
+import Separator from "../components/Reusable/Separator/Separator";
 import { Add, KeyboardReturn, Settings } from "@material-ui/icons";
-// import  from "@material-ui/icons/DarkMode";
-import CreateNewUser from "./CreateNewUser";
+import FormCreateUsers from "../components/Body/FormCreateUsers/FormCreateUsers";
 const Utilisateurs = () => {
   const [colorMode, setColorMode] = useColorMode();
   const [show, setShow] = useState(false);
@@ -37,7 +35,7 @@ const Utilisateurs = () => {
   };
 
   return (
-    <div
+    <Grid
       className={classes.Container}
       sx={{ background: "primary", color: "inverstText" }}
     >
@@ -47,7 +45,8 @@ const Utilisateurs = () => {
 
       <div className={classes.diver}>
         <Separator />
-        <div className={classes.title}> Gestion des Utilisateurs</div>
+        {!newUser &&<div className={classes.title}> Gestion des Utilisateurs</div>}
+        {newUser &&<div className={classes.title}> Ajouter des Utilisateurs</div>}
         {!matches && <HeaderAppBare title={"Gestion des Utilisateurs"} />}
         <div className={classes.buttonContainer}>
           {newUser ? (
@@ -83,7 +82,7 @@ const Utilisateurs = () => {
         </div>
         <div className={classes.containerTable}>
           {!newUser && <MTable handelShow={handelShow} />}
-          {newUser && <CreateNewUser />}
+          {newUser && <FormCreateUsers />}
           <div className={classes.Absoluter}>
             <Settings
               sx={{ color: "text", fontSize: 46 }}
@@ -97,10 +96,14 @@ const Utilisateurs = () => {
       </div>
       {show && (
         <div className={classes.infoScreen}>
-          <Visualiser handelShowClose={handelShowClose} />
+          <Visualiser handelShowClose={handelShowClose} titre={'Visualiser Un Utilisateur'} />
+          <div className={classes.boxButton}>
+            <Button variant="contained" sx={{bg:'btnBackground' , color:'inverstText'}} className={classes.mrBtn}>Valider</Button>
+            <Button variant="outlined" sx={{ color:'btnBackground'}} className={classes.mrBtn}>Annuler</Button>
+          </div>
         </div>
       )}
-    </div>
+    </Grid>
   );
 };
 

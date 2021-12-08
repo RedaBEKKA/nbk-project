@@ -1,10 +1,9 @@
 /* eslint-disable */ 
 
 import React, { useState } from "react";
-import Navigation from "./components/Navigation";
+// import Navigation from "./components/LeftSideBares/Navigation";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import routes from "./components/routes";
-import { useStyles } from "./styles";
+// import routes from "./components/LeftSideBares/routes";
 import Dashboard from "../src/pages/Dashboard"
 import Beneficiaires from "../src/pages/Beneficiaires"
 import Cartes from "../src/pages/Cartes"
@@ -17,8 +16,6 @@ import Transferts from "./pages/Transferts";
 
 
 const App = () => {
-  const classes = useStyles();
-  const [state, setstate] = useState(true);
   return (
     <div >
       <Router>

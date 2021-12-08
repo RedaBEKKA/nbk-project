@@ -9,10 +9,10 @@ import CloseIcon from "@material-ui/icons/Close";
 import { AccountCircle, TextFields } from "@material-ui/icons";
 // import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import { ButtonGroup, Grid, Paper, TextField, Button } from "@material-ui/core";
-import { useForm, Form } from "../RuseForm/UseForm";
-import Controls from "../Controls/Controls";
-import * as data from "../../Services/UserService";
-import initialFValues from "../../Services/walletService";
+import { useForm, Form } from "../../Reusable/RuseForm/UseForm";
+import Controls from "../../Reusable/RuseForm/Controls/Controls";
+import * as data from "../../../Services/UserService";
+import initialFValues from "../../../Services/walletService";
 // import { Button } from "@mui/material";
 
 function UserFom({ handelClose }) {
@@ -47,6 +47,7 @@ function UserFom({ handelClose }) {
                 value={values.walletTypeId}
                 onChange={handleInputChange}
                 name="walletTypeId"
+                options={data.getUserData()}
               />
             </Grid>
 
@@ -58,6 +59,7 @@ function UserFom({ handelClose }) {
                 onChange={handleInputChange}
                 name="devise"
                 variant="outlined"
+                options={data.getUserData()}
               />
             </Grid>
           </Grid>

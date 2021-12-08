@@ -4,6 +4,7 @@ const useStyles = makeStyles((theme) => ({
   Container: {
     display: "flex",
     width: "100%",
+    background:'#F5F5F5'
   },
   item: {
     display: "flex",
@@ -45,21 +46,32 @@ const useStyles = makeStyles((theme) => ({
     
   },
   infoScreen: {
-    height: "100vh",
-    width: "30%",
+    height: "92vh",
+    width: "40%",
     position: "fixed",
     right: 0,
-    background: "#fff",
     marginTop: 65,
     borderTopLeftRadius: 8,
     borderBottomLeftRadius: 8,
     border: "1px solid #ccc",
+    zIndex:5,
+    display:'flex',
+    justifyContent:'space-between',
+    flexDirection:'column',
+    background:'#fff'
   },
   Absoluter:{
     position:'fixed',
     right:3,
     top: "8.5%",
-    zIndex:'25'
+    zIndex:'2'
+  },
+  boxButton:{
+    margin:'20px 25px',
+    alignSelf:"flex-end"
+  },
+  mrBtn:{
+    margin:5
   }
 }));
 export default useStyles;

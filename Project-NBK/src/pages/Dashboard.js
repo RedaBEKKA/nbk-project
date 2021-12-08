@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { Container, makeStyles, Typography } from "@material-ui/core";
 // import { Home } from "@material-ui/icons";
 import MaterialTable from "material-table";
-import Navigation from "../components/Navigation";
+import Navigation from "../components/LeftSideBares/Navigation";
 
 const useStyles = makeStyles((theme) => ({
   Container: {

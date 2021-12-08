@@ -6,21 +6,28 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     flexDirection: "column",
     padding: "5px",
-    transition: "0.5s ease-out",
+    background: "#fff",
+    borderRadius: "8px",
+    alignItems:'center'
   },
   header: {
     display: "flex",
     alignItems: "center",
-    height: "60px",
-    borderBottom: "1px solid #ccc",
+    height: "80px",
+    border: ".5px solid #fff",
     width: "100%",
-    backgroundColor: "#fff",
+    background: "linear-gradient(to right, #56ab2f, #a8e063)",
     marginBottom: 8,
     borderRadius: "6px",
     justifyContent: "space-between",
-    padding: " 0px 10px",
+    padding: " 0px 10px 0 0 ",
+    elevation: 5,
+    opacity: "0.9",
   },
-  left: {},
+  left: {
+    display:'flex',
+    alignItems:'center'
+  },
   right: {
     display: "flex",
     alignItems: "center",
@@ -39,31 +46,56 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     display: "flex",
     alignItems: "center",
-    flexDirection:'column'
+    flexDirection: "column",
+  },
+  iconHeader: {
+    margin: "0px 14px 0 7px",
+    fontSize: 22,
+    color: "#fff",
+    cursor: "pointer",
+    border: "1px solid white",
+    borderRadius: "50%",
+    padding: 5,
+    height: 30,
+    width: 30,
+    "&:hover": {
+      color: "white",
+      border: "1px solid white",
+      boxShadow: "2px 1px 12px #fff",
+      height: 35,
+      width: 35,
+      borderRadius: "50%",
+      transition:'.35s ease-in'
+    },
+  },
+  textTitle:{
+    fontWeight:'700',
+    fontSize:'18px'
   },
   icon: {
     marginLeft: 15,
     fontSize: 22,
-    color: "#000",
+    color: "#fff",
     cursor: "pointer",
     "&:hover": {
-      color: "green",
+      color: "#000",
+      height: 30,
+      width: 30,
+      transition:'.35s ease-in'
     },
   },
   Card: {
     width: "100%",
     display: "flex",
-    margin: "10px 0px",
     alignItems: "center",
-    justifyContent: "space-between",
-    padding: "20px 45px",
+    padding: 15,
   },
   CardS: {
     width: "100%",
     display: "flex",
-    flexDirection:'column',
-    padding:'10px 20px',
-    margin :'12px 0 0 0 '
+    flexDirection: "column",
+    padding: "10px 20px",
+    margin: "12px 0 0 0 ",
   },
   Content: {
     display: "flex",
@@ -84,11 +116,10 @@ const useStyles = makeStyles((theme) => ({
   titleS: {
     fontSize: 20,
     fontWeight: "bold",
-    marignBottom:10
-
+    marignBottom: 10,
   },
-  ContentS:{
-    marginBottom:15
+  ContentS: {
+    marginBottom: 15,
   },
   sectitleS: {
     color: "#000",
@@ -96,7 +127,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "18px",
     fontWeight: "700",
     padding: "0px 0px 0px 10px",
-    margin:'15px 0'
+    margin: "15px 0",
+  },
+  PaperContainer: {
+    display: "flex",
+    padding: 20,
+  },
+  boxConatiner: {
+    width: "45%",
+    marginRight: "15px",
   },
 }));
 

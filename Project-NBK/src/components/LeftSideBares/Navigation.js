@@ -1,4 +1,4 @@
-/* eslint-disable */ 
+/* eslint-disable */
 
 /** @jsxImportSource theme-ui */
 
@@ -22,15 +22,15 @@ import {
 } from "@material-ui/core";
 
 // assets
-import Logo1 from "../assets/logo.png";
-import Logo2 from "../assets/logo512.png";
+import Logo1 from "../../assets/logo.png";
+import Logo2 from "../../assets/logo512.png";
 
 // external
 import clsx from "clsx";
 // internal
 import MenuItem from "./MenuItem";
 import routes from "./routes";
-import { useStyles } from "../styles";
+import { useStyles } from "./styles";
 import { useHistory } from "react-router";
 
 const Navigation = () => {
@@ -83,14 +83,20 @@ const Navigation = () => {
             classes.navigationToolbar,
             !open && classes.navigationToolbarCollapse
           )}
-          sx={{ bg: "background" }}
+          sx={{ bg: "backgroundS" }}
         >
-          <IconButton onClick={toggleNavigation} sx={{ bg: "background",color:'text' }}>
+          <IconButton
+            onClick={toggleNavigation}
+            sx={{ bg: "backgroundS", color: "text" }}
+          >
             {open ? <ChevronLeftIcon /> : <MenuIcon />}
           </IconButton>
         </div>
         {!open && (
-          <div className={classes.navigationLogoContainer} sx={{ bg: "background",color:'text' }}>
+          <div
+            className={classes.navigationLogoContainer}
+            sx={{ bg: "backgroundS", color: "text" }}
+          >
             <img
               className={classes.navigationLogo}
               src={Logo2}
@@ -101,8 +107,8 @@ const Navigation = () => {
 
         {open && (
           <div
-          sx={{ bg: "background",color:'text' }}
-          className={classes.navigationLogoContainer}
+            sx={{ bg: "backgroundS", color: "text" }}
+            className={classes.navigationLogoContainer}
             onClick={() => {
               history.push("./");
             }}
@@ -114,22 +120,23 @@ const Navigation = () => {
             />
           </div>
         )}
-        <List className={classes.navigationList}
-        sx={{ bg: "background",color:'text' }}
+        <List
+          className={classes.navigationList}
+          sx={{ bg: "backgroundS", color: "text" }}
         >
           {routes.map((route, index) => {
             return (
               <React.Fragment key={index}>
                 {route.path === "/sign-out" && (
-                  <div className={classes.navigationSpacer} ></div>
+                  <div className={classes.navigationSpacer}></div>
                 )}
                 <MenuItem
+                 className={classes.navigationListItem}
                   label={route.label}
                   icon={route.icon}
                   activeIcon={route.activeIcon}
                   path={route.path}
                   onClick={closeNavigation}
-                  
                 />
               </React.Fragment>
             );

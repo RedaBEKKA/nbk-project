@@ -5,6 +5,7 @@ import { alpha } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   appRoot: {
     width: "100%",
+    zIndex:3
   },
   toolbare: {
     display: "flex",
@@ -75,5 +76,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   Langue:{
     paddingLeft:theme.spacing(3),
-  }
+  },
+
 }));

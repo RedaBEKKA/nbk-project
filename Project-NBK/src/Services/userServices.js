@@ -24,7 +24,6 @@
       address2 :'' ,
       address3: '',
       postcode :'' ,
-      postcode  :'',
       city   : '' ,
       state  : '' ,
       country  : '' ,

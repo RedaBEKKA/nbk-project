@@ -11,7 +11,7 @@ import clsx from "clsx";
 import { Link, useLocation } from "react-router-dom";
 
 // internal
-import { useStyles } from "../styles";
+import { useStyles } from "./styles";
 
 const MenuItem = ({ label, icon, activeIcon, path, onClick }) => {
   const [active, setActive] = useState(false);

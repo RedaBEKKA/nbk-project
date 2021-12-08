@@ -14,7 +14,9 @@ export default function Select(props) {
       <InputLabel>{label}</InputLabel>
       <MuiSelect label={label} name={name} value={value} onChange={onChange}>
         <MenuItem value="">None</MenuItem>
-        <MenuItem value={value}>{label}</MenuItem>
+        {options.map((item) => (
+          <MenuItem value={item.id}>{item.title}</MenuItem>
+        ))}
       </MuiSelect>
       {error && <FormHelperText>{error}</FormHelperText>}
     </FormControl>

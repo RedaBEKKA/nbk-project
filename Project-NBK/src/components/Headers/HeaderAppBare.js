@@ -25,14 +25,10 @@ import {
 } from "@material-ui/core";
 
 import {
-  Mail,
-  Search,
-  Notification,
   NotificationImportant,
-  MenuOutlined,
   ArrowDropDownCircleOutlined,
 } from "@material-ui/icons";
-import { buttonGroupClasses } from "@mui/material";
+
 const options = [
   "Français",
   "English",
@@ -68,7 +64,7 @@ const HeaderAppBare = ({ title }) => {
   };
   return (
     <div className={classes.appRoot}>
-      <AppBar position="fixed" open={open} elevation={0} >
+      <AppBar position="fixed" open={open} elevation={0}  >
         <Toolbar className={classes.toolbare} sx={{bg:'background'}}>
           <Typography variant="h6" className={classes.logoLg}>
             {/* {title} */}
@@ -133,14 +129,14 @@ const HeaderAppBare = ({ title }) => {
                   anchorEl={anchorRef.current}
                   role={undefined}
                   transition
-                  disablePortal
+                  disablePortal className={classes.bg}
                 >
                   {({ TransitionProps, placement }) => (
                     <Grow
                       {...TransitionProps}
                       style={{
                         transformOrigin:
-                          placement === "bottom"
+                          placement === "center top"
                             ? "center top"
                             : "center bottom",
                       }}
@@ -151,7 +147,7 @@ const HeaderAppBare = ({ title }) => {
                             {options.map((option, index) => (
                               <MenuItem
                                 key={option}
-                                disabled={!index === 0}
+                                disabled={index === 1 || index === 2}
                                 selected={index === selectedIndex}
                                 onClick={(event) =>
                                   handleMenuItemClick(event, index)
