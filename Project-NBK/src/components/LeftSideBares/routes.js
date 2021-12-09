@@ -32,6 +32,7 @@ import Beneficiaires from "../../pages/Beneficiaires";
 import Transferts from "../../pages/Transferts";
 import Cartes from "../../pages/Cartes";
 import Documents from "../../pages/Documents";
+
 const routes = [
   {
     label: "Tableau de bord",

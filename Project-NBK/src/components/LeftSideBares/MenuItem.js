@@ -38,14 +38,14 @@ const MenuItem = ({ label, icon, activeIcon, path, onClick }) => {
         <Icon>
           <img
             className={classes.menuItemIcon}
-            src={active ? activeIcon : icon}
+            src={activeIcon}
             alt={label}
           />
         </Icon>
       </ListItemIcon>
       <ListItemText
         primary={label}
-        primaryTypographyProps={{ variant: "body2" }}
+        primaryTypographyProps={{ variant: "body" }}
       />
     </ListItem>
   );

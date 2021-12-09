@@ -15,6 +15,7 @@ import PaperContainer from "../../Reusable/PapaerContainer/PaperContainer";
 import TriPaperContainer from "../../Reusable/PapaerContainer/TriPaperContainer";
 import CheckBoxStatus from "../../Reusable/CheckBOXStatus/CheckBoxStatus";
 import { useState } from "react";
+import { Paper } from "@material-ui/core";
 function Visualiser( props) {
   const classes = useStyles();
   const [showCheck , setshowCheck] = useState(false)
@@ -23,8 +24,9 @@ const { handelShowClose , titre } = props
     setshowCheck(!showCheck)
   }
   return (
-    <div className={classes.Container}>
-      <div className={classes.header}>
+
+    <div className={classes.ContainerX1}>
+     <Paper className={classes.header}>
         <div className={classes.left}>
           <CloseIcon className={classes.iconHeader} onClick={handelShowClose} />
          <text className={classes.textTitle}>{titre}</text> 
@@ -43,7 +45,8 @@ const { handelShowClose , titre } = props
           <Brush className={classes.icon} />
           <Delete className={classes.icon} />
         </div>
-      </div>
+      </Paper>
+    <Paper className={classes.Container}>
 
       <PaperContainer
         title={"Nom :"}
@@ -73,7 +76,11 @@ const { handelShowClose , titre } = props
         ScSbTitle={"0221 40 25 63"}
       />
 
-      <TriPaperContainer
+    
+
+      
+    </Paper>
+    <TriPaperContainer
         titleA={"Pays :"}
         SbTitleA={"Algerie"}
         titleB={"Ville :"}
@@ -81,8 +88,6 @@ const { handelShowClose , titre } = props
         titleC={"Code Zip :"}
         SbTitleC={"44013"}
       />
-
-      
     </div>
   );
 }

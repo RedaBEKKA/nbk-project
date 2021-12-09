@@ -1,14 +1,22 @@
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
+  ContainerX1:{
+    display: "flex",
+    flexDirection: "column",
+    alignItems:'center',
+  },
+  
   Container: {
     display: "flex",
-    width: "100%",
+    width: "96%",
     flexDirection: "column",
     padding: "5px",
     background: "#fff",
     borderRadius: "8px",
-    alignItems:'center'
+    alignItems:'center',
+    margin:'15px 0'
+    
   },
   header: {
     display: "flex",

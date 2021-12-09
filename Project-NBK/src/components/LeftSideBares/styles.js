@@ -21,14 +21,29 @@ export const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
   navigationLogoFirst: {
-    width: "60%",
+    width: "30%",
     cursor: "pointer",
+  },
+  TxtLym:{
+    margin:'15px 0px',
+    fontSize:'20px',
+    fontWeight:'700',
+    color:'#5bd542',
+    letterSpacing: '5px',
+    display:'flex',
+    justifyContent:'center',
+    background:'#000'
   },
   navigationLogoContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: theme.spacing(6),
+    // paddingBottom: theme.spacing(6),
+    flexDirection:'column',
+    height:"12vh",
+    // background: "linear-gradient(to right,  #a8e063,#56ab2f)",
+
+  
   },
   navigationDrawer: {
     width: 350,
@@ -58,14 +73,10 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     flex: 1,
+    borderRaduis:8
+    
   },
-  navigationListItem: {
 
-    '& .MuiTypography-body2':{
-      fontSize: "18px",
-      fontWeight: "bold",
-    }
-  },
   navigationSpacer: {
     flex: 1,
   },
@@ -74,12 +85,16 @@ export const useStyles = makeStyles((theme) => ({
   },
   menuItem: {
     width: "80%",
-    borderRadius: theme.spacing(1),
+    // borderRadius: theme.spacing(1),
     marginBottom: theme.spacing(1),
-    opacity: ".6",
+    opacity: ".7",
   },
   menuItemActive: {
-    backgroundColor: "#EBEBEC",
     opacity: "1",
+    borderBottom:"2px solid #56ab2f",
+    width:"82%",
+    color:'#56ab2f',
+    fontWeight:'700',
+    fontSize:17
   },
 }));

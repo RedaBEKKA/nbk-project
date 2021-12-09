@@ -14,6 +14,7 @@ import {
   AppBar,
   Avatar,
   Badge,
+  Paper,
   Switch,
   Toolbar,
   Typography,
@@ -22,8 +23,9 @@ import {
 } from "@material-ui/core";
 
 // assets
-import Logo1 from "../../assets/logo.png";
+// import Logo1 from "../../assets/logo.png";
 import Logo2 from "../../assets/logo512.png";
+import Logo1 from "../../assets/logo512.png";
 
 // external
 import clsx from "clsx";
@@ -106,19 +108,23 @@ const Navigation = () => {
         )}
 
         {open && (
-          <div
+         <div style={{backgroundColor:'#000'}}>
+         <Paper
             sx={{ bg: "backgroundS", color: "text" }}
             className={classes.navigationLogoContainer}
             onClick={() => {
               history.push("./");
             }}
           >
+
             <img
               className={classes.navigationLogoFirst}
               src={Logo1}
               alt="NBK Logo"
             />
-          </div>
+          </Paper>
+             <text className={classes.TxtLym}>LAYMOON</text>
+</div>
         )}
         <List
           className={classes.navigationList}

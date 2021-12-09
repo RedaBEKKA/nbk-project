@@ -1,38 +1,24 @@
-/* eslint-disable */ 
+/* eslint-disable */
 
-
+/** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import { Container, makeStyles, Typography } from "@material-ui/core";
+import {  Paper } from "@material-ui/core";
 // import { Home } from "@material-ui/icons";
 import MaterialTable from "material-table";
 import Navigation from "../components/LeftSideBares/Navigation";
+import ErrorPage from "./ErrorPage";
 
-const useStyles = makeStyles((theme) => ({
-  Container: {
-    display: "flex",
-  },
-  item: {
-    display: "flex",
-    alignItems: "center",
-  },
-  diver: {
-    width: "140vh",
-    marginTop: theme.spacing(4),
-    marginLeft: theme.spacing(2),
-  },
-}));
+import useStyles from './styles/stylesDashboard'
 
 const Dashboard = () => {
- 
+  const classes = useStyles()
   return (
-    <div >
+    <Paper className={classes.Container}>
       <div className="App">
         <Navigation />
       </div>
-      <div >
-        dashboard
-      </div>
-    </div>
+        <ErrorPage />
+    </Paper>
   );
 };
 

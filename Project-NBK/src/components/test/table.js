@@ -143,10 +143,12 @@ function MTable({ handelShow }) {
               <TableCell>
                 <Grid container>
                   <Grid item lg={2}>
-                    <Avatar alt={row.name} src="." className={classes.avatar} />
+                    <Avatar alt={row.name} src="." className={classes.avatar}  sx={{ bg: "btnBackground" }}/>
                   </Grid>
                   <Grid item>
-                    <Typography className={classes.name}>{row.name}</Typography>
+                
+                    <Typography className={classes.name} 
+                    sx={{ color: "backgroundS" }}>{row.name}</Typography>
                   </Grid>
                 </Grid>
               </TableCell>
@@ -188,7 +190,7 @@ function MTable({ handelShow }) {
           ))}
         </TableBody>
 
-        <TableFooter >
+        <TableFooter className={classes.footer}>
           <TablePagination
             rowsPerPageOptions={[5, 10, 15]}
             component="div"
@@ -198,6 +200,7 @@ function MTable({ handelShow }) {
             onChangePage={handleChangePage}
             onChangeRowsPerPage={handleChangeRowsPerPage}
             anchor="right"
+            labelRowsPerPage={''}
           />
         </TableFooter>
       </Table>

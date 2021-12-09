@@ -16,20 +16,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
 
-  title: {
-    fontWeight: "700",
-    margin: "0px 0px 15px 0",
-    fontSize: 20,
-    background: "linear-gradient(to right, #56ab2f, #a8e063)",
-    width: "100%",
-    padding: "25px 0",
-    paddingLeft: 15,
-    color: "#fff",
-    [theme.breakpoints.down("xs")]: {
-      background: "#fff",
-      color: "#000",
-    },
-  },
+ 
 
   containerTable: {
     margin: 15,
@@ -37,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   buttonContainer: {
     width: "100%",
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     padding: "0px 30px",
     alignItems:'center'
   },
@@ -63,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   Absoluter:{
     position:'fixed',
     right:3,
-    top: "8.5%",
+    top: "10.5%",
     zIndex:'2'
   },
   boxButton:{

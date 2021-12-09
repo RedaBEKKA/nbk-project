@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     footer: {
       display: "flex ",
       justifyContent: "flex-end",
-      width:'300%'
+      width:'300%',
     
     },
   }));

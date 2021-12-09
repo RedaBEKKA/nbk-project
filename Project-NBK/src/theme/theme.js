@@ -1,9 +1,10 @@
 const theme = {
   initialColorName: "light",
   colors: {
-    text: "black",
+    text: "white",
     background: "#fff",
-    backgroundS: "#fff",
+    backgroundS: "#000",
+    backgroundB: "#000",
     primary: "#01408e",
     inverstText: "white",
     btnBackground: "#56ab2f",
@@ -15,6 +16,7 @@ const theme = {
         primary: "#8fceff",
         backgroundS: "#56ab2f",
         btnBackground: "#fff",
+        backgroundB: "#fff",
       },
     },
   },
