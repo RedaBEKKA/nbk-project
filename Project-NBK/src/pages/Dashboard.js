@@ -13,12 +13,24 @@ import useStyles from './styles/stylesDashboard'
 const Dashboard = () => {
   const classes = useStyles()
   return (
-    <Paper className={classes.Container}>
-      <div className="App">
-        <Navigation />
-      </div>
-        <ErrorPage />
-    </Paper>
+    // <Paper className={classes.Container}>
+    //   <div className="App">
+    //     <Navigation />
+    //   </div>
+    //     <ErrorPage />
+    // </Paper>
+    <div className={classes.Container}>
+    <div className="App">
+      <Navigation />
+    </div>
+
+    <div className={classes.diver}>
+      <div className={classes.separator}></div>
+
+      <ErrorPage />
+    
+    </div>
+  </div>
   );
 };
 

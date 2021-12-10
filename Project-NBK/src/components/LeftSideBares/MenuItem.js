@@ -45,7 +45,7 @@ const MenuItem = ({ label, icon, activeIcon, path, onClick }) => {
       </ListItemIcon>
       <ListItemText
         primary={label}
-        primaryTypographyProps={{ variant: "body" }}
+        primaryTypographyProps={{ variant: "body" , backgroundColor : "#ccc" }}
       />
     </ListItem>
   );

@@ -42,7 +42,7 @@ for (let i = 0; i < 25; i++) {
 function MTable({ handelShow }) {
   const classes = useStyles();
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(8);
   const [showStatus, setShowStatus] = useState(false);
   const [OpenVisualiser, setOpenVisualiser] = useState(false);
   const handleChangePage = (event, newPage) => {
@@ -192,7 +192,7 @@ function MTable({ handelShow }) {
 
         <TableFooter className={classes.footer}>
           <TablePagination
-            rowsPerPageOptions={[5, 10, 15]}
+            rowsPerPageOptions={[5,8]}
             component="div"
             count={USERS.length}
             rowsPerPage={rowsPerPage}

@@ -6,6 +6,12 @@ const useStyles = makeStyles((theme) => ({
     background: "#eee",
     width: "100%",
   },
+  TriRow:{
+    display:'flex',
+    alignItems: 'center',
+    margin:5,
+    padding:10
+  }
   
 }));
 export default useStyles;

@@ -51,7 +51,7 @@ export const useStyles = makeStyles((theme) => ({
     whiteSpace: "nowrap",
     overflowX: "hidden",
     position: "relative",
-    height: "100vh",
+    height: "102vh",
     marginRight: "0px",
   },
   navigationDrawerCollapse: {

@@ -4,7 +4,8 @@ const useStyles = makeStyles((theme) => ({
   Container: {
     display: "flex",
     width: "100%",
-    background:'#F5F5F5'
+    background:'#F5F5F5',
+    height:'102vh'
   },
   item: {
     display: "flex",
@@ -59,6 +60,10 @@ const useStyles = makeStyles((theme) => ({
   },
   mrBtn:{
     margin:5
+  },
+  PaperCreate:{
+    width:'100%',
+    height:'100%'
   }
 }));
 export default useStyles;
