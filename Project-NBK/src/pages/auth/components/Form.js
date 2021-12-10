@@ -24,16 +24,6 @@ export default function Form() {
         </Typography>
       </Box>
       {auth.error && <Alert severity="error">{auth.error}</Alert>}
-      <Box marginTop="20px" display="flex" justifyContent="center">
-        <Typography component="h1" variant="h5">
-          lexoussoboiru-4108@yopmail.com{' '}
-        </Typography>
-      </Box>
-      <Box marginTop="20px" display="flex" justifyContent="center">
-        <Typography component="h1" variant="h5">
-          M0oiuyt12@uiU
-        </Typography>
-      </Box>
       <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
         <TextField
           error={!!errors.email?.message}
