@@ -1,6 +1,8 @@
-import ThemeReducer from "./ThemeReducer"
-import { combineReducers } from "redux"
+import { combineReducers } from 'redux';
+import auth from './auth';
 
-const rootReducer = combineReducers({ThemeReducer})
+const rootReducer = combineReducers({
+  auth,
+});
 
-export default rootReducer
+export default rootReducer;
