@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 // @material-ui
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import IconButton from "@material-ui/core/IconButton";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import MenuIcon from "@material-ui/icons/Menu";
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import IconButton from '@material-ui/core/IconButton';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import MenuIcon from '@material-ui/icons/Menu';
 import {
   AppBar,
   Avatar,
@@ -14,27 +15,29 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
 // assets
-import Logo1 from "../assets/logo512.png";
-import Logo2 from "../assets/logo512.png";
+import Logo1 from '../assets/logo512.png';
+import Logo2 from '../assets/logo512.png';
 // import Logo2 from "../assets/logo2.svg";
 
 // external
-import clsx from "clsx";
+import clsx from 'clsx';
 
 // internal
-import MenuItem from "./MenuItem";
-import routes from "./routes";
-import { useStyles } from "../styles";
-import { Mail, NotificationImportant, Search } from "@material-ui/icons";
+import MenuItem from './MenuItem';
+import routes from '../routes';
+import { useStyles } from '../styles';
+import { Mail, NotificationImportant, Search } from '@material-ui/icons';
+import { useDispatch } from 'react-redux';
 
 const Navigation = () => {
   const [open, setOpen] = useState(true);
   const classes = useStyles();
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("xs"));
+  const matches = useMediaQuery(theme.breakpoints.down('xs'));
+  const dispatch = useDispatch();
 
   const toggleNavigation = () => {
     setOpen(!open);
@@ -50,12 +53,7 @@ const Navigation = () => {
     <div>
       <AppBar className={classes.appBar}>
         <Toolbar>
-          <IconButton
-            onClick={toggleNavigation}
-            edge="start"
-            color="inherit"
-            aria-label="Menu"
-          >
+          <IconButton onClick={toggleNavigation} edge="start" color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
 
@@ -66,19 +64,13 @@ const Navigation = () => {
       </AppBar>
       <Drawer
         classes={{
-          paper: clsx(
-            classes.navigationDrawer,
-            !open && classes.navigationDrawerCollapse
-          ),
+          paper: clsx(classes.navigationDrawer, !open && classes.navigationDrawerCollapse),
         }}
-        variant={matches ? "temporary" : "permanent"}
+        variant={matches ? 'temporary' : 'permanent'}
         open={open}
       >
         <div
-          className={clsx(
-            classes.navigationToolbar,
-            !open && classes.navigationToolbarCollapse
-          )}
+          className={clsx(classes.navigationToolbar, !open && classes.navigationToolbarCollapse)}
         >
           <IconButton onClick={toggleNavigation}>
             {open ? <ChevronLeftIcon /> : <MenuIcon />}
@@ -86,30 +78,20 @@ const Navigation = () => {
         </div>
         {!open && (
           <div className={classes.navigationLogoContainer}>
-            <img
-              className={classes.navigationLogo}
-              src={Logo2}
-              alt="NBK Logo"
-            />
+            <img className={classes.navigationLogo} src={Logo2} alt="NBK Logo" />
           </div>
         )}
 
         {open && (
           <div className={classes.navigationLogoContainer}>
-            <img
-              className={classes.navigationLogoFirst}
-              src={Logo1}
-              alt="NBK Logo"
-            />
+            <img className={classes.navigationLogoFirst} src={Logo1} alt="NBK Logo" />
           </div>
         )}
         <List className={classes.navigationList}>
           {routes.map((route, index) => {
             return (
               <React.Fragment key={index}>
-                {route.path === "/sign-out" && (
-                  <div className={classes.navigationSpacer}></div>
-                )}
+                {route.path === '/sign-out' && <div className={classes.navigationSpacer}></div>}
                 <MenuItem
                   label={route.label}
                   icon={route.icon}
@@ -121,6 +103,14 @@ const Navigation = () => {
             );
           })}
         </List>
+        <Button
+          onClick={() => {
+            dispatch({ type: 'GET_APP_TOKEN_REQUEST' });
+            dispatch({ type: 'LOGOUT' });
+          }}
+        >
+          logout
+        </Button>
       </Drawer>
     </div>
   );
