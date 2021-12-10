@@ -31,22 +31,22 @@ function* handleConfirmReset(values) {
     yield put({ type: 'REDIRECT', payload: '/login' });
   } else yield put({ type: type.RESET_FAILED, payload: error.response });
 }
-// function* handleGetAppToken() {
-//   yield put({ type: type.AUTH_LOADING });
-//   try {
-//     const res = yield getAppToken();
-//     yield put({ type: type.SET_APP_TOKEN, payload: res.data });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+function* handleGetAppToken() {
+  yield put({ type: type.AUTH_LOADING });
+  try {
+    const res = yield getAppToken();
+    yield put({ type: type.SET_APP_TOKEN, payload: res.response });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 function* authSaga() {
   yield takeEvery(type.RESET_REQUEST, handleConfirmReset);
   yield takeEvery(type.FORGET_REQUEST, handleForgetPassword);
   yield takeEvery(type.LOGOUT_REQUEST, handleLogout);
   yield takeEvery(type.LOGIN_REQUEST, handleLogin);
-  //   yield takeEvery(type.GET_APP_TOKEN_REQUEST, handleGetAppToken);
+  yield takeEvery(type.GET_APP_TOKEN_REQUEST, handleGetAppToken);
 }
 
 export default authSaga;

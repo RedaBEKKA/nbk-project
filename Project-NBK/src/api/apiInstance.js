@@ -1,4 +1,5 @@
 import axios from 'axios';
+import store from 'redux/store';
 
 const baseURL = process.env.REACT_APP_API;
 
@@ -12,10 +13,13 @@ const axiosInstance = axios.create({
 
 // Add a request interceptor
 axiosInstance.interceptors.request.use(function (config) {
-  console.log(JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth).appToken);
+  console.log(
+    'tokkkeen',
+    JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth)?.appToken
+  );
   let token =
-    // JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth).accessToken ||
-    JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth).appToken;
+    JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth)?.accessToken ||
+    JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth)?.appToken;
   config.headers.Authorization = `Bearer ${token}`;
 
   return config;

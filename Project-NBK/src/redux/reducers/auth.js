@@ -2,7 +2,7 @@ import * as type from '../types/authTypes';
 
 const initialState = {
   isAuth: false,
-  appToken: process.env.REACT_APP_TOKEN,
+  appToken: null,
   appExpire: null,
   accessToken: null,
   accessExpire: null,
@@ -12,6 +12,7 @@ const initialState = {
   loading: false,
   error: null,
   resetError: null,
+  forgetError: null,
   forgetStatus: null,
   ResetStatus: null,
 };
@@ -20,7 +21,19 @@ export default function auth(state = initialState, action) {
   switch (action.type) {
     case type.LOGOUT:
       return {
-        ...initialState,
+        ...state,
+        isAuth: false,
+        accessToken: null,
+        accessExpire: null,
+        RefreshToken: null,
+        idToken: null,
+        userId: null,
+        loading: false,
+        error: null,
+        resetError: null,
+        forgetError: null,
+        forgetStatus: null,
+        ResetStatus: null,
       };
     case type.SET_APP_TOKEN:
       console.log('set app token payload', action.payload);
@@ -46,14 +59,14 @@ export default function auth(state = initialState, action) {
       console.log('login payload', action.payload);
       return {
         ...state,
-        error: action.payload.data?.StatusDescription,
+        error: action.payload.data?.statusDescription || action.payload.data?.StatusDescription,
         loading: false,
       };
     case type.RESET_FAILED:
-      console.log('login payload', action.payload);
       return {
         ...state,
-        resetError: action.payload.data?.StatusDescription,
+        resetError:
+          action.payload.data?.statusDescription || action.payload.data?.StatusDescription,
         loading: false,
       };
     case type.AUTH_LOADING:
@@ -77,6 +90,8 @@ export default function auth(state = initialState, action) {
       return {
         ...state,
         forgetStatus: action.payload.status,
+        forgetError:
+          action.payload.data?.statusDescription || action.payload.data?.StatusDescription,
         loading: false,
       };
     case 'REDIRECT':
@@ -89,6 +104,7 @@ export default function auth(state = initialState, action) {
         error: null,
         resetError: null,
         forgetStatus: null,
+        forgetError: null,
         ResetStatus: null,
       };
     default:

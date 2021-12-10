@@ -26,9 +26,8 @@ const ResetPassword = () => {
               </Typography>
             </Box>
 
-            {auth.forgetStatus === 'error' && (
-              <Alert severity="error">quelque chose s'est mal passé</Alert>
-            )}
+            {auth.forgetError && <Alert severity="error">{auth.forgetError}</Alert>}
+
             <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
               <TextField
                 error={!!errors.email?.message}

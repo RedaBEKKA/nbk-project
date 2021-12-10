@@ -26,12 +26,12 @@ export default function Form() {
       {auth.error && <Alert severity="error">{auth.error}</Alert>}
       <Box marginTop="20px" display="flex" justifyContent="center">
         <Typography component="h1" variant="h5">
-          goiffauporuci-7227@yopmail.com
+          lexoussoboiru-4108@yopmail.com{' '}
         </Typography>
       </Box>
       <Box marginTop="20px" display="flex" justifyContent="center">
         <Typography component="h1" variant="h5">
-          Salah_888
+          M0oiuyt12@uiU
         </Typography>
       </Box>
       <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>

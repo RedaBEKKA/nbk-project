@@ -47,6 +47,7 @@ const App = () => {
   //reset hub
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch({ type: 'GET_APP_TOKEN_REQUEST' });
     dispatch({ type: 'RESET_AUTH_STATE' });
   }, [dispatch]);
   return (

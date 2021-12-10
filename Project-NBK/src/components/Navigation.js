@@ -103,7 +103,14 @@ const Navigation = () => {
             );
           })}
         </List>
-        <Button onClick={() => dispatch({ type: 'LOGOUT' })}>logout</Button>
+        <Button
+          onClick={() => {
+            dispatch({ type: 'GET_APP_TOKEN_REQUEST' });
+            dispatch({ type: 'LOGOUT' });
+          }}
+        >
+          logout
+        </Button>
       </Drawer>
     </div>
   );
