@@ -14,7 +14,7 @@ import HeaderAppBare from "../components/Headers/HeaderAppBare";
 import MTable from "../components/test/table";
 import Visualiser from "../components/RightSideBares/UseVisualiser/Visualiser";
 import useStyles from "./styles/PortefeuilleStyle";
-import WalletForm from "../components/WalletForm/WalletForm";
+import WalletForm from "../components/Reusable/WalletForm/WalletForm";
 import UseTitle from "../components/Body/HeaderTilteBody/UseTitle";
 import { Add, ArrowDown, ArrowDownward, CheckCircle, Close } from "@material-ui/icons";
 // import { ArrowCircleDown, FileDownload } from "@mui/icons-material";
@@ -98,7 +98,7 @@ const Portefeuille = () => {
             handelShowClose={handelShowClose}
             titre={"Visualiser Un Portefeuille"}
           />
-          <div className={classes.boxButton}>
+          {/* <div className={classes.boxButton}>
             <Tooltip title="Valider">
               <Button
                 variant="contained"
@@ -121,7 +121,7 @@ const Portefeuille = () => {
                 Annuler
               </Button>
             </Tooltip>
-          </div>
+          </div> */}
         </div>
       )}
 

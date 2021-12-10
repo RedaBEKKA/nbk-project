@@ -19,10 +19,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
-  right: {
-    display: "flex",
-    alignItems: "center",
-  },
+ 
   headerInfo: {
     display: "flex",
     alignItems: "center",
@@ -57,18 +54,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize:'20px',
     color:'#fff'
   },
-  icon: {
-    marginLeft: 15,
-    fontSize: 22,
-    color: "#fff",
-    cursor: "pointer",
-    "&:hover": {
-      color: "#000",
-      height: 30,
-      width: 30,
-      transition:'.35s ease-in'
-    },
-  },
+  
 }));
 
 export default useStyles;

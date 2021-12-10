@@ -125,29 +125,6 @@ const Utilisateurs = () => {
             handelShowClose={handelShowClose}
             titre={"Visualiser Un Utilisateur"}
           />
-          <div className={classes.boxButton}>
-            <Tooltip title="Valider">
-              <Button
-                variant="contained"
-                sx={{ bg: "btnBackground", color: "inverstText" }}
-                className={classes.mrBtn}
-                startIcon={<CheckCircle />}
-              >
-                Valider
-              </Button>
-            </Tooltip>
-
-            <Tooltip title="Annuler">
-              <Button
-                variant="outlined"
-                sx={{ color: "btnBackground" }}
-                className={classes.mrBtn}
-                startIcon={<Close />}
-              >
-                Annuler
-              </Button>
-            </Tooltip>
-          </div>
         </div>
       )}
       {/* Visualer end */}

@@ -1,4 +1,4 @@
-import { TextField } from "@material-ui/core";
+import { TextareaAutosize, TextField } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 
@@ -13,19 +13,21 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function Input(props) {
+function TextArea(props) {
   const classes = useStyles()
-  const { name, label, value, onChange } = props;
+  const { name, label, value, onChange,placeholder } = props;
   return (
-    <TextField
+    <TextareaAutosize
     className={classes.Container}
       variant="outlined"
       label={label}
       value={value}
       name={name}
       onChange={onChange}
+      style={{ width: "95%",border:'1px solid #ccc', height:65, boxSizing:"border-box",borderRadius:4,padding:15 ,fontSize:'17px',fontWeight:'500'}}
+      placeholder={placeholder}
     />
   );
 }
 
-export default Input;
+export default TextArea;
