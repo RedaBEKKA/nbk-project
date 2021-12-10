@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import HeaderAppBare from "../components/Headers/HeaderAppBare";
 import { spacing } from "@mui/system";
+import ErrorPage from "./ErrorPage";
 
 const useStyles = makeStyles((theme) => ({
   Container: {
@@ -58,13 +59,7 @@ const Beneficiaires = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
 
-  const columns = [
-    { title: "Nom", field: "name" },
-    { title: "Email", field: "email" },
-    { title: "N° téléphone", field: "phone" },
-    { title: "Age", field: "age" },
-    { title: "Ville", field: "city" },
-  ];
+
   return (
     <div className={classes.Container}>
       <div className="App">
@@ -74,11 +69,8 @@ const Beneficiaires = () => {
       <div className={classes.diver}>
         <div className={classes.separator}></div>
 
-        <div className={classes.title}> Gestion des Beneficiaires</div>
-        {!matches && <HeaderAppBare title={"Gestion des Beneficiaires"} />}
-        <div className={classes.containerTable}>
-          <MaterialTable columns={columns} data={tableData} />
-        </div>
+        <ErrorPage />
+      
       </div>
     </div>
   );

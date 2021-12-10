@@ -22,7 +22,6 @@ function ErrorPage() {
       </div>
       <Tooltip title="retour au tableau de bord" >
         <Button
-
           variant="contained"
           sx={{ bg: "btnBackground", color: "inverstText",marginTop:'15px' }}
           className={classes.mrBtn}
@@ -32,7 +31,6 @@ function ErrorPage() {
           retour au tableau de bord
         </Button>
       </Tooltip>
-
       <img src={img} />
     </Paper>
   );

@@ -11,15 +11,14 @@ const useStyles = makeStyles((theme) => ({
     justifyContent:'center',
     alignItems:'center',
     flexDirection:'column'
-
-
   },
   Num:{
-      width:'20%',
+      width:'30%',
       margin:'5px 0px 10px 0px',
       display:'flex',
       alignItems:'center',
-      justifyContent:'center'
+      justifyContent:'center',
+    //   backgroundColor:'#ccc'
   },
   numt:{
       fontSize:'75px',
