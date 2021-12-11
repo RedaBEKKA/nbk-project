@@ -1,6 +1,3 @@
-/* eslint-disable */ 
-
-
 import DashboardIcon from "../assets/DashboardIcon.svg";
 import DashboardIconActive from "../assets/DashboardIconActive.svg";
 import TransactionsIcon from "../assets/TransactionsIcon.svg";
@@ -12,6 +9,11 @@ import SettingsIconActive from "../assets/SettingsIconActive.svg";
 import SignOutIcon from "../assets/SignOutIcon.svg";
 import AccountsIcon from "../assets/AccountsIcon.svg";
 import AccountsIconActive from "../assets/AccountsIconActive.svg";
+import Dashboard from "../pages/Dashboard";
+import Utilisateurs from "../pages/Utilisateurs";
+import Operations from "../pages/opérations";
+import portefeuille from "../pages/portefeuille";
+import Settings from "../pages/opérations";
 import mapActive from "../assets/street-map-svgrepo-active.svg";
 import map from "../assets/street-map-svgrepo.svg";
 import mathActive from "../assets/math-book-svgrepo-active.svg";
@@ -27,14 +29,9 @@ import Beneficiaires from "../pages/Beneficiaires";
 import Transferts from "../pages/Transferts";
 import Cartes from "../pages/Cartes";
 import Documents from "../pages/Documents";
-import Dashboard from "../pages/Dashboard";
-import Utilisateurs from "../pages/Utilisateurs";
-import Operations from "../pages/opérations";
-import portefeuille from "../pages/portefeuille";
-import Settings from "../pages/opérations";
 const routes = [
   {
-    label: "Tableau de bord",
+    label: "Dashboard",
     path: "/",
     icon: DashboardIcon,
     activeIcon: DashboardIconActive,
@@ -55,8 +52,8 @@ const routes = [
     component: portefeuille,
   },
   {
-    label: "Gestion Documents ",
-    path: "/documents",
+    label: "Gestion des documents utilisateurs",
+    path: "/utilisateurs",
     icon: docs,
     activeIcon: docsActive,
     component: Documents,

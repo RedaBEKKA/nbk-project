@@ -11,12 +11,14 @@ import {
   Paper,
   Tooltip,
 } from "@material-ui/core";
+
 import HeaderAppBare from "../components/Headers/HeaderAppBare";
 import MTable from "../components/test/table";
 import { useColorMode } from "@theme-ui/color-modes";
 import Visualiser from "../components/RightSideBares/UseVisualiser/Visualiser";
 import useStyles from "./styles/UsersStyle";
 import Separator from "../components/Reusable/Separator/Separator";
+// import { ColorMode, ThemeProvider, useColorMode } from 'theme-ui'
 import {
   Add,
   ArrowDownward,

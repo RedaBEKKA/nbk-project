@@ -1,8 +1,5 @@
 /* eslint-disable */ 
 
-// import Navigation from "./components/LeftSideBares/Navigation";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import routes from "./components/LeftSideBares/routes";
 import Dashboard from "../src/pages/Dashboard"
 import Beneficiaires from "../src/pages/Beneficiaires"
 import Cartes from "../src/pages/Cartes"
@@ -16,11 +13,15 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import routes from './routes';
 import { useStyles } from './styles';
-
-import { createTheme, ThemeProvider } from '@material-ui/core';
+import { ColorMode, ThemeProvider, useColorMode } from 'theme-ui'
+// import { createTheme, ThemeProvider } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
 
 import { useDispatch, useSelector } from 'react-redux';
+import login  from "./pages/auth/Login"
+import ResetPassword from "./pages/auth/ResetPassword"
+import ConfirmReset from "./pages/auth/ConfirmReset"
+import theme from "../src/theme/theme";
 
 const GuardedRoute = ({ component: Component, auth, ...rest }) => (
   <Route
@@ -35,11 +36,11 @@ const Unprotected = ({ component: Component, auth, ...rest }) => (
   />
 );
 
-const theme = createTheme({
-  palette: {
-    primary: green,
-  },
-});
+// const theme = createTheme({
+//   palette: {
+//     primary: green,
+//   },
+// });
 
 const App = () => {
   const classes = useStyles();
@@ -54,22 +55,6 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className={classes.appRoot}>
-        {/* <Router>
-        <Navigation />
-        <div>
-          <div className={classes.appBarSpacer}></div>
-          <Switch>
-            {routes.map((route, index) => {
-              return (
-                <Route exact key={index} path={route.path}>
-                  {route.component}
-                </Route>
-              );
-            })}
-          </Switch>
-        </div>
-      </Router> */}
-
         <Router>
           <Switch>
             <GuardedRoute exact auth={auth} path="/" component={Dashboard} />
@@ -81,7 +66,7 @@ const App = () => {
             <GuardedRoute exact auth={auth} path="/Utilisateurs" component={Utilisateurs} />
             <GuardedRoute exact auth={auth} path="/portefeuille" component={portefeuille} />
             <GuardedRoute exact auth={auth} path="/Transferts" component={Transferts} />
-            <Unprotected auth={auth} exact path="/Login" component={Login} />
+            <Unprotected auth={auth} exact path="/Login" component={login} />
             <Unprotected auth={auth} exact path="/resetPassword" component={ResetPassword} />
             <Unprotected auth={auth} exact path="/confirmReset" component={ConfirmReset} />
           </Switch>
