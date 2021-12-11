@@ -9,7 +9,7 @@ const Beneficiaires = () => {
         <div className="App">
           <Navigation />
         </div>
-        <div>Beneficiaires 1</div>
+        <div>Beneficiaires Reda</div>
       </div>
     </div>
   );
