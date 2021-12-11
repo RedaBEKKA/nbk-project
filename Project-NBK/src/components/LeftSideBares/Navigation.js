@@ -31,7 +31,7 @@ import Logo1 from "../../assets/logo512.png";
 import clsx from "clsx";
 // internal
 import MenuItem from "./MenuItem";
-import routes from "./routes";
+import routes from "../../routes";
 import { useStyles } from "./styles";
 import { useHistory } from "react-router";
 
