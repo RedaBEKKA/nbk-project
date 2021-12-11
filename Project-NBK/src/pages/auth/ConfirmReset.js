@@ -5,7 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Alert from '@material-ui/lab/Alert';
 
 import Typography from '@material-ui/core/Typography';
-import Logo from 'assets/logo512.png';
+import Logo from '../../assets/logo512.png';
 
 import useConfirmReset from './hooks/useConfirmReset';
 

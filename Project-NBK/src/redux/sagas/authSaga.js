@@ -1,7 +1,7 @@
 import * as type from '../types/authTypes';
 
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { getAppToken, login, forgetPassword, confirmForgetPassword } from 'api/auth';
+import { getAppToken, login, forgetPassword, confirmForgetPassword } from '../../api/auth';
 
 function* handleLogout() {
   yield put({ type: type.LOGOUT });

@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     background: "#6EC177",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "none",
     },
   },

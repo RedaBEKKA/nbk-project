@@ -1,12 +1,9 @@
 import React from 'react';
 import { Box, Drawer, Container } from '@material-ui/core';
-
-import Typography from '@material-ui/core/Typography';
 import Form from './components/Form';
 import useLogin from './hooks/useLogin';
 import Carousel from './components/Carousel';
-
-import Logo from 'assets/logo512.png';
+import Logo from '../../assets/logo512.png';
 
 const Login = () => {
   const { classes, matches } = useLogin();
