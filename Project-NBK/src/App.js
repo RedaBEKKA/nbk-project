@@ -1,5 +1,8 @@
 /* eslint-disable */ 
 
+// import Navigation from "./components/LeftSideBares/Navigation";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import routes from "./components/LeftSideBares/routes";
 import Dashboard from "../src/pages/Dashboard"
 import Beneficiaires from "../src/pages/Beneficiaires"
 import Cartes from "../src/pages/Cartes"
@@ -11,26 +14,26 @@ import portefeuille from "../src/pages/portefeuille";
 import Transferts from "./pages/Transferts";
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-// import routes from './routes';
-import { useStyles } from './components/LeftSideBares/styles';
+import routes from './routes';
+import { useStyles } from './styles';
 
 import { createTheme, ThemeProvider } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
 
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-// const GuardedRoute = ({ component: Component, auth, ...rest }) => (
-//   <Route
-//     {...rest}
-//     render={(props) => (auth.isAuth ? <Component {...props} /> : <Redirect to="/login" />)}
-//   />
-// );
-// const Unprotected = ({ component: Component, auth, ...rest }) => (
-//   <Route
-//     {...rest}
-//     render={(props) => (!auth.isAuth ? <Component {...props} /> : <Redirect to="/" />)}
-//   />
-// );
+const GuardedRoute = ({ component: Component, auth, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) => (auth.isAuth ? <Component {...props} /> : <Redirect to="/login" />)}
+  />
+);
+const Unprotected = ({ component: Component, auth, ...rest }) => (
+  <Route
+    {...rest}
+    render={(props) => (!auth.isAuth ? <Component {...props} /> : <Redirect to="/" />)}
+  />
+);
 
 const theme = createTheme({
   palette: {
@@ -41,14 +44,15 @@ const theme = createTheme({
 const App = () => {
   const classes = useStyles();
   const [state, setstate] = useState(true);
-  // const auth = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.auth);
   //reset hub
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch({ type: 'GET_APP_TOKEN_REQUEST' });
-  //   dispatch({ type: 'RESET_AUTH_STATE' });
-  // }, [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: 'GET_APP_TOKEN_REQUEST' });
+    dispatch({ type: 'RESET_AUTH_STATE' });
+  }, [dispatch]);
   return (
+    <ThemeProvider theme={theme}>
       <div className={classes.appRoot}>
         {/* <Router>
         <Navigation />
@@ -83,6 +87,7 @@ const App = () => {
           </Switch>
         </Router>
       </div>
+    </ThemeProvider>
   );
 };
 
