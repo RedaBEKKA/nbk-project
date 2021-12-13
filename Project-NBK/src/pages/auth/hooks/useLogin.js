@@ -54,7 +54,7 @@ export default function useLogin() {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data) => {
-    console.log(data);
+    console.log("data", data);
     await dispatch({ type: 'LOGIN_REQUEST', payload: data });
   };
 
