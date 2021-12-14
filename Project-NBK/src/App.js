@@ -11,12 +11,8 @@ import portefeuille from "../src/pages/portefeuille";
 import Transferts from "./pages/Transferts";
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import routes from './routes';
 import { useStyles } from './styles';
 import { ColorMode, ThemeProvider, useColorMode } from 'theme-ui'
-// import { createTheme, ThemeProvider } from '@material-ui/core';
-import { green } from '@material-ui/core/colors';
-
 import { useDispatch, useSelector } from 'react-redux';
 import login  from "./pages/auth/Login"
 import ResetPassword from "./pages/auth/ResetPassword"
