@@ -8,18 +8,23 @@ import {
   Button,
   Link,
   Typography,
+  Paper,
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
-
+import logo from '../../../assets/logo.png'
+import logo2 from '../../../assets/logo512.png'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import useLogin from '../hooks/useLogin';
 
 export default function Form() {
-  const { classes, auth, register, handleSubmit, errors, isSubmitting, onSubmit } = useLogin();
+  const { classes, auth, register, handleSubmit, errors, isSubmitting, onSubmit,matches } = useLogin();
   return (
-    <>
-      <Box marginTop="20px" display="flex" justifyContent="center">
-        <Typography component="h1" variant="h5">
+    <Box className={classes.boxForm} elevation={'false'}>
+      <Box className={classes.boxLogo}>
+      { matches ? <img src={logo} alt='logo image' style={{width:'70%', height:'45%' }}/> :<img src={logo2} alt='logo image' style={{width:'40%', height:'80%' }}/> }
+      </Box>
+      <Box margin="20px 0px" display="flex" justifyContent="center" color='#237a57' >
+        <Typography component="h1" variant="h5" className={classes.titiel}>
           Se connecter à votre compte
         </Typography>
       </Box>
@@ -32,11 +37,11 @@ export default function Form() {
           variant="outlined"
           margin="normal"
           required
-          fullWidth
           id="email"
           label=" Address e-mail"
           autoComplete="email"
           autoFocus
+          className={classes.inputStyles}
           {...register('email')}
         />
         <TextField
@@ -45,7 +50,7 @@ export default function Form() {
           variant="outlined"
           margin="normal"
           required
-          fullWidth
+          className={classes.inputStyles}
           name="password"
           label="Mot de passe"
           type="password"
@@ -56,10 +61,10 @@ export default function Form() {
 
         <Box marginY="10px" display="flex" justifyContent="space-between" alignItems="center">
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={<Checkbox value="remember" style={{color:"#237a57",margin:'0px 0px' , paddingLeft:'25px'}}  />}
             label="Se souvenir de moi"
           />
-          <Link href="/resetPassword" variant="body2">
+          <Link href="/resetPassword" variant="body2" style={{color:"#237a57" , margin:'0px 25px'}}  >
             Mot de passe oublié ?
           </Link>
         </Box>
@@ -68,7 +73,6 @@ export default function Form() {
           type="submit"
           fullWidth
           variant="contained"
-          color="primary"
           className={classes.submit}
         >
           {auth.loading && (
@@ -77,6 +81,6 @@ export default function Form() {
           Se connecter
         </Button>
       </form>
-    </>
+    </Box>
   );
 }

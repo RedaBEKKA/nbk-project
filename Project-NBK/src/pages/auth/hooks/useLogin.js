@@ -1,15 +1,15 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { fr } from 'yup-locales';
-import { setLocale } from 'yup';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { fr } from "yup-locales";
+import { setLocale } from "yup";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 setLocale(fr);
 
@@ -20,7 +20,7 @@ const schema = yup
   })
   .required();
 
-const drawerWidth = 400;
+const drawerWidth = 800;
 
 const useStyles = makeStyles((theme) => ({
   drawerPaper: {
@@ -28,22 +28,89 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
   },
   loginCarousel: {
-    height: '100vh',
+    height: "100vh",
     marginRight: 400,
   },
   carouselImages: {
-    height: '100vh',
+    height: "100vh",
   },
   circularProgress: {
     marginLeft: 0,
     marginRight: theme.spacing.unit,
+  },
+  boxForm: {
+    backgroundColor: "#fff",
+    height: "100%",
+    padding: 20,
+    display: "flex",
+    alignContent: "center",
+    flexDirection: "column",
+    width: drawerWidth,
+    [theme.breakpoints.down("sm")]: {
+      height: "100%",
+      width:'101%',
+      borderRadius:'6px',
+      outline:'hidden'
+    },
+  },
+  boxLogo: {
+    width: "60%",
+    height: "20%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+  },
+  submit: {
+    background: "#237a57",
+    color: "#fff",
+    borderRadius: 15,
+    width: "75%",
+    alignSelf: "center",
+  },
+  form: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+  },
+  inputStyles: {
+    width: "80%",
+    height: "80%",
+    "& .Mui-focused": {
+      color: "#237a57",
+      fontWeight: "bold",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        border: ".5px solid #ccc",
+      },
+      "&:hover fieldset": {
+        border: "2px solid #237a57",
+      },
+      "&.Mui-focused fieldset": {
+        border: "2px solid #237a57",
+      },
+    },
+  },
+
+  PaperSmall: {
+    margin: "20px",
+    height: "80%",
+  },
+  [theme.breakpoints.down("md")]: {
+    margin: "10px",
+    backgroundColor: "#ccc",
+    width: "60%",
+    height: "60%",
+
   },
 }));
 
 export default function useLogin() {
   const classes = useStyles();
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('md'));
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const matches2 = useMediaQuery(theme.breakpoints.up("xl"));
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   const {
@@ -55,8 +122,19 @@ export default function useLogin() {
 
   const onSubmit = async (data) => {
     console.log(data);
-    await dispatch({ type: 'LOGIN_REQUEST', payload: data });
+    await dispatch({ type: "LOGIN_REQUEST", payload: data });
   };
 
-  return { classes, matches, auth, register, handleSubmit, watch, errors, isSubmitting, onSubmit };
+  return {
+    classes,
+    matches,
+    matches2,
+    auth,
+    register,
+    handleSubmit,
+    watch,
+    errors,
+    isSubmitting,
+    onSubmit,
+  };
 }
