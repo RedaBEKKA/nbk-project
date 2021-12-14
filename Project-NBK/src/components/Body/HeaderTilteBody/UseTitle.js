@@ -9,7 +9,6 @@ import useStyles from "./styleHeaderTitle";
 function UseTitle(props) {
     const {title,newUser ,CreateUserSHowClose } = props
    const classes = useStyles();
-  console.log(`newUser`, newUser)   
   return (
     <Paper className={classes.title}>
           {newUser &&  <KeyboardReturn

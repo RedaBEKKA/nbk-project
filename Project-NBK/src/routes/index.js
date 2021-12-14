@@ -13,16 +13,11 @@ import Dashboard from "../pages/Dashboard";
 import Utilisateurs from "../pages/Utilisateurs";
 import Operations from "../pages/opérations";
 import portefeuille from "../pages/portefeuille";
-import Settings from "../pages/opérations";
 import mapActive from "../assets/street-map-svgrepo-active.svg";
 import map from "../assets/street-map-svgrepo.svg";
 import mathActive from "../assets/math-book-svgrepo-active.svg";
 import math from "../assets/maths-svgrepo-com.svg";
-import cardActive from "../assets/id-card-svgrepo-active.svg";
-import card from "../assets/id-card-svgrepo-com.svg";
-import chartActive from "../assets/pie-chart-svgrepo-active.svg";
-import chart from "../assets/pie-chart-svgrepo.svg";
-import userIcon from "../assets/user-icon.svg";
+
 import docs from "../assets/google-docs.svg";
 import docsActive from "../assets/google-docs-active.svg";
 import Beneficiaires from "../pages/Beneficiaires";

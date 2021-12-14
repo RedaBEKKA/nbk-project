@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 /** @jsxImportSource theme-ui */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "../components/LeftSideBares/Navigation";
 import {
   useMediaQuery,
@@ -29,14 +29,22 @@ import {
 } from "@material-ui/icons";
 import FormCreateUsers from "../components/Body/FormCreateUsers/FormCreateUsers";
 import UseTitle from "../components/Body/HeaderTilteBody/UseTitle";
+import { useDispatch ,useSelector} from "react-redux";
+
 const Utilisateurs = () => {
   const [colorMode, setColorMode] = useColorMode();
   const [show, setShow] = useState(false);
   const [newUser, setNewUser] = useState(false);
+  const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
-
+  useEffect(() => {
+    dispatch({ type: 'USERS_REQUEST' });
+    console.log(`test`,users)
+  }, [dispatch]);
+  
   // functions
   const handelShow = () => {
     setShow(true);
@@ -108,18 +116,12 @@ const Utilisateurs = () => {
         </div>
         <div className={classes.containerTable}>
           {!newUser && <MTable handelShow={handelShow} />}
-          {newUser && 
-            <FormCreateUsers  />
-          
-          
-          
-          }
+          {newUser && <FormCreateUsers />}
           <div className={classes.Absoluter}>
             <Settings
               sx={{ color: "backgroundB", fontSize: 46 }}
               onClick={() => {
                 setColorMode(colorMode === "light" ? "dark" : "light");
-                console.log(`colorMode`, colorMode);
               }}
             />
           </div>

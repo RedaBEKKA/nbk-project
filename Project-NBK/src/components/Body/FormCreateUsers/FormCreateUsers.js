@@ -1,7 +1,6 @@
 import {
   Checkbox,
-  FormControlLabel,
-  FormGroup,
+
   Paper,
   Button,
 } from "@material-ui/core";
@@ -11,11 +10,10 @@ import useStyles from "./StyleFromCreatUser";
 import initialFValues from "../../../Services/userServices";
 import { useForm } from "../../Reusable/RuseForm/UseForm";
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 
 function FormCreateUsers() {
   const classes = useStyles();
-  const { values, setValues, errors, setErrors, handleInputChange, resetForm ,onSubmit} =
+  const { values, errors, setErrors, handleInputChange, resetForm ,onSubmit} =
     useForm(initialFValues, true);
     const dispatch = useDispatch();
 
