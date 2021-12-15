@@ -9,15 +9,14 @@ import { alpha } from "@material-ui/core";
   },
   title: {
     fontWeight: "700",
-    margin: "0px 0px 15px 0",
     fontSize: 25,
     background: "linear-gradient(to right, #56ab2f, #a8e063)",
     width: "100%",
     height:"12vh",
-    paddingLeft: 15,
     color: "#fff",
     display:'flex',
-    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent:"center",
     
 
     [theme.breakpoints.down("xs")]: {
@@ -25,6 +24,40 @@ import { alpha } from "@material-ui/core";
       color: "#000",
     },
   },
+  buttonContainer: {
+    width: "50%",
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems:'center',
+  },
+  
+  btn: {
+    margin: "0px 10px",
+    
+  },
+  TextBox:{
+  },
+  ContainerPaperTitle:{
+    display:'flex',
+    width:'100%',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '0px 15px',
+    background:'none',
+  },
+  boC:{
+    width:'100%',
+    display:'flex',
+    alignItems:"center",
+    justifyContent: 'flex-end',
+    fontSize:"16px",
+    padding:'15px 25px 0px 0px',
+    color:'#000',
+  },
+  iconV:{
+    margin:'0px 5px',
+    cursor:"pointer"
+  }
   
 
 }));

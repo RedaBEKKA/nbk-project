@@ -40,6 +40,7 @@ const Utilisateurs = () => {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
+  const [showVisible, setshowVisible] = useState(false);
   // console.log(`test`,users)
 
   // functions
@@ -55,7 +56,9 @@ const Utilisateurs = () => {
   const CreateUserSHowClose = () => {
     setNewUser(false);
   };
-
+  const changeVisibble = () => {
+    setshowVisible(!showVisible);
+  };
   return (
     <Grid
       className={classes.Container}
@@ -64,18 +67,7 @@ const Utilisateurs = () => {
       <div className="App">
         <Navigation />
       </div>
-      <Button
-        onClick={() => {
-          dispatch({ type: 'GET_APP_TOKEN_REQUEST' });
-          console.log(`GET_APP_TOKEN_REQUEST`, )
-          dispatch({ type: "USERS_REQUEST" });
-          console.log(`USERS_REQUEST`, )
 
-          
-        }}
-      >
-        get users
-      </Button>
       <div className={classes.diver}>
         <Separator />
         {!newUser && (
@@ -83,6 +75,9 @@ const Utilisateurs = () => {
             title={"Gestion des Utilisateurs"}
             newUser={newUser}
             CreateUserSHowClose={CreateUserSHowClose}
+            CreateUserSHowOpen={CreateUserSHowOpen}
+            showVisible={showVisible}
+            changeVisibble={changeVisibble}
           />
         )}
         {newUser && (
@@ -90,40 +85,13 @@ const Utilisateurs = () => {
             title={"Ajouter des Utilisateurs"}
             newUser={newUser}
             CreateUserSHowClose={CreateUserSHowClose}
+            CreateUserSHowOpen={CreateUserSHowOpen}
           />
         )}
         {!matches && <HeaderAppBare title={"Gestion des Utilisateurs"} />}
-        <div className={classes.buttonContainer}>
-          {!newUser ? (
-            <div>
-              <Tooltip title="exporter">
-                <Button
-                  className={classes.btn}
-                  variant="contained"
-                  startIcon={<ArrowDownward />}
-                  sx={{ bg: "btnBackground", color: "inverstText" }}
-                >
-                  exporter
-                </Button>
-              </Tooltip>
 
-              <Tooltip title="Ajouter">
-                <Button
-                  variant="contained"
-                  sx={{ bg: "btnBackground", color: "inverstText" }}
-                  startIcon={<Add />}
-                  onClick={CreateUserSHowOpen}
-                >
-                  Ajouter
-                </Button>
-              </Tooltip>
-            </div>
-          ) : (
-            <div></div>
-          )}
-        </div>
         <div className={classes.containerTable}>
-          {!newUser && <MTable handelShow={handelShow} />}
+          {!newUser && <MTable handelShow={handelShow} showVisible={showVisible} />}
           {newUser && <FormCreateUsers />}
           <div className={classes.Absoluter}>
             <Settings

@@ -23,7 +23,19 @@ import {
   Checkbox,
   FormControlLabel,
 } from "@material-ui/core";
-import { ArrowDownward } from "@material-ui/icons";
+import {
+  ArrowDownward,
+  Filter,
+  Filter3,
+  Filter9Plus,
+  FilterTiltShiftSharp,
+  Search,
+} from "@material-ui/icons";
+
+import InputFilter from "../Reusable/InputFilter/InputFilter";
+import InputFilterDate from "../Reusable/InputFilterDate/InputFilterDate";
+import InputFilterSelect from "../Reusable/InputFilterSelect/InputFilterSelect";
+
 
 let USERS = [],
   STATUSES = ["Actif", "Inactif"];
@@ -39,7 +51,7 @@ for (let i = 0; i < 25; i++) {
   };
 }
 
-function MTable({ handelShow }) {
+function MTable({ handelShow, showVisible }) {
   const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(8);
@@ -60,8 +72,17 @@ function MTable({ handelShow }) {
   };
   return (
     <TableContainer component={Paper} className={classes.tableContainer}>
+      {showVisible && (
+        <Paper className={classes.boxFilter}>
+          <FilterTiltShiftSharp className={classes.box} />
+          <InputFilter  className={classes.box1}/>
+          <InputFilterDate  className={classes.box1}/>
+          <InputFilterSelect className={classes.box1} />
+        </Paper>
+      )}
+
       <Table className={classes.table} aria-label="simple table">
-        <TableHead>
+        <TableHead className={classes.headerTable}>
           <TableRow>
             <TableCell
               className={classes.tableHeaderCell}
@@ -130,6 +151,7 @@ function MTable({ handelShow }) {
             </div>
           </TableRow>
         </TableHead>
+
         <TableBody>
           {USERS.slice(
             page * rowsPerPage,
@@ -143,12 +165,20 @@ function MTable({ handelShow }) {
               <TableCell>
                 <Grid container>
                   <Grid item lg={2}>
-                    <Avatar alt={row.name} src="." className={classes.avatar}  sx={{ bg: "btnBackground" }}/>
+                    <Avatar
+                      alt={row.name}
+                      src="."
+                      className={classes.avatar}
+                      sx={{ bg: "btnBackground" }}
+                    />
                   </Grid>
                   <Grid item>
-                
-                    <Typography className={classes.name} 
-                    sx={{ color: "backgroundS" }}>{row.name}</Typography>
+                    <Typography
+                      className={classes.name}
+                      sx={{ color: "backgroundS" }}
+                    >
+                      {row.name}
+                    </Typography>
                   </Grid>
                 </Grid>
               </TableCell>
@@ -192,7 +222,7 @@ function MTable({ handelShow }) {
 
         <TableFooter className={classes.footer}>
           <TablePagination
-            rowsPerPageOptions={[5,8]}
+            rowsPerPageOptions={[5, 8]}
             component="div"
             count={USERS.length}
             rowsPerPage={rowsPerPage}
@@ -200,7 +230,7 @@ function MTable({ handelShow }) {
             onChangePage={handleChangePage}
             onChangeRowsPerPage={handleChangeRowsPerPage}
             anchor="right"
-            labelRowsPerPage={''}
+            labelRowsPerPage={""}
           />
         </TableFooter>
       </Table>

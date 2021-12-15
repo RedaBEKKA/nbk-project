@@ -26,6 +26,8 @@ const Portefeuille = () => {
   const [show, setShow] = useState(false);
   const [showFormUser, setShowFormUser] = useState(false);
   const [newUser, setNewUser] = useState(false);
+  const [showVisible, setshowVisible] = useState(false)
+
   const handelShowClose = () => {
     setShow(false);
   };
@@ -41,6 +43,9 @@ const Portefeuille = () => {
     setShowFormUser(true);
     setNewUser(true);
   };
+  const changeVisibble = () =>{
+    setshowVisible(!showVisible)
+  }
   return (
     <div className={classes.Container}>
       <div className="App">
@@ -49,7 +54,13 @@ const Portefeuille = () => {
 
       <div className={classes.diver}>
         <div className={classes.separator}></div>
-        {!newUser && <UseTitle title={"Gestion des Portefeuille"} />}
+           
+        {!newUser && <UseTitle title={"Gestion des Portefeuille"} 
+          handelOpen={handelOpen}
+          showVisible={showVisible}
+          changeVisibble={changeVisibble}
+          
+          />}
         {newUser && (
           <UseTitle
             title={"Ajouter des Portefeuille"}
@@ -59,35 +70,8 @@ const Portefeuille = () => {
         )}
 
         {/* <div className={classes.title}> </div> */}
-        {!matches && <HeaderAppBare title={"Gestion des Portefeuille"} />}
+        {!matches && <HeaderAppBare title={"Gestion des Portefeuille"}  />}
 
-        <div className={classes.buttonContainer}>
-          <Tooltip title="exporter">
-            <Button
-              className={classes.btn}
-              variant="contained"
-              sx={{
-                bg: "btnBackground",
-                color: "inverstText",
-                marginRight: 15,
-              }}
-              startIcon={<ArrowDownward />}
-            >
-              exporter
-            </Button>
-          </Tooltip>
-
-          <Tooltip title="Ajouter">
-            <Button
-              variant="contained"
-              sx={{ bg: "btnBackground", color: "inverstText" }}
-              onClick={handelOpen}
-              startIcon={<Add />}
-            >
-              Ajouter
-            </Button>
-          </Tooltip>
-        </div>
         <div className={classes.containerTable}>
           <MTable handelShow={handelShow} />
         </div>

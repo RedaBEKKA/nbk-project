@@ -22,17 +22,7 @@ const useStyles = makeStyles((theme) => ({
   containerTable: {
     margin: 15,
   },
-  buttonContainer: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "flex-end",
-    padding: "0px 30px",
-    alignItems:'center'
-  },
-  btn: {
-    margin: "0px 10px",
-    
-  },
+
   infoScreen: {
     height: "92vh",
     width: "40%",
@@ -50,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
   },
   Absoluter:{
     position:'fixed',
-    right:3,
-    top: "10.5%",
+    right:1,
+    top: "25.5%",
     zIndex:'2'
   },
   boxButton:{
