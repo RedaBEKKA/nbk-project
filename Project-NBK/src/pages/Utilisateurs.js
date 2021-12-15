@@ -29,7 +29,7 @@ import {
 } from "@material-ui/icons";
 import FormCreateUsers from "../components/Body/FormCreateUsers/FormCreateUsers";
 import UseTitle from "../components/Body/HeaderTilteBody/UseTitle";
-import { useDispatch ,useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Utilisateurs = () => {
   const [colorMode, setColorMode] = useColorMode();
@@ -40,11 +40,8 @@ const Utilisateurs = () => {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
-  useEffect(() => {
-    dispatch({ type: 'USERS_REQUEST' });
-    console.log(`test`,users)
-  }, [dispatch]);
-  
+  // console.log(`test`,users)
+
   // functions
   const handelShow = () => {
     setShow(true);
@@ -67,7 +64,18 @@ const Utilisateurs = () => {
       <div className="App">
         <Navigation />
       </div>
+      <Button
+        onClick={() => {
+          dispatch({ type: 'GET_APP_TOKEN_REQUEST' });
+          console.log(`GET_APP_TOKEN_REQUEST`, )
+          dispatch({ type: "USERS_REQUEST" });
+          console.log(`USERS_REQUEST`, )
 
+          
+        }}
+      >
+        get users
+      </Button>
       <div className={classes.diver}>
         <Separator />
         {!newUser && (

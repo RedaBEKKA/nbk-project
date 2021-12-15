@@ -1,7 +1,7 @@
 import * as type from "../types/usersTypes";
 
 const initiaUsers = {
-  users: [],
+  users:[],
   loading: false,
   error: null,
   status: "",
@@ -10,7 +10,7 @@ const initiaUsers = {
 export default function auth(state = initiaUsers, action) {
   switch (action.type) {
     case type.USERS:
-      console.log("users payload", action.payload);
+      console.log("USERS payload", action.payload);
       return {
         ...state,
         users: action.payload,
@@ -18,7 +18,7 @@ export default function auth(state = initiaUsers, action) {
         loading: false,
       };
     case type.USERS_FAILED:
-      console.log("users payload", action.payload);
+      console.log("USERSFAILED payload", action.payload);
       return {
         ...state,
         error:

@@ -4,13 +4,9 @@ import { getUsers } from "../../api/users";
 
 function* handleGetUsers() {
   yield put({ type: type.USERS_LOADING });
-  try {
-    const res = yield call(getUsers);
-    console.log(`res`, res);
-    yield put({ type: type.USERS, payload: res.response });
-  } catch (error) {
-    console.log(error);
-  }
+  const { response, error } = yield call(getUsers);
+  if (response) yield put({ type: type.USERS, payload: response.data });
+  else yield put({ type: type.USERS_FAILED, payload: error.response });
 }
 
 function* usersSaga() {
