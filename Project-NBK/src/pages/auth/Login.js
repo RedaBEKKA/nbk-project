@@ -1,45 +1,28 @@
-import React from 'react';
-import { Box, Drawer, Container } from '@material-ui/core';
-import Form from './components/Form';
-import useLogin from './hooks/useLogin';
-import Carousel from './components/Carousel';
-import Logo from '../../assets/logo512.png';
+import React from "react";
+import { Box, Drawer, Container, Paper } from "@material-ui/core";
+import Form from "./components/Form";
+import useLogin from "./hooks/useLogin";
+import Carousel from "./components/Carousel";
+import Logo from "../../assets/logo512.png";
+import useStyles from "../styles/StylesLogin";
+import RightLogin from "./components/RightLogin";
 
 const Login = () => {
   const { classes, matches } = useLogin();
+  const classe = useStyles();
   return (
-    <>
+    <Box className={classe.BigContainer}>
       {!matches ? (
-        <Box width="100%" display="flex" justifyContent="center" alignItems="center">
-          <Container component="main" maxWidth="xs">
-            <div className={classes.paper}>
-              <Box marginTop="100px" display="flex" justifyContent="center">
-                <img src={Logo} alt="NBK Logo" />
-              </Box>
-
-              <Form></Form>
-            </div>
-          </Container>
-        </Box>
+        <Paper className={classes.PaperSmall}>
+          <Form></Form>
+        </Paper>
       ) : (
-        <>
-          <Carousel></Carousel>
-          <Drawer
-            variant="permanent"
-            anchor="right"
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-          >
-            <Container component="main" maxWidth="xs">
-              <div className={classes.paper}>
-                <Form></Form>
-              </div>
-            </Container>
-          </Drawer>
-        </>
+        <Paper className={classe.drawerPaper}>
+          <Form></Form>
+          <RightLogin></RightLogin>
+        </Paper>
       )}
-    </>
+    </Box>
   );
 };
 
