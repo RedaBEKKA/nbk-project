@@ -52,7 +52,7 @@ const routes = [
     component: portefeuille,
   },
   {
-    label: "Gestion des documents utilisateurs",
+    label: "Gestion des documents ",
     path: "/utilisateurs",
     icon: docs,
     activeIcon: docsActive,
@@ -87,10 +87,10 @@ const routes = [
     component: Cartes,
   },
   {
-    label: "Se Déconnecter",
+    label: "",
     path: "/sign-out",
-    icon: SignOutIcon,
-    activeIcon: SignOutIcon,
+    icon: 'null',
+    activeIcon: "",
   },
 ];
 

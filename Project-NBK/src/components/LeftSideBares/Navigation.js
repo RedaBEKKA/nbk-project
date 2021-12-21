@@ -14,6 +14,7 @@ import {
   AppBar,
   Avatar,
   Badge,
+  Button,
   Paper,
   Switch,
   Toolbar,
@@ -21,7 +22,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
-
+import ArrowLeft from '@material-ui/icons/OutdoorGrill' 
 // assets
 // import Logo1 from "../../assets/logo.png";
 import Logo2 from "../../assets/logo512.png";
@@ -34,9 +35,11 @@ import MenuItem from "./MenuItem";
 import routes from "../../routes";
 import { useStyles } from "./styles";
 import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
 
 const Navigation = () => {
   const [open, setOpen] = useState(true);
+  const dispatch = useDispatch();
 
   const classes = useStyles();
   const theme = useTheme();
@@ -108,23 +111,22 @@ const Navigation = () => {
         )}
 
         {open && (
-         <div style={{backgroundColor:'#000'}}>
-         <Paper
-            sx={{ bg: "backgroundS", color: "text" }}
-            className={classes.navigationLogoContainer}
-            onClick={() => {
-              history.push("./");
-            }}
-          >
-
-            <img
-              className={classes.navigationLogoFirst}
-              src={Logo1}
-              alt="NBK Logo"
-            />
-          </Paper>
-             <text className={classes.TxtLym}>LAYMOON</text>
-</div>
+          <div style={{ backgroundColor: "#000" }}>
+            <Paper
+              sx={{ bg: "backgroundS", color: "text" }}
+              className={classes.navigationLogoContainer}
+              onClick={() => {
+                history.push("./");
+              }}
+            >
+              <img
+                className={classes.navigationLogoFirst}
+                src={Logo1}
+                alt="NBK Logo"
+              />
+            </Paper>
+            <text className={classes.TxtLym}>LAYMOON</text>
+          </div>
         )}
         <List
           className={classes.navigationList}
@@ -137,7 +139,7 @@ const Navigation = () => {
                   <div className={classes.navigationSpacer}></div>
                 )}
                 <MenuItem
-                 className={classes.navigationListItem}
+                  className={classes.navigationListItem}
                   label={route.label}
                   icon={route.icon}
                   activeIcon={route.activeIcon}
@@ -147,6 +149,20 @@ const Navigation = () => {
               </React.Fragment>
             );
           })}
+          <Button 
+          startIcon={<ArrowLeft />}
+          variant="contained"
+          color='primary'
+          fullWidth
+          className={classes.buttonLogOut}
+          padding ={3}
+            onClick={() => {
+              dispatch({ type: "GET_APP_TOKEN_REQUEST" });
+              dispatch({ type: "LOGOUT" });
+            }}
+          >
+            logout
+          </Button>
         </List>
       </Drawer>
     </div>
