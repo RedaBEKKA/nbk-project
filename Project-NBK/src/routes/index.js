@@ -83,7 +83,7 @@ const routes = [
   },
   {
     label: "Se Déconnecter",
-    path: "/sign-out",
+    path: "/login",
     icon: SignOutIcon,
     activeIcon: SignOutIcon,
   },

@@ -133,7 +133,7 @@ const Navigation = () => {
           {routes.map((route, index) => {
             return (
               <React.Fragment key={index}>
-                {route.path === "/sign-out" && (
+                {route.path === "/login" && (
                   <div className={classes.navigationSpacer}></div>
                 )}
                 <MenuItem
