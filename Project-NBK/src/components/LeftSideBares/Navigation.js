@@ -22,7 +22,9 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
-import ArrowLeft from '@material-ui/icons/OutdoorGrill' 
+import ArrowLeft from "@material-ui/icons/OutdoorGrill";
+import LogoutIcon from "@material-ui/icons/RotateLeft";
+
 // assets
 // import Logo1 from "../../assets/logo.png";
 import Logo2 from "../../assets/logo512.png";
@@ -135,9 +137,6 @@ const Navigation = () => {
           {routes.map((route, index) => {
             return (
               <React.Fragment key={index}>
-                {/* {route.path === "/sign-out" && (
-                  <div className={classes.navigationSpacer}></div>
-                )} */}
                 <MenuItem
                   className={classes.navigationListItem}
                   label={route.label}
@@ -149,20 +148,32 @@ const Navigation = () => {
               </React.Fragment>
             );
           })}
-          <Button 
-          startIcon={<ArrowLeft />}
-          variant="contained"
-          color='primary'
-          fullWidth
-          className={classes.buttonLogOut}
-          padding ={3}
-            onClick={() => {
-              dispatch({ type: "GET_APP_TOKEN_REQUEST" });
-              dispatch({ type: "LOGOUT" });
-            }}
-          >
-            logout
-          </Button>
+          <div className={classes.navigationSpacer}></div>
+          {open ? (
+            <Button
+              startIcon={<ArrowLeft />}
+              variant="contained"
+              color="primary"
+              // path = "/sign-out"
+              fullWidth
+              className={classes.buttonLogOut}
+              padding={3}
+              onClick={() => {
+                dispatch({ type: "GET_APP_TOKEN_REQUEST" });
+                dispatch({ type: "LOGOUT" });
+              }}
+            >
+              logout
+            </Button>
+          ) : (
+            <LogoutIcon
+              className={classes.LogOutBtnIcon}
+              onClick={() => {
+                dispatch({ type: "GET_APP_TOKEN_REQUEST" });
+                dispatch({ type: "LOGOUT" });
+              }}
+            />
+          )}
         </List>
       </Drawer>
     </div>

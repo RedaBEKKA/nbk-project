@@ -86,12 +86,12 @@ const routes = [
     activeIcon: SettingsIconActive,
     component: Cartes,
   },
-  {
-    label: "",
-    path: "/sign-out",
-    icon: 'null',
-    activeIcon: "",
-  },
+  // {
+  //   label: "",
+  //   path: "/sign-out",
+  //   icon: 'null',
+  //   activeIcon: "",
+  // },
 ];
 
 export default routes;

@@ -24,26 +24,24 @@ export const useStyles = makeStyles((theme) => ({
     width: "30%",
     cursor: "pointer",
   },
-  TxtLym:{
-    margin:'15px 0px',
-    fontSize:'20px',
-    fontWeight:'700',
-    color:'#5bd542',
-    letterSpacing: '5px',
-    display:'flex',
-    justifyContent:'center',
-    background:'#000'
+  TxtLym: {
+    margin: "15px 0px",
+    fontSize: "20px",
+    fontWeight: "700",
+    color: "#5bd542",
+    letterSpacing: "5px",
+    display: "flex",
+    justifyContent: "center",
+    background: "#000",
   },
   navigationLogoContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     // paddingBottom: theme.spacing(6),
-    flexDirection:'column',
-    height:"12vh",
+    flexDirection: "column",
+    height: "12vh",
     // background: "linear-gradient(to right,  #a8e063,#56ab2f)",
-
-  
   },
   navigationDrawer: {
     width: 350,
@@ -73,12 +71,10 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     flex: 1,
-    borderRaduis:8
-    
+    borderRaduis: 8,
   },
-
   navigationSpacer: {
-    flex: 1,
+    marginBottom: "250px",
   },
   menuItemIcon: {
     width: "100%",
@@ -91,14 +87,25 @@ export const useStyles = makeStyles((theme) => ({
   },
   menuItemActive: {
     opacity: "1",
-    borderBottom:"2px solid #56ab2f",
-    width:"82%",
-    color:'#56ab2f',
-    fontWeight:'700',
-    fontSize:17
+    borderBottom: "2px solid #56ab2f",
+    width: "82%",
+    color: "#56ab2f",
+    fontWeight: "700",
+    fontSize: 17,
   },
-  buttonLogOut:{
-    background:'#56ab2f',
-    width:'80%'
-  }
+  buttonLogOut: {
+    background: "#56ab2f",
+    width: "80%",
+    "&:hover": {
+      background: "#56ab2faa",
+    },
+  },
+  LogOutBtnIcon: {
+    backgroundColor: "#56ab2f",
+    height: "40px",
+    width: "40px",
+    borderRaduis: "15px",
+    cursor: "pointer",
+    padding:5
+  },
 }));
