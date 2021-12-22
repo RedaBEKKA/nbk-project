@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   drawerPaper: {
-    backgroundColor: "#ccc",
+    // backgroundColor: "#ccc",
     height: "50%",
     width: "65%",
     display: "flex",
@@ -25,9 +25,13 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "8px",
     outline: "none",
     overflow: "hidden",
+    [theme.breakpoints.down("lg")]: {
+      // backgroundColor: "#ccc",
+      width: "85%",
+    },
     [theme.breakpoints.down("md")]: {
       height: "60%",
-      backgroundColor: "#ccc",
+      // backgroundColor: "#ccc",
       width: "85%",
     },
   },

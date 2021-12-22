@@ -135,9 +135,9 @@ const Navigation = () => {
           {routes.map((route, index) => {
             return (
               <React.Fragment key={index}>
-                {route.path === "/sign-out" && (
+                {/* {route.path === "/sign-out" && (
                   <div className={classes.navigationSpacer}></div>
-                )}
+                )} */}
                 <MenuItem
                   className={classes.navigationListItem}
                   label={route.label}

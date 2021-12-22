@@ -40,17 +40,27 @@ const useStyles = makeStyles((theme) => ({
   },
   boxForm: {
     backgroundColor: "#fff",
-    height: "100%",
     padding: 20,
     display: "flex",
     alignContent: "center",
     flexDirection: "column",
     width: drawerWidth,
+    [theme.breakpoints.down("lg")]: {
+      backgroundColor: "#fff",
+      padding:"30px 0",
+      
+    },
+    [theme.breakpoints.down("md")]: {
+      backgroundColor: "#fff",
+      padding:"30px 0"
+    },
     [theme.breakpoints.down("sm")]: {
       height: "100%",
-      width:'101%',
-      borderRadius:'6px',
-      outline:'hidden'
+      width: "101%",
+      borderRadius: "6px",
+      outline: "hidden",
+      padding:"30px 0"
+
     },
   },
   boxLogo: {
@@ -97,12 +107,18 @@ const useStyles = makeStyles((theme) => ({
     margin: "20px",
     height: "80%",
   },
+  // [theme.breakpoints.down("lg")]: {
+  //   margin: "10px",
+  //   backgroundColor: "#ccc",
+  //   width: "60%",
+  //   height: "100%",
+
+  // },
   [theme.breakpoints.down("md")]: {
     margin: "10px",
     backgroundColor: "#ccc",
     width: "60%",
     height: "60%",
-
   },
 }));
 
