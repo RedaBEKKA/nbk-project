@@ -47,7 +47,7 @@ function UseTitle(props) {
                   className={classes.btn}
                   variant="contained"
                   startIcon={<ArrowDownward />}
-                  sx={{ bg: "btnBackground", color: "inverstText" }}
+                  sx={{ bg: "backgroundS", color: "inverstText" }}
                 >
                   exporter
                 </Button>
@@ -56,7 +56,7 @@ function UseTitle(props) {
               <Tooltip title="Ajouter">
                 <Button
                   variant="contained"
-                  sx={{ bg: "btnBackground", color: "inverstText" }}
+                  sx={{ bg: "backgroundS", color: "inverstText" }}
                   startIcon={<Add />}
                   onClick={CreateUserSHowOpen || handelOpen}
                 >
@@ -70,13 +70,13 @@ function UseTitle(props) {
         </div>
       </Paper>
       {showVisible ? (
-        <Box className={classes.boC} >
-          <Visibility className={classes.iconV}  onClick={changeVisibble}/>
+        <Box className={classes.boC}  >
+          <Visibility className={classes.iconV}  elevation={3} onClick={changeVisibble}/>
           fermer les filtres
         </Box>
       ) : (
         <Box className={classes.boC} >
-          <VisibilityOff className={classes.iconV} onClick={changeVisibble} />
+          <VisibilityOff className={classes.iconV} elevation={3} onClick={changeVisibble} />
            afficher les filtres
         </Box>
       )}
