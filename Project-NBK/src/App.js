@@ -1,27 +1,28 @@
-/* eslint-disable */ 
+/* eslint-disable */
 
-import Dashboard from "../src/pages/Dashboard"
-import Beneficiaires from "../src/pages/Beneficiaires"
-import Cartes from "../src/pages/Cartes"
-import Documents from "../src/pages/Documents"
-import Transactions from "../src/pages/Transactions"
-import opérations from "../src/pages/opérations"
-import Utilisateurs from "../src/pages/Utilisateurs";
-import portefeuille from "../src/pages/portefeuille";
-import Transferts from "./pages/Transferts";
+import Dashboard from '../src/pages/Dashboard';
+import Beneficiaires from '../src/pages/Beneficiaires';
+import Cartes from '../src/pages/Cartes';
+import Documents from '../src/pages/Documents';
+import Transactions from '../src/pages/Transactions';
+import opérations from '../src/pages/opérations';
+import Utilisateurs from '../src/pages/Utilisateurs';
+import portefeuille from '../src/pages/portefeuille';
+import Transferts from './pages/Transferts';
+import Wallet from 'pages/wallet';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import routes from './routes';
 import { useStyles } from './styles';
-import { ColorMode, ThemeProvider, useColorMode } from 'theme-ui'
+import { ColorMode, ThemeProvider, useColorMode } from 'theme-ui';
 // import { createTheme, ThemeProvider } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
 
 import { useDispatch, useSelector } from 'react-redux';
-import login  from "./pages/auth/Login"
-import ResetPassword from "./pages/auth/ResetPassword"
-import ConfirmReset from "./pages/auth/ConfirmReset"
-import theme from "../src/theme/theme";
+import login from './pages/auth/Login';
+import ResetPassword from './pages/auth/ResetPassword';
+import ConfirmReset from './pages/auth/ConfirmReset';
+import theme from '../src/theme/theme';
 
 const GuardedRoute = ({ component: Component, auth, ...rest }) => (
   <Route
@@ -58,6 +59,7 @@ const App = () => {
         <Router>
           <Switch>
             <GuardedRoute exact auth={auth} path="/" component={Dashboard} />
+            <GuardedRoute exact auth={auth} path="/wallet" component={Wallet} />
             <GuardedRoute exact auth={auth} path="/Beneficiaires" component={Beneficiaires} />
             <GuardedRoute exact auth={auth} path="/Cartes" component={Cartes} />
             <GuardedRoute exact auth={auth} path="/Documents" component={Documents} />

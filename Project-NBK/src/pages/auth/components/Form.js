@@ -9,21 +9,26 @@ import {
   Link,
   Typography,
   Paper,
+  CircularProgress,
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
-import logo from '../../../assets/logo.png'
-import logo2 from '../../../assets/logo512.png'
-import CircularProgress from '@material-ui/core/CircularProgress';
+import logo from '../../../assets/logo.png';
+import logo2 from '../../../assets/logo512.png';
 import useLogin from '../hooks/useLogin';
 
 export default function Form() {
-  const { classes, auth, register, handleSubmit, errors, isSubmitting, onSubmit,matches } = useLogin();
+  const { classes, auth, register, handleSubmit, errors, isSubmitting, onSubmit, matches } =
+    useLogin();
   return (
     <Box className={classes.boxForm} elevation={'false'}>
-      <Box className={classes.boxLogo}>
-      { matches ? <img src={logo} alt='logo image' style={{width:'70%', height:'45%' }}/> :<img src={logo2} alt='logo image' style={{width:'40%', height:'80%' }}/> }
-      </Box>
-      <Box margin="20px 0px" display="flex" justifyContent="center" color='#237a57' >
+      {/* <Box className={classes.boxLogo}>
+        {matches ? (
+          <img src={logo} alt="logo image" style={{ width: '70%', height: '45%' }} />
+        ) : (
+          <img src={logo2} alt="logo image" style={{ width: '40%', height: '80%' }} />
+        )}
+      </Box> */}
+      <Box margin="20px 0px" display="flex" justifyContent="center" color="#237a57">
         <Typography component="h1" variant="h5" className={classes.titiel}>
           Se connecter à votre compte
         </Typography>
@@ -61,10 +66,19 @@ export default function Form() {
 
         <Box marginY="10px" display="flex" justifyContent="space-between" alignItems="center">
           <FormControlLabel
-            control={<Checkbox value="remember" style={{color:"#237a57",margin:'0px 0px' , paddingLeft:'25px'}}  />}
+            control={
+              <Checkbox
+                value="remember"
+                style={{ color: '#237a57', margin: '0px 0px', paddingLeft: '25px' }}
+              />
+            }
             label="Se souvenir de moi"
           />
-          <Link href="/resetPassword" variant="body2" style={{color:"#237a57" , margin:'0px 25px'}}  >
+          <Link
+            href="/resetPassword"
+            variant="body2"
+            style={{ color: '#237a57', margin: '0px 25px' }}
+          >
             Mot de passe oublié ?
           </Link>
         </Box>
