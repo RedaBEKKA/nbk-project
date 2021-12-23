@@ -40,7 +40,7 @@ import PayinReund from "../pages/WallettPages/PayinReund";
 import Minus from "../assets/minus.svg"
 const routes = [
   {
-    label: "Dashboard",
+    label: "Tableau de bord",
     path: "/",
     icon: DashboardIcon,
     activeIcon: DashboardIconActive,
@@ -96,7 +96,7 @@ const routes = [
     component: Cartes,
   },
   {
-    label: "Operation",
+    label: "Operations",
     path: null,
     icon: SettingsIcon,
     activeIcon: opr,
