@@ -15,7 +15,12 @@ export const useStyles = makeStyles((theme) => ({
       ...theme.mixins.toolbar,
     },
   },
-
+  Collaspe:{
+    backgroundColor:'#ccc',
+    height:'30px',
+    width:'100%',
+    zIndex:300
+  },
   navigationLogo: {
     width: "50%",
     cursor: "pointer",
@@ -74,24 +79,39 @@ export const useStyles = makeStyles((theme) => ({
     borderRaduis: 8,
   },
   navigationSpacer: {
-    marginBottom: "250px",
+    marginBottom: "50px",
   },
   menuItemIcon: {
     width: "100%",
+    // backgroundColor: "#ccc",
+  },
+  menuItemIconArr: {
+    width: "100%",
+    // backgroundColor: "#ccc",
   },
   menuItem: {
-    width: "80%",
+    width: "100%",
     // borderRadius: theme.spacing(1),
     marginBottom: theme.spacing(1),
     opacity: ".7",
+    // backgroundColor: '#ccc',
+  },
+  menuItemS: {
+    width: "100%",
+    // borderRadius: theme.spacing(1),
+    marginLeft: theme.spacing(7),
+    opacity: ".7",
+    // backgroundColor: '#ccc',
   },
   menuItemActive: {
     opacity: "1",
     borderBottom: "2px solid #56ab2f",
-    width: "82%",
+    width: "100%",
     color: "#56ab2f",
     fontWeight: "700",
     fontSize: 17,
+    // backgroundColor: '#ccc',
+
   },
   buttonLogOut: {
     background: "#56ab2f",
@@ -108,4 +128,11 @@ export const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     padding:5
   },
+  CollapsItem:{
+    backgroundColor: "#ccce",
+    paddingLeft:theme.spacing(6),
+    margin: '-10px 0px 15px 10px',
+    padding:3
+    
+  }
 }));

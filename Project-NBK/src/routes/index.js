@@ -29,6 +29,14 @@ import Beneficiaires from "../pages/Beneficiaires";
 import Transferts from "../pages/Transferts";
 import Cartes from "../pages/Cartes";
 import Documents from "../pages/Documents";
+import downArrow from "../assets/down-arrow.svg"
+import opr from "../assets/field-svgrepo-com.svg"
+import Payins from "../pages/WallettPages/Payins";
+import Payouts from "../pages/WallettPages/Payouts";
+import PayinRefund from "../pages/WallettPages/PayinReund";
+import PayoutRefunda from "../pages/WallettPages/PayoutRefund";
+import Transaction from "../pages/WallettPages/Transaction";
+import PayinReund from "../pages/WallettPages/PayinReund";
 const routes = [
   {
     label: "Dashboard",
@@ -85,6 +93,52 @@ const routes = [
     icon: SettingsIcon,
     activeIcon: SettingsIconActive,
     component: Cartes,
+  },
+  {
+    label: "Operation",
+    path: null,
+    icon: SettingsIcon,
+    activeIcon: opr,
+    iconArrow:downArrow,
+    // component: Cartes,
+    collapse: true,
+    itemList: [
+      {
+        label: "Payins",
+        path: "/Payins",
+        icon: SettingsIcon,
+        activeIcon: SettingsIconActive,
+        component: Payins,
+      },
+      {
+        label: "Payouts",
+        path: "/payouts",
+        icon: SettingsIcon,
+        activeIcon: SettingsIconActive,
+        component: Payouts,
+      },
+      {
+        label: "PayinRefund",
+        path: "/payinRefund",
+        icon: SettingsIcon,
+        activeIcon: SettingsIconActive,
+        component: PayinRefund,
+      },
+      {
+        label: "PayinReund",
+        path: "/PayinReund",
+        icon: SettingsIcon,
+        activeIcon: SettingsIconActive,
+        component: PayinReund,
+      },
+      {
+        label: "Transaction",
+        path: "/Transaction",
+        icon: SettingsIcon,
+        activeIcon: SettingsIconActive,
+        component: Transaction,
+      },
+    ],
   },
   // {
   //   label: "",

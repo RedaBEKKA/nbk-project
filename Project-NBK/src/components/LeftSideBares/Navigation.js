@@ -2,7 +2,7 @@
 
 /** @jsxImportSource theme-ui */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // @material-ui
 import Drawer from "@material-ui/core/Drawer";
@@ -24,7 +24,13 @@ import {
 } from "@material-ui/core";
 import ArrowLeft from "@material-ui/icons/OutdoorGrill";
 import LogoutIcon from "@material-ui/icons/RotateLeft";
-
+import { Collapse } from "@material-ui/core";
+import AccountsIconActive from "../../assets/AddIcon.svg";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Icon from "@material-ui/core/Icon";
+import ListItemButton from "@mui/material/ListItemButton";
+import { createTheme } from "@mui/system";
 // assets
 // import Logo1 from "../../assets/logo.png";
 import Logo2 from "../../assets/logo512.png";
@@ -38,7 +44,11 @@ import routes from "../../routes";
 import { useStyles } from "./styles";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-
+import DashboardIconActive from "../../assets/DashboardIconActive.svg";
+import { Link, useLocation } from "react-router-dom";
+import ListItem from "@material-ui/core/ListItem";
+// import ListItemIcon from "@material-ui/core/ListItemIcon";
+// import ListItemText from "@material-ui/core/ListItemText";
 const Navigation = () => {
   const [open, setOpen] = useState(true);
   const dispatch = useDispatch();
@@ -50,13 +60,22 @@ const Navigation = () => {
   const toggleNavigation = () => {
     setOpen(!open);
   };
+  const location = useLocation();
 
   const closeNavigation = () => {
     if (matches) {
       setOpen(false);
     }
   };
-
+  const [openT, setOpenT] = React.useState(false);
+  const [active, setActive] = useState(false);
+ 
+  const handleClick = () => {
+    setOpenT(!openT);
+  };
+  const onClick = () => {
+    setActive(!active);
+  };
   return (
     <div>
       <AppBar className={classes.appBar}>
@@ -144,8 +163,15 @@ const Navigation = () => {
                   activeIcon={route.activeIcon}
                   path={route.path}
                   onClick={closeNavigation}
+                  collaps={route.collapse}
+                  activeItem={active}
+                  onClick={onClick}
+                  iconArrow={route.iconArrow}
+                  itemList={route.itemList}
                 />
+              
               </React.Fragment>
+              
             );
           })}
           <div className={classes.navigationSpacer}></div>
@@ -163,7 +189,7 @@ const Navigation = () => {
                 dispatch({ type: "LOGOUT" });
               }}
             >
-              logout
+              Se Déconneter
             </Button>
           ) : (
             <LogoutIcon

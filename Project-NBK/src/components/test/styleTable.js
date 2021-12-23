@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
     table: {
       Width: 650,
+      height:"60vh"
     },
     tableContainer: {
       borderRadius: 5,
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#000",
       color: theme.palette.getContrastText(theme.palette.primary.dark),
       border: "none",
-      padding: "0px 25px",
+      padding: "20px 25px",
     },
     tableHeaderCellStatus: {
       fontWeight: "bold",
@@ -83,6 +84,20 @@ const useStyles = makeStyles((theme) => ({
       width:'300%',
     
     },
+    footerX: {
+     
+      width:'300%',
+    
+    },
+    BoxDataBody:{
+      width:'100%',
+    },
+    TextNodata:{
+      padding:"30px",
+      color:'#000',
+      fontSize:'26px',
+      fontWeight:'600',
+    }
   }));
 
   export default useStyles

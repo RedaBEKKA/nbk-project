@@ -4,7 +4,6 @@ import Dashboard from "../src/pages/Dashboard"
 import Beneficiaires from "../src/pages/Beneficiaires"
 import Cartes from "../src/pages/Cartes"
 import Documents from "../src/pages/Documents"
-import Transactions from "../src/pages/Transactions"
 import opérations from "../src/pages/opérations"
 import Utilisateurs from "../src/pages/Utilisateurs";
 import portefeuille from "../src/pages/portefeuille";
@@ -22,6 +21,11 @@ import login  from "./pages/auth/Login"
 import ResetPassword from "./pages/auth/ResetPassword"
 import ConfirmReset from "./pages/auth/ConfirmReset"
 import theme from "../src/theme/theme";
+import Payouts from "./pages/WallettPages/Payouts"
+import Payins from "./pages/WallettPages/Payins"
+import PayinReund from "./pages/WallettPages/PayinReund"
+import PayinRefund from "./pages/WallettPages/PayoutRefund"
+import Transaction from "./pages/WallettPages/Transaction"
 
 const GuardedRoute = ({ component: Component, auth, ...rest }) => (
   <Route
@@ -61,11 +65,15 @@ const App = () => {
             <GuardedRoute exact auth={auth} path="/Beneficiaires" component={Beneficiaires} />
             <GuardedRoute exact auth={auth} path="/Cartes" component={Cartes} />
             <GuardedRoute exact auth={auth} path="/Documents" component={Documents} />
-            <GuardedRoute exact auth={auth} path="/Transactions" component={Transactions} />
             <GuardedRoute exact auth={auth} path="/opérations" component={opérations} />
             <GuardedRoute exact auth={auth} path="/Utilisateurs" component={Utilisateurs} />
             <GuardedRoute exact auth={auth} path="/portefeuille" component={portefeuille} />
             <GuardedRoute exact auth={auth} path="/Transferts" component={Transferts} />
+            <GuardedRoute exact auth={auth} path="/PayinReund" component={PayinReund} />
+            <GuardedRoute exact auth={auth} path="/Payins" component={Payins} />
+            <GuardedRoute exact auth={auth} path="/PayinRefund" component={PayinRefund} />
+            <GuardedRoute exact auth={auth} path="/Payouts" component={Payouts} />
+            <GuardedRoute exact auth={auth} path="/Transaction" component={Transaction} />
             <Unprotected auth={auth} exact path="/Login" component={login} />
             <Unprotected auth={auth} exact path="/resetPassword" component={ResetPassword} />
             <Unprotected auth={auth} exact path="/confirmReset" component={ConfirmReset} />
