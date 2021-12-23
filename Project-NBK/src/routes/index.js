@@ -37,6 +37,7 @@ import PayinRefund from "../pages/WallettPages/PayinReund";
 import PayoutRefunda from "../pages/WallettPages/PayoutRefund";
 import Transaction from "../pages/WallettPages/Transaction";
 import PayinReund from "../pages/WallettPages/PayinReund";
+import Minus from "../assets/minus.svg"
 const routes = [
   {
     label: "Dashboard",
@@ -107,35 +108,35 @@ const routes = [
         label: "Payins",
         path: "/Payins",
         icon: SettingsIcon,
-        activeIcon: SettingsIconActive,
+        activeIcon: Minus,
         component: Payins,
       },
       {
         label: "Payouts",
         path: "/payouts",
         icon: SettingsIcon,
-        activeIcon: SettingsIconActive,
+        activeIcon: Minus,
         component: Payouts,
       },
       {
         label: "PayinRefund",
         path: "/payinRefund",
         icon: SettingsIcon,
-        activeIcon: SettingsIconActive,
+        activeIcon: Minus,
         component: PayinRefund,
       },
       {
         label: "PayinReund",
         path: "/PayinReund",
         icon: SettingsIcon,
-        activeIcon: SettingsIconActive,
+        activeIcon: Minus,
         component: PayinReund,
       },
       {
         label: "Transaction",
         path: "/Transaction",
         icon: SettingsIcon,
-        activeIcon: SettingsIconActive,
+        activeIcon: Minus,
         component: Transaction,
       },
     ],

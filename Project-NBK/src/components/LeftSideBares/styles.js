@@ -99,8 +99,8 @@ export const useStyles = makeStyles((theme) => ({
   menuItemS: {
     width: "100%",
     // borderRadius: theme.spacing(1),
-    marginLeft: theme.spacing(7),
-    opacity: ".7",
+    marginLeft: theme.spacing(1),
+    opacity: ".9",
     // backgroundColor: '#ccc',
   },
   menuItemActive: {

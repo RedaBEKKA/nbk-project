@@ -87,22 +87,29 @@ const MenuItem = ({
           <Collapse in={activeItem}>
             {itemList.map((i, index) => {
               return (
-                  <ListItem
-                    button
-                    component={Link}
-                    to={i.path}
-                    className={
-                      classes.menuItemS
-                      
-                    }
-                  >
-                    <ListItemText
+                <ListItem
+                  button
+                  component={Link}
+                  to={i.path}
+                  className={classes.menuItemS}
+                >
+                  <ListItemIcon>
+                    <Icon>
+                      <img
+                        className={classes.menuItemIcon}
+                        src={i.activeIcon}
+                        alt={i.label}
+                      />
+                    </Icon>
+                  </ListItemIcon>
 
-                    //  onClick={onClick}
-                    >
-                      {i.label}
-                    </ListItemText>
-                  </ListItem>
+                  <ListItemText
+
+                  //  onClick={onClick}
+                  >
+                    {i.label}
+                  </ListItemText>
+                </ListItem>
               );
             })}
           </Collapse>
