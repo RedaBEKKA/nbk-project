@@ -121,41 +121,6 @@ function UseTableReund(props) {
             >
               {date}
             </TableCell>
-
-            {/* <div className={classes.tableHeaderCellStatus}>
-              {showStatus && (
-                <div
-                  className={classes.conatinerChekc}
-                  sx={{ bg: "background" }}
-                >
-                  <FormGroup>
-                    <FormControlLabel
-                      control={<Checkbox defaultChecked />}
-                      label="Actif"
-                      sx={{ bg: "background", color: "text" }}
-                    />
-                    <FormControlLabel
-                      control={<Checkbox defaultChecked />}
-                      label="Inactif"
-                      sx={{ bg: "background", color: "text" }}
-                    />
-                  </FormGroup>
-                </div>
-              )}
-              <TableCell
-                className={classes.statusNav}
-                sx={{ color: "btnBackground" }}
-              >
-                Status{" "}
-              </TableCell>
-              <div
-                className={classes.boxIcon}
-                onClick={handeShow}
-                sx={{ color: "btnBackground" }}
-              >
-                <ArrowDownward />
-              </div>
-            </div> */}
           </TableRow>
         </TableHead>
         <TableBody className={classes.BoxDataBody}>

@@ -13,17 +13,11 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Avatar,
-  Grid,
   Typography,
   TablePagination,
   TableFooter,
-  Container,
-  FormGroup,
-  Checkbox,
-  FormControlLabel,
+
 } from "@material-ui/core";
-import { ArrowDownward } from "@material-ui/icons";
 
 let USERS = [],
   STATUSES = ["Actif", "Inactif"];

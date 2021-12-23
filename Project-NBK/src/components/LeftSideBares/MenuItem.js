@@ -8,7 +8,6 @@ import Icon from "@material-ui/core/Icon";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListItemButton from "@mui/material/ListItemButton";
 // external
 import clsx from "clsx";
 import { Link, useLocation } from "react-router-dom";
@@ -19,7 +18,6 @@ import { Collapse, List } from "@material-ui/core";
 
 const MenuItem = ({
   label,
-  icon,
   activeIcon,
   path,
   onClick,

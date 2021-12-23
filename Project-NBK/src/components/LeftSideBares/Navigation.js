@@ -2,7 +2,7 @@
 
 /** @jsxImportSource theme-ui */
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // @material-ui
 import Drawer from "@material-ui/core/Drawer";
@@ -12,11 +12,8 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import MenuIcon from "@material-ui/icons/Menu";
 import {
   AppBar,
-  Avatar,
-  Badge,
   Button,
   Paper,
-  Switch,
   Toolbar,
   Typography,
   useMediaQuery,
@@ -24,15 +21,8 @@ import {
 } from "@material-ui/core";
 import ArrowLeft from "@material-ui/icons/OutdoorGrill";
 import LogoutIcon from "@material-ui/icons/RotateLeft";
-import { Collapse } from "@material-ui/core";
-import AccountsIconActive from "../../assets/AddIcon.svg";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Icon from "@material-ui/core/Icon";
-import ListItemButton from "@mui/material/ListItemButton";
-import { createTheme } from "@mui/system";
+
 // assets
-// import Logo1 from "../../assets/logo.png";
 import Logo2 from "../../assets/logo512.png";
 import Logo1 from "../../assets/logo512.png";
 
@@ -44,11 +34,7 @@ import routes from "../../routes";
 import { useStyles } from "./styles";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
-import DashboardIconActive from "../../assets/DashboardIconActive.svg";
-import { Link, useLocation } from "react-router-dom";
-import ListItem from "@material-ui/core/ListItem";
-// import ListItemIcon from "@material-ui/core/ListItemIcon";
-// import ListItemText from "@material-ui/core/ListItemText";
+import {  useLocation } from "react-router-dom";
 const Navigation = () => {
   const [open, setOpen] = useState(true);
   const dispatch = useDispatch();
@@ -60,7 +46,6 @@ const Navigation = () => {
   const toggleNavigation = () => {
     setOpen(!open);
   };
-  const location = useLocation();
 
   const closeNavigation = () => {
     if (matches) {

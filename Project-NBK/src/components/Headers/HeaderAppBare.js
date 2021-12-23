@@ -1,4 +1,4 @@
-/* eslint-disable */ 
+/* eslint-disable */
 
 /** @jsxImportSource theme-ui */
 
@@ -7,21 +7,16 @@ import { useStyles } from "./stylesHeader";
 import {
   AppBar,
   Toolbar,
-  makeStyles,
   Typography,
-  InputBase,
-  alpha,
   Badge,
   Avatar,
-  IconButton,
-  useMediaQuery,
   Button,
-  Popper ,
+  Popper,
   Grow,
-  Paper ,
-  ClickAwayListener ,
+  Paper,
+  ClickAwayListener,
   MenuList,
-  MenuItem
+  MenuItem,
 } from "@material-ui/core";
 
 import {
@@ -29,12 +24,8 @@ import {
   ArrowDropDownCircleOutlined,
 } from "@material-ui/icons";
 
-const options = [
-  "Français",
-  "English",
-  "العربية",
-];
-const HeaderAppBare = ({ title }) => {
+const options = ["Français", "English", "العربية"];
+const HeaderAppBare = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false); // false=>visible
   const anchorRef = React.useRef(null);
@@ -64,32 +55,11 @@ const HeaderAppBare = ({ title }) => {
   };
   return (
     <div className={classes.appRoot}>
-      <AppBar position="fixed" open={open} elevation={0}  >
-        <Toolbar className={classes.toolbare} sx={{bg:'background'}}>
-          <Typography variant="h6" className={classes.logoLg}>
-            {/* {title} */}
-          </Typography>
-
-          {/* <MenuOutlined className={classes.logoSm} /> */}
-          <div className={classes.search}>
-            {/* <Search /> */}
-            {/* <InputBase placeholder="Search…" className={classes.inputa} /> */}
-          </div>
-
+      <AppBar position="fixed" open={open} elevation={0}>
+        <Toolbar className={classes.toolbare} sx={{ bg: "background" }}>
+          <Typography variant="h6" className={classes.logoLg}></Typography>
           <div className={classes.icosn}>
             <div className={classes.lefticons}>
-              {/* <Search
-                className={classes.searchBtn}
-                onClick={handleDrawerOpen}
-              /> */}
-
-              {/* <Badge
-                badgeContent={5}
-                color="secondary"
-                className={classes.icosnBox}
-              >
-                <Mail className={classes.iconC} />
-              </Badge> */}
               <Badge
                 badgeContent={1}
                 color="secondary"
@@ -98,11 +68,9 @@ const HeaderAppBare = ({ title }) => {
                 <NotificationImportant className={classes.iconC} />
               </Badge>
             </div>
-
             <div>
               <Avatar alt="Cindy Baker" />
             </div>
-
             <div className={classes.Langue}>
               <React.Fragment>
                 <buttonGroupClasses
@@ -129,7 +97,8 @@ const HeaderAppBare = ({ title }) => {
                   anchorEl={anchorRef.current}
                   role={undefined}
                   transition
-                  disablePortal className={classes.bg}
+                  disablePortal
+                  className={classes.bg}
                 >
                   {({ TransitionProps, placement }) => (
                     <Grow

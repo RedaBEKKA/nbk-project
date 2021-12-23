@@ -17,7 +17,6 @@ import useStyles from "./styles/PortefeuilleStyle";
 import WalletForm from "../components/Reusable/WalletForm/WalletForm";
 import UseTitle from "../components/Body/HeaderTilteBody/UseTitle";
 import { Add, ArrowDown, ArrowDownward, CheckCircle, Close } from "@material-ui/icons";
-// import { ArrowCircleDown, FileDownload } from "@mui/icons-material";
 const Portefeuille = () => {
   const [tableData, setTableData] = useState([]);
   const classes = useStyles();
@@ -58,9 +57,7 @@ const Portefeuille = () => {
           />
         )}
 
-        {/* <div className={classes.title}> </div> */}
         {!matches && <HeaderAppBare title={"Gestion des Portefeuille"} />}
-
         <div className={classes.buttonContainer}>
           <Tooltip title="exporter">
             <Button
@@ -98,30 +95,6 @@ const Portefeuille = () => {
             handelShowClose={handelShowClose}
             titre={"Visualiser Un Portefeuille"}
           />
-          {/* <div className={classes.boxButton}>
-            <Tooltip title="Valider">
-              <Button
-                variant="contained"
-                sx={{ bg: "btnBackground", color: "inverstText" }}
-                className={classes.mrBtn}
-                startIcon={<CheckCircle />}
-
-              >
-                Valider
-              </Button>
-            </Tooltip>
-            <Tooltip title="Annuler">
-              <Button
-                variant="outlined"
-                sx={{ color: "btnBackground" }}
-                className={classes.mrBtn}
-                startIcon={<Close />}
-
-              >
-                Annuler
-              </Button>
-            </Tooltip>
-          </div> */}
         </div>
       )}
 

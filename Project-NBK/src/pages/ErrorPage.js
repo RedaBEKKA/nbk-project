@@ -4,10 +4,8 @@
 
 import { Paper, Tooltip, Button } from "@material-ui/core";
 import { CheckCircle } from "@material-ui/icons";
-import React from "react";
 import useStyles from "./styles/StyleErrorPage";
 import img from "../assets/error.png";
-import img2 from "../assets/error2.png";
 function ErrorPage() {
   const classes = useStyles();
   return (

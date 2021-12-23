@@ -1,11 +1,9 @@
 /* eslint-disable */
 
 /** @jsxImportSource theme-ui */
-import React from "react";
 import { Paper } from "@material-ui/core";
 import useStyles from "./StylesUseContainer";
 import UseTitle from "../HeaderTilteBody/UseTitle";
-import UseTable from "../../test/UseTable";
 import UseTablePayout from "../../test/UseTablePayout";
 function UseContainerPayout() {
   const classes = useStyles();

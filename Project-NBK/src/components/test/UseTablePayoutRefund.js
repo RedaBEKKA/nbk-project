@@ -13,17 +13,11 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Avatar,
-  Grid,
   Typography,
   TablePagination,
   TableFooter,
-  Container,
-  FormGroup,
-  Checkbox,
-  FormControlLabel,
+
 } from "@material-ui/core";
-import { ArrowDownward } from "@material-ui/icons";
 
 let USERS = [],
   STATUSES = ["Actif", "Inactif"];
@@ -54,8 +48,7 @@ function UseTableRefund(props) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(8);
   const [showStatus, setShowStatus] = useState(false);
-  const [OpenVisualiser, setOpenVisualiser] = useState(false);
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = ( newPage) => {
     setPage(newPage);
   };
   const handleChangeRowsPerPage = (event) => {
@@ -65,9 +58,7 @@ function UseTableRefund(props) {
   const handeShow = () => {
     setShowStatus(!showStatus);
   };
-  const handelOpen = (name) => {
-    setOpenVisualiser(true);
-  };
+
   return (
     <TableContainer component={Paper} className={classes.tableContainer}>
       <Table className={classes.table} aria-label="simple table">
@@ -122,40 +113,6 @@ function UseTableRefund(props) {
               {refundDate}
             </TableCell>
 
-            {/* <div className={classes.tableHeaderCellStatus}>
-              {showStatus && (
-                <div
-                  className={classes.conatinerChekc}
-                  sx={{ bg: "background" }}
-                >
-                  <FormGroup>
-                    <FormControlLabel
-                      control={<Checkbox defaultChecked />}
-                      label="Actif"
-                      sx={{ bg: "background", color: "text" }}
-                    />
-                    <FormControlLabel
-                      control={<Checkbox defaultChecked />}
-                      label="Inactif"
-                      sx={{ bg: "background", color: "text" }}
-                    />
-                  </FormGroup>
-                </div>
-              )}
-              <TableCell
-                className={classes.statusNav}
-                sx={{ color: "btnBackground" }}
-              >
-                Status{" "}
-              </TableCell>
-              <div
-                className={classes.boxIcon}
-                onClick={handeShow}
-                sx={{ color: "btnBackground" }}
-              >
-                <ArrowDownward />
-              </div>
-            </div> */}
           </TableRow>
         </TableHead>
         <TableBody className={classes.BoxDataBody}>

@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 
 import { makeStyles } from "@material-ui/core/styles";
-import { alpha } from "@material-ui/core";
  const useStyles = makeStyles((theme) => ({
   appRoot: {
     width: "100%",
