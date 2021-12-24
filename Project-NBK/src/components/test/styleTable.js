@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   table: {
     Width: 650,
-    height: '60vh',
+    // height: '60vh',
   },
   tableContainer: {
     borderRadius: 5,

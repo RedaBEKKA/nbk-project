@@ -27,7 +27,7 @@ export default function Filters() {
         </Typography>
       </Box>
       {show && (
-        <Paper style={{ padding: 30 }}>
+        <Paper style={{ padding: 30, maxWidth: '97%', margin: '10px 10px' }}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Box flexWrap="none" display="flex" justifyContent="space-between">
               <TextField

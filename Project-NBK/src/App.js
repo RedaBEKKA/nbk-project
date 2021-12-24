@@ -6,9 +6,9 @@ import Cartes from '../src/pages/Cartes';
 import Documents from '../src/pages/Documents';
 import opérations from '../src/pages/opérations';
 import Utilisateurs from '../src/pages/Utilisateurs';
-import portefeuille from '../src/pages/portefeuille';
+// import portefeuille from '../src/pages/portefeuille';
 import Transferts from './pages/Transferts';
-import Wallet from 'pages/wallet';
+import portefeuille from 'pages/portefeuille';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import routes from './routes';
@@ -64,7 +64,7 @@ const App = () => {
         <Router>
           <Switch>
             <GuardedRoute exact auth={auth} path="/" component={Dashboard} />
-            <GuardedRoute exact auth={auth} path="/wallet" component={Wallet} />
+            {/* <GuardedRoute exact auth={auth} path="/wallet" component={Wallet} /> */}
             <GuardedRoute exact auth={auth} path="/Beneficiaires" component={Beneficiaires} />
             <GuardedRoute exact auth={auth} path="/Cartes" component={Cartes} />
             <GuardedRoute exact auth={auth} path="/Documents" component={Documents} />

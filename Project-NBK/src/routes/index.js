@@ -11,7 +11,7 @@ import AccountsIconActive from '../assets/AccountsIconActive.svg';
 import Dashboard from '../pages/Dashboard';
 import Utilisateurs from '../pages/Utilisateurs';
 import Operations from '../pages/opérations';
-import portefeuille from '../pages/portefeuille';
+// import portefeuille from '../pages/portefeuille';
 import mapActive from '../assets/street-map-svgrepo-active.svg';
 import map from '../assets/street-map-svgrepo.svg';
 import mathActive from '../assets/math-book-svgrepo-active.svg';
@@ -29,7 +29,7 @@ import Payouts from '../pages/WallettPages/Payouts';
 import PayinRefund from '../pages/WallettPages/PayinReund';
 import Transaction from '../pages/WallettPages/Transaction';
 import PayinReund from '../pages/WallettPages/PayinReund';
-import Wallet from 'pages/wallet';
+import portefeuille from 'pages/portefeuille';
 import Minus from '../assets/minus.svg';
 const routes = [
   {
@@ -39,13 +39,13 @@ const routes = [
     activeIcon: DashboardIconActive,
     component: Dashboard,
   },
-  {
-    label: 'Portefeuille',
-    path: '/wallet',
-    icon: DashboardIcon,
-    activeIcon: DashboardIconActive,
-    component: Wallet,
-  },
+  //   {
+  //     label: 'Portefeuille',
+  //     path: '/wallet',
+  //     icon: DashboardIcon,
+  //     activeIcon: DashboardIconActive,
+  //     component: Wallet,
+  //   },
   {
     label: 'Utilisateurs',
     path: '/Utilisateurs',

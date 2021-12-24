@@ -1,9 +1,10 @@
+/** @jsxImportSource theme-ui */
+
+import faker from 'faker';
 import React, { useState, useRef, useCallback, useEffect } from 'react';
+import useStyles from 'components/test/styleTable';
+import StatusFilter from './StatusFilter';
 import {
-  makeStyles,
-  FormGroup,
-  Checkbox,
-  FormControlLabel,
   Table,
   TableBody,
   TableCell,
@@ -11,20 +12,29 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Box,
-  Chip,
-  CircularProgress,
+  Avatar,
+  Grid,
   Typography,
+  TablePagination,
+  TableFooter,
+  Container,
+  FormGroup,
+  Checkbox,
+  FormControlLabel,
+  CircularProgress,
+  Box,
 } from '@material-ui/core';
 import { ArrowDownward } from '@material-ui/icons';
-import useStyles from 'components/test/styleTable';
-import StatusFilter from './StatusFilter';
+import CloseIcon from '@material-ui/icons/Close';
 
 function useOutsideAlerter(ref) {
   const [showStatus, setShowStatus] = useState(false);
-  const handeShow = useCallback(() => {
-    setShowStatus(!showStatus);
-  }, [showStatus]);
+  const openStatus = useCallback(() => {
+    setShowStatus(true);
+  }, []);
+  const closeStatus = useCallback(() => {
+    setShowStatus(false);
+  }, []);
 
   useEffect(() => {
     /**
@@ -33,7 +43,8 @@ function useOutsideAlerter(ref) {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
         console.log('clicked outside');
-        handeShow();
+
+        closeStatus();
       }
     }
 
@@ -43,60 +54,86 @@ function useOutsideAlerter(ref) {
       // Unbind the event listener on clean up
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [ref, handeShow]);
+  }, [ref, closeStatus]);
 
-  return { handeShow, showStatus };
+  return { closeStatus, openStatus, showStatus };
 }
 
-export default function BasicTable({ loading, wallets }) {
+function MTable({ handelShow, loading, wallets }) {
   const classes = useStyles();
   const wrapperRef = useRef(null);
-  const { handeShow, showStatus } = useOutsideAlerter(wrapperRef);
+  const { closeStatus, openStatus, showStatus } = useOutsideAlerter(wrapperRef);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(8);
+  const [OpenVisualiser, setOpenVisualiser] = useState(false);
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
+  const handelOpen = (name) => {
+    setOpenVisualiser(true);
+  };
   return (
-    <TableContainer component={Paper} style={{ marginTop: 20 }}>
+    <TableContainer component={Paper} className={classes.tableContainer}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              id
-            </TableCell>
+              id{' '}
+            </TableCell>{' '}
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              type id
-            </TableCell>
+              type id{' '}
+            </TableCell>{' '}
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              user id
-            </TableCell>
+              user id{' '}
+            </TableCell>{' '}
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              pay in count
-            </TableCell>
+              pay in count{' '}
+            </TableCell>{' '}
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              pay out count
-            </TableCell>
+              pay out count{' '}
+            </TableCell>{' '}
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              currency
+              currency{' '}
             </TableCell>
-
             <div className={classes.tableHeaderCellStatus}>
               {showStatus && (
                 <div ref={wrapperRef} className={classes.conatinerChekc} sx={{ bg: 'background' }}>
                   <StatusFilter></StatusFilter>
                 </div>
               )}
-              <TableCell className={classes.statusNav} sx={{ color: 'btnBackground' }}>
+              <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
                 Status{' '}
               </TableCell>
-              <div className={classes.boxIcon} onClick={handeShow} sx={{ color: 'btnBackground' }}>
-                <ArrowDownward />
-              </div>
+              {!showStatus && (
+                <div
+                  className={classes.boxIcon}
+                  onClick={openStatus}
+                  sx={{ color: 'btnBackground' }}
+                >
+                  <ArrowDownward />
+                </div>
+              )}
+              {showStatus && (
+                <div
+                  className={classes.boxIcon}
+                  onClick={closeStatus}
+                  sx={{ color: 'btnBackground' }}
+                >
+                  <CloseIcon />
+                </div>
+              )}
             </div>
-            {/* <TableCell align="right">statut</TableCell> */}
           </TableRow>
         </TableHead>
         {!loading && (
           <TableBody>
             {wallets?.map((row) => (
-              <TableRow key={row.walletId}>
+              <TableRow className={classes.rowTable} key={row.walletId} onClick={handelShow}>
                 <TableCell>{row.walletId}</TableCell>
                 <TableCell>{row.walletTypeId}</TableCell>
                 <TableCell>{row.userId}</TableCell>
@@ -139,6 +176,20 @@ export default function BasicTable({ loading, wallets }) {
             ))}
           </TableBody>
         )}
+
+        {/* <TableFooter className={classes.footer}>
+          <TablePagination
+            rowsPerPageOptions={[5, 8]}
+            component="div"
+            count={USERS.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+            anchor="right"
+            labelRowsPerPage={''}
+          />
+        </TableFooter> */}
       </Table>
       {loading && (
         <Box padding="100px" width="100%" display="flex" justifyContent="center">
@@ -148,3 +199,5 @@ export default function BasicTable({ loading, wallets }) {
     </TableContainer>
   );
 }
+
+export default MTable;
