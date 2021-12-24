@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import {
   makeStyles,
   FormGroup,
@@ -20,12 +20,38 @@ import { ArrowDownward } from '@material-ui/icons';
 import useStyles from 'components/test/styleTable';
 import StatusFilter from './StatusFilter';
 
+function useOutsideAlerter(ref) {
+  const [showStatus, setShowStatus] = useState(false);
+  const handeShow = useCallback(() => {
+    setShowStatus(!showStatus);
+  }, [showStatus]);
+
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        console.log('clicked outside');
+        handeShow();
+      }
+    }
+
+    // Bind the event listener
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref, handeShow]);
+
+  return { handeShow, showStatus };
+}
+
 export default function BasicTable({ loading, wallets }) {
   const classes = useStyles();
-  const [showStatus, setShowStatus] = useState(false);
-  const handeShow = () => {
-    setShowStatus(!showStatus);
-  };
+  const wrapperRef = useRef(null);
+  const { handeShow, showStatus } = useOutsideAlerter(wrapperRef);
 
   return (
     <TableContainer component={Paper} style={{ marginTop: 20 }}>
@@ -53,7 +79,7 @@ export default function BasicTable({ loading, wallets }) {
 
             <div className={classes.tableHeaderCellStatus}>
               {showStatus && (
-                <div className={classes.conatinerChekc} sx={{ bg: 'background' }}>
+                <div ref={wrapperRef} className={classes.conatinerChekc} sx={{ bg: 'background' }}>
                   <StatusFilter></StatusFilter>
                 </div>
               )}

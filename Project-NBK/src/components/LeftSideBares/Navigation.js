@@ -121,11 +121,6 @@ const Navigation = () => {
               </React.Fragment>
             );
           })}
-          <MenuItem
-            className={classes.navigationListItem}
-            label={'logout'}
-            onClick={() => dispatch({ type: 'LOGOUT' })}
-          />
         </List>
       </Drawer>
     </div>

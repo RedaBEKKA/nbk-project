@@ -50,6 +50,7 @@ const App = () => {
   //reset hub
   const dispatch = useDispatch();
   useEffect(() => {
+    if (auth?.accessToken) dispatch({ type: 'INITIAL_LOAD_REQUEST', payload: auth?.accessToken });
     dispatch({ type: 'GET_APP_TOKEN_REQUEST' });
     dispatch({ type: 'RESET_AUTH_STATE' });
   }, [dispatch]);
