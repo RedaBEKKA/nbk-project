@@ -20,7 +20,7 @@ import docs from '../assets/google-docs.svg';
 import docsActive from '../assets/google-docs-active.svg';
 import Beneficiaires from '../pages/Beneficiaires';
 import Transferts from '../pages/Transferts';
-import Cartes from '../pages/Cartes';
+import Cartes from 'pages/Cartes';
 import Documents from '../pages/Documents';
 import downArrow from '../assets/plus.svg';
 import opr from '../assets/field-svgrepo-com.svg';

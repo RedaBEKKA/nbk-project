@@ -1,0 +1,38 @@
+import * as type from '../types/cartesTypes';
+
+const initialState = {
+  cartes: [],
+  carte: null,
+  getAllLoading: false,
+  getSingleLoading: false,
+};
+
+export default function cartes(state = initialState, action) {
+  switch (action.type) {
+    case type.SET_CARTES:
+      return {
+        ...state,
+        cartes: action?.payload?.data?.cartes,
+        getAllLoading: false,
+      };
+    case type.SET_CARTE:
+      return {
+        ...state,
+        carte: action?.payload?.data,
+        getSingleLoading: false,
+      };
+    case type.GET_CARTES_LOADING:
+      return {
+        ...state,
+        getAllLoading: true,
+      };
+    case type.GET_SINGLE_CARTE_LOADING:
+      return {
+        ...state,
+        getSingleLoading: true,
+      };
+
+    default:
+      return state;
+  }
+}
