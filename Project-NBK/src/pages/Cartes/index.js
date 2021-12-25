@@ -11,8 +11,8 @@ import UseTitle from 'components/Body/HeaderTilteBody/UseTitle';
 import { Add, ArrowDown, ArrowDownward, CheckCircle, Close } from '@material-ui/icons';
 
 // import Filters from './components/Filters';
-// import Table from './components/Table';
-// import useGetWallets from './hooks/useGetWallets';
+import Table from './components/Table';
+import useGetCartes from './hooks/useGetCartes';
 const Cartes = () => {
   const [tableData, setTableData] = useState([]);
   const classes = useStyles();
@@ -21,7 +21,7 @@ const Cartes = () => {
   const [show, setShow] = useState(false);
   const [showFormUser, setShowFormUser] = useState(false);
   const [newUser, setNewUser] = useState(false);
-  //   const { wallets, getLoading } = useGetWallets();
+  const { cartes, getAllLoading } = useGetCartes();
   const handelShowClose = () => {
     setShow(false);
   };
@@ -84,8 +84,8 @@ const Cartes = () => {
         </div>
         <div className={classes.containerTable}>
           <Container maxWidth="xl">
-            {/* <Filters></Filters>
-            <Table loading={getLoading} wallets={wallets}></Table> */}
+            {/* <Filters></Filters> */}
+            <Table loading={getAllLoading} cartes={cartes}></Table>
             <h1>table and filter</h1>
           </Container>
         </div>

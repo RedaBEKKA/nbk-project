@@ -12,7 +12,7 @@ export default function cartes(state = initialState, action) {
     case type.SET_CARTES:
       return {
         ...state,
-        cartes: action?.payload?.data?.cartes,
+        cartes: action?.payload?.data?.cards,
         getAllLoading: false,
       };
     case type.SET_CARTE:
