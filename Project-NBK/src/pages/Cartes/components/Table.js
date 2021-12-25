@@ -26,42 +26,18 @@ import {
 } from '@material-ui/core';
 import { ArrowDownward } from '@material-ui/icons';
 import CloseIcon from '@material-ui/icons/Close';
-
-function useOutsideAlerter(ref) {
-  const [showStatus, setShowStatus] = useState(false);
-  const openStatus = useCallback(() => {
-    setShowStatus(true);
-  }, []);
-  const closeStatus = useCallback(() => {
-    setShowStatus(false);
-  }, []);
-
-  useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
-    function handleClickOutside(event) {
-      if (ref.current && !ref.current.contains(event.target)) {
-        console.log('clicked outside');
-
-        closeStatus();
-      }
-    }
-
-    // Bind the event listener
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [ref, closeStatus]);
-
-  return { closeStatus, openStatus, showStatus };
-}
+import { useDispatch } from 'react-redux';
+import * as types from 'redux/types/cartesTypes';
 
 function MTable({ handelShow, loading, cartes }) {
   const classes = useStyles();
   console.log('cartes table', cartes);
+  const dispatch = useDispatch();
+
+  const setCartInfo = (row) => {
+    dispatch({ type: types.SET_CART_INFO_REQUEST, payload: row });
+    handelShow();
+  };
 
   return (
     <TableContainer component={Paper} className={classes.tableContainer}>
@@ -69,29 +45,33 @@ function MTable({ handelShow, loading, cartes }) {
         <TableHead>
           <TableRow>
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              id{' '}
-            </TableCell>{' '}
+              id
+            </TableCell>
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              userid{' '}
-            </TableCell>{' '}
+              userid
+            </TableCell>
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              walletid{' '}
-            </TableCell>{' '}
+              walletid
+            </TableCell>
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              status code{' '}
-            </TableCell>{' '}
+              status code
+            </TableCell>
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              masked pan{' '}
-            </TableCell>{' '}
+              masked pan
+            </TableCell>
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
-              perms group{' '}
-            </TableCell>{' '}
+              perms group
+            </TableCell>
           </TableRow>
         </TableHead>
         {!loading && (
           <TableBody>
             {cartes?.map((row) => (
-              <TableRow className={classes.rowTable} key={row.walletId} onClick={handelShow}>
+              <TableRow
+                onClick={() => setCartInfo(row)}
+                className={classes.rowTable}
+                key={row.walletId}
+              >
                 <TableCell>{row.cardId}</TableCell>
                 <TableCell>{row.userId}</TableCell>
                 <TableCell>{row.walletId}</TableCell>

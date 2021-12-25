@@ -5,6 +5,7 @@ const initialState = {
   carte: null,
   getAllLoading: false,
   getSingleLoading: false,
+  info: null,
 };
 
 export default function cartes(state = initialState, action) {
@@ -20,6 +21,11 @@ export default function cartes(state = initialState, action) {
         ...state,
         carte: action?.payload?.data,
         getSingleLoading: false,
+      };
+    case type.SET_CART_INFO:
+      return {
+        ...state,
+        info: action?.payload,
       };
     case type.GET_CARTES_LOADING:
       return {

@@ -13,6 +13,12 @@ export default function useFilter() {
 
   const onSubmit = async (data) => {
     console.log(data);
+    for (const key in data) {
+      if (data[key] === '') {
+        delete data[key];
+      }
+    }
+    console.log(data);
     await dispatch({ type: type.FILTER_CARTES_REQUEST, payload: data });
   };
 

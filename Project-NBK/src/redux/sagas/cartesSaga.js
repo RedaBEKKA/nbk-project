@@ -12,6 +12,9 @@ function* handleGetAllCartes(values) {
   if (response) yield put({ type: type.SET_CARTES, payload: response.data });
   //   else yield put({ type: type.LOGIN_FAILED, payload: error.response });
 }
+function* handleSetCartInfo(values) {
+  yield put({ type: type.SET_CART_INFO, payload: values.payload });
+}
 function* handleGetFilterCartes(values) {
   console.log(values);
   yield put({ type: type.GET_CARTES_LOADING });
@@ -36,6 +39,7 @@ function* cartesSaga() {
   yield takeEvery(type.GET_CARTES_REQUEST, handleGetAllCartes);
   yield takeEvery(type.GET_SINGLE_CARTE_REQUEST, handleGetSingleCarte);
   yield takeEvery(type.FILTER_CARTES_REQUEST, handleGetFilterCartes);
+  yield takeEvery(type.SET_CART_INFO_REQUEST, handleSetCartInfo);
 }
 
 export default cartesSaga;
