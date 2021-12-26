@@ -1,18 +1,8 @@
-/* eslint-disable */ 
-
+/* eslint-disable */
 
 import React, { useState } from "react";
-import MaterialTable from "material-table";
 import Navigation from "../components/LeftSideBares/Navigation";
-import {
-  Container,
-  makeStyles,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@material-ui/core";
-import HeaderAppBare from "../components/Headers/HeaderAppBare";
-import { spacing } from "@mui/system";
+import { makeStyles} from "@material-ui/core";
 import ErrorPage from "./ErrorPage";
 
 const useStyles = makeStyles((theme) => ({
@@ -54,12 +44,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Beneficiaires = () => {
-  const [tableData, setTableData] = useState([]);
   const classes = useStyles();
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("xs"));
-
-
   return (
     <div className={classes.Container}>
       <div className="App">
@@ -70,7 +55,6 @@ const Beneficiaires = () => {
         <div className={classes.separator}></div>
 
         <ErrorPage />
-      
       </div>
     </div>
   );

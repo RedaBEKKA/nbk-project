@@ -1,7 +1,19 @@
+import jwtDecode from 'jwt-decode';
+
 import * as type from '../types/authTypes';
 
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { getAppToken, login, forgetPassword, confirmForgetPassword } from '../../api/auth';
+
+function* loadInitialActions(values) {
+  var dateNow = new Date();
+  console.log('initail load ');
+  console.log(values);
+
+  if (values?.payload && jwtDecode(values?.payload).exp * 1000 < dateNow.getTime()) {
+    yield put({ type: type.LOGOUT });
+  }
+}
 
 function* handleLogout() {
   yield put({ type: type.LOGOUT });
@@ -47,6 +59,7 @@ function* authSaga() {
   yield takeEvery(type.LOGOUT_REQUEST, handleLogout);
   yield takeEvery(type.LOGIN_REQUEST, handleLogin);
   yield takeEvery(type.GET_APP_TOKEN_REQUEST, handleGetAppToken);
+  yield takeEvery(type.INITIAL_LOAD_REQUEST, loadInitialActions);
 }
 
 export default authSaga;

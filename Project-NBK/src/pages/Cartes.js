@@ -45,17 +45,16 @@ function Cartes() {
 
   return (
     <div className={classes.Container}>
-    <div className="App">
-      <Navigation />
-    </div>
+      <div className="App">
+        <Navigation />
+      </div>
 
-    <div className={classes.diver}>
-      <div className={classes.separator}></div>
+      <div className={classes.diver}>
+        <div className={classes.separator}></div>
 
-      <ErrorPage />
-    
+        <ErrorPage />
+      </div>
     </div>
-  </div>
   );
 }
 

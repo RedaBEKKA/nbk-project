@@ -6,11 +6,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor:'#fff',
         display:'flex',
         flexDirection:'column',
-        
-
       },
-    
-   
       header: {
         display: "flex",
         width: "97%",

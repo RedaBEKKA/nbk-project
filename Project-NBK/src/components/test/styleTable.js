@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -113,6 +113,27 @@ const useStyles = makeStyles((theme) => ({
     width:"30%",
     backgroundColor:'#000'
   }
+}));
+
+export default useStyles;
+
+  footer: {
+    display: 'flex ',
+    justifyContent: 'flex-end',
+    width: '300%',
+  },
+  footerX: {
+    width: '300%',
+  },
+  BoxDataBody: {
+    width: '100%',
+  },
+  TextNodata: {
+    padding: '30px',
+    color: '#000',
+    fontSize: '26px',
+    fontWeight: '600',
+  },
 }));
 
 export default useStyles;

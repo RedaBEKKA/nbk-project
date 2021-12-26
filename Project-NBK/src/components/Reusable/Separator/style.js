@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     separator: {
-        marginTop: theme.spacing(4),
+        marginTop: theme.spacing(8),
       },
 
 }));
