@@ -5,6 +5,6 @@ import usersSaga from './usersSaga'
 import walletSaga from './walletSaga';
 
 export default function* rootSaga() {
-  yield all([authSaga(),registerSaga(),usersSaga()]);
-  yield all([authSaga(), walletSaga()]);
+  yield all([authSaga(),registerSaga(),usersSaga(),walletSaga()]);
+  // yield all([authSaga(), ]);
 }

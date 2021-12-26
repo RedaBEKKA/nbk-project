@@ -2,14 +2,8 @@
 
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import {
-  useMediaQuery,
-  useTheme,
-  Grid,
-} from "@material-ui/core";
-import {
-  Settings,
-} from "@material-ui/icons";
+import { useMediaQuery, useTheme, Grid, Button } from "@material-ui/core";
+import { ArrowDownward, Settings } from "@material-ui/icons";
 import FormCreateUsers from "../../components/Body/FormCreateUsers/FormCreateUsers";
 import Visualiser from "../../components/RightSideBares/UseVisualiser/Visualiser";
 import Navigation from "../../components/LeftSideBares/Navigation";
@@ -20,7 +14,8 @@ import useStyles from "./styles";
 import MTable from "../../components/test/table";
 import { useColorMode } from "@theme-ui/color-modes";
 import { useSelector, useDispatch } from "react-redux";
-
+import useGetUses from "./hooks/useGetUsers";
+import { USERS_REQUEST } from "../../redux/types/usersTypes";
 const Utilisateurs = () => {
   const [colorMode, setColorMode] = useColorMode();
   const [show, setShow] = useState(false);
@@ -32,7 +27,8 @@ const Utilisateurs = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
   const [showVisible, setshowVisible] = useState(false);
-
+  const { usersData } = useGetUses;
+  console.log(`users`, usersData);
   // functions
   const handelShow = () => {
     setShow(true);
@@ -49,6 +45,9 @@ const Utilisateurs = () => {
   const changeVisibble = () => {
     setshowVisible(!showVisible);
   };
+  const DipatchUser = ( )=>{
+    dispatch({ type: USERS_REQUEST })
+  }
   return (
     <Grid
       className={classes.Container}
@@ -78,11 +77,21 @@ const Utilisateurs = () => {
           />
         )}
         {!matches && <HeaderAppBare title={"Gestion des Utilisateurs"} />}
-     
+
         <div className={classes.containerTable}>
-          {!newUser && (<MTable handelShow={handelShow} showVisible={showVisible} />)}
+          {!newUser && (
+            <MTable handelShow={handelShow} showVisible={showVisible} />
+          )}
 
-
+          <Button
+            className={classes.btn}
+            variant="contained"
+            startIcon={<ArrowDownward />}
+            sx={{ bg: "btnBackground", color: "inverstText" }}
+            onClick={DipatchUser}
+          >
+            fetch
+          </Button>
 
           {newUser && <FormCreateUsers />}
           <div className={classes.Absoluter}>
@@ -112,7 +121,8 @@ const Utilisateurs = () => {
 
 export default Utilisateurs;
 
-{/* <div className={classes.buttonContainer}>
+{
+  /* <div className={classes.buttonContainer}>
 {!newUser ? (
   <div>
     <Tooltip title="exporter">
@@ -141,4 +151,5 @@ export default Utilisateurs;
 ) : (
   <div></div>
 )}
-</div> */}
+</div> */
+}

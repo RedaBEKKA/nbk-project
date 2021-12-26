@@ -28,7 +28,8 @@ function UseTitle(props) {
     handelOpen,
     showVisible,
     handelShowFilter,
-    changeVisibble
+    changeVisibble,
+    
   } = props;
   const classes = useStyles();
   return (
@@ -83,7 +84,6 @@ function UseTitle(props) {
             className={classes.iconV}
             elevation={3}
             onClick={handelShowFilter}
-            onClick={changeVisibble}
           />
           fermer les filtres
         </Box>
@@ -92,9 +92,9 @@ function UseTitle(props) {
           <VisibilityOff
             className={classes.iconV}
             elevation={3}
-            onClick={changeVisibble}
+            onClick={changeVisibble || handelShowFilter}
           />
-          afficher les filtres
+          afficher les filtress
         </Box>
       )}
     </Paper>

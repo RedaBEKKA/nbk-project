@@ -1,7 +1,7 @@
 import * as type from "../types/usersTypes";
 
 const initiaUsers = {
-  users:[],
+  users: [],
   loading: false,
   error: null,
   status: "",
@@ -13,7 +13,7 @@ export default function auth(state = initiaUsers, action) {
       console.log("USERS payload", action.payload);
       return {
         ...state,
-        users: action.payload,
+        users: action?.payload?.data?.users,
         error: null,
         loading: false,
       };
@@ -21,9 +21,7 @@ export default function auth(state = initiaUsers, action) {
       console.log("USERSFAILED payload", action.payload);
       return {
         ...state,
-        error:
-          action.payload.data?.statusDescription ||
-          action.payload.data?.statusDescription,
+        error: action.payload.data?.statusDescription,
         loading: false,
         status: action.payload.data?.status,
       };

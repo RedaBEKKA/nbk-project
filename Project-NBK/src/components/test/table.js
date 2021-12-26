@@ -22,6 +22,7 @@ import {
   FormGroup,
   Checkbox,
   FormControlLabel,
+  Button,
 } from "@material-ui/core";
 import {
   ArrowDownward,
@@ -78,6 +79,8 @@ function MTable({ handelShow, showVisible }) {
           <InputFilter  className={classes.box1}/>
           <InputFilterDate  className={classes.box1}/>
           <InputFilterSelect className={classes.box1} />
+
+          <Button variant="contained" >Apply</Button>
         </Paper>
       )}
 

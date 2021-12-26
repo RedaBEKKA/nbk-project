@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import * as type from '../../../redux/types/walletTypes';
+import * as type from '../../../redux/types/usersTypes';
 
 export default function useFilter() {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function useFilter() {
 
   const onSubmit = async (data) => {
     console.log(data);
-    await dispatch({ type: type.FILTER_WALLETS_REQUEST, payload: data });
+    await dispatch({ type: type.USERS_REQUEST, payload: data });
   };
 
   return {

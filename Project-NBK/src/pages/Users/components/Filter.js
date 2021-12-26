@@ -17,11 +17,6 @@ export default function Filters(props) {
   const { register, handleSubmit, watch, errors, isSubmitting, onSubmit } = useFilter();
   const { showVisible } = props
   
-  const [show, setShow] = useState(false);
-  const handleShow = () => {
-    setShow(!show);
-  };
-
 
   return (
     <>
@@ -35,31 +30,27 @@ export default function Filters(props) {
                 style={{ margin: 10 }}
                 fullWidth
                 select // tell TextField to render select
-                label="type id"
-                {...register('walletTypeId', { required: true })}
+                label="created Date"
+                {...register('createdDateFrom', { required: true })}
                 variant="outlined"
               >
-                <MenuItem value={9}>Electronic Money Wallet</MenuItem>
-                <MenuItem value={10}>Payment Account Wallet</MenuItem>
-                <MenuItem value={13}>Mirror Wallet</MenuItem>
-                <MenuItem value={14}>Electronic Money Card (Internal only)</MenuItem>
+                <MenuItem value={'createdDateFrom'}>createdDate </MenuItem>
+                <MenuItem value={'debut'}>date debut</MenuItem>
+                <MenuItem value={'fin'}>date fin</MenuItem>
+
               </TextField>
               <TextField
                 required
                 style={{ margin: 10 }}
                 fullWidth
                 select // tell TextField to render select
-                label="sortBy"
-                {...register('sortBy', { required: true })}
+                label="employeeType"
+                {...register('employeeType', { required: true })}
                 variant="outlined"
               >
-                <MenuItem value={'createdDate'}>createdDate</MenuItem>
-                <MenuItem value={'walletId'}>walletId</MenuItem>
-                <MenuItem value={'walletTypeId'}>walletTypeId</MenuItem>
+                <MenuItem value={'employeeType'}>employeeType</MenuItem>
                 <MenuItem value={'userId'}>userId</MenuItem>
-                <MenuItem value={'payinCount'}>payinCount</MenuItem>
-                <MenuItem value={'payoutCount'}>payoutCount</MenuItem>
-                <MenuItem value={'currency'}>currency</MenuItem>
+                <MenuItem value={'userTypeId'}>userTypeId</MenuItem>
               </TextField>
               <TextField
                 required
