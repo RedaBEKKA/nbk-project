@@ -82,14 +82,14 @@
 
 /** @jsxImportSource theme-ui */
 import React, { useState } from 'react';
-import Navigation from 'components/LeftSideBares/Navigation';
+import Navigation from '../../components/LeftSideBares/Navigation';
 import { makeStyles, useMediaQuery, useTheme, Button, Tooltip, Container } from '@material-ui/core';
-import HeaderAppBare from 'components/Headers/HeaderAppBare';
-import MTable from 'components/test/table';
-import Visualiser from 'components/RightSideBares/UseVisualiser/Visualiser';
-import useStyles from 'pages/styles/PortefeuilleStyle';
-import WalletForm from 'components/Reusable/WalletForm/WalletForm';
-import UseTitle from 'components/Body/HeaderTilteBody/UseTitle';
+import HeaderAppBare from '../../components/Headers/HeaderAppBare';
+import MTable from '../../components/test/table';
+import Visualiser from '../../components/RightSideBares/UseVisualiser/Visualiser';
+import useStyles from '../../pages/styles/PortefeuilleStyle';
+import WalletForm from '../../components/Reusable/WalletForm/WalletForm';
+import UseTitle from '../../components/Body/HeaderTilteBody/UseTitle';
 import { Add, ArrowDown, ArrowDownward, CheckCircle, Close } from '@material-ui/icons';
 
 import Filters from './components/Filters';

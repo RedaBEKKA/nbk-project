@@ -2,7 +2,7 @@
 
 import faker from 'faker';
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import useStyles from 'components/test/styleTable';
+import useStyles from '../../../components/test/styleTable';
 import StatusFilter from './StatusFilter';
 import {
   Table,

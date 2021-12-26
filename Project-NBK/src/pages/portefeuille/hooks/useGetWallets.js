@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as type from 'redux/types/walletTypes';
+import * as type from '../../../redux/types/walletTypes';
 
 export default function useGetWallets() {
   const dispatch = useDispatch();
