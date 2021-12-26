@@ -112,11 +112,7 @@ const useStyles = makeStyles((theme) => ({
   box1:{
     width:"30%",
     backgroundColor:'#000'
-  }
-}));
-
-export default useStyles;
-
+  },
   footer: {
     display: 'flex ',
     justifyContent: 'flex-end',
@@ -135,5 +131,8 @@ export default useStyles;
     fontWeight: '600',
   },
 }));
+
+
+  
 
 export default useStyles;

@@ -1,10 +1,7 @@
 /* eslint-disable */
 
 /** @jsxImportSource theme-ui */
-import React, { useState } from 'react';
-import Navigation from '../components/LeftSideBares/Navigation';
-import { useMediaQuery, useTheme, Button, Grid, Paper, Tooltip } from '@material-ui/core';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navigation from "../components/LeftSideBares/Navigation";
 import {
   useMediaQuery,
@@ -20,7 +17,6 @@ import MTable from '../components/test/table';
 import { useColorMode } from '@theme-ui/color-modes';
 import Visualiser from '../components/RightSideBares/UseVisualiser/Visualiser';
 import useStyles from './styles/UsersStyle';
-// import { ColorMode, ThemeProvider, useColorMode } from 'theme-ui'
 import {
   Add,
   ArrowDownward,
@@ -29,6 +25,7 @@ import {
   KeyboardReturn,
   Settings,
 } from '@material-ui/icons';
+import  {useSelector ,useDispatch} from "react-redux"
 import FormCreateUsers from '../components/Body/FormCreateUsers/FormCreateUsers';
 import Separator from '../components/Reusable/Separator/Separator';
 import UseTitle from '../components/Body/HeaderTilteBody/UseTitle';
@@ -39,6 +36,7 @@ const Utilisateurs = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const classes = useStyles();
+  
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
   const [showVisible, setshowVisible] = useState(false);

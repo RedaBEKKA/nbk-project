@@ -8,7 +8,7 @@ import opérations from '../src/pages/opérations';
 import Utilisateurs from '../src/pages/Utilisateurs';
 // import portefeuille from '../src/pages/portefeuille';
 import Transferts from './pages/Transferts';
-import portefeuille from 'pages/portefeuille';
+import portefeuille from './pages/portefeuille/index';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { useStyles } from './styles';

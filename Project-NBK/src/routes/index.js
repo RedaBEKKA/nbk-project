@@ -29,7 +29,7 @@ import Payouts from '../pages/WallettPages/Payouts';
 import PayinRefund from '../pages/WallettPages/PayinReund';
 import Transaction from '../pages/WallettPages/Transaction';
 import PayinReund from '../pages/WallettPages/PayinReund';
-import portefeuille from 'pages/portefeuille';
+import portefeuille from '../pages/portefeuille';
 import Minus from '../assets/minus.svg';
 const routes = [
   {
@@ -98,8 +98,8 @@ const routes = [
   {
     label: "Se Déconnecter",
     path: "/login",
-    icon: SignOutIcon,
-    activeIcon: SignOutIcon,
+    icon: SettingsIcon,
+    activeIcon: SettingsIcon,
     label: 'Operations',
     path: null,
     icon: SettingsIcon,
