@@ -1,7 +1,7 @@
 import * as type from '../types/walletTypes';
 
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { getAllWallets, getFilteredWallets } from 'api/wallet';
+import { getAllWallets, getFilteredWallets } from '../../api/wallet';
 
 function* handleGetAllWallets(values) {
   console.log(values);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FormGroup, Checkbox, FormControlLabel } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-import * as types from 'redux/types/walletTypes';
+import * as types from '../../../redux/types/walletTypes';
 
 export default function StatusFilter() {
   const dispatch = useDispatch();

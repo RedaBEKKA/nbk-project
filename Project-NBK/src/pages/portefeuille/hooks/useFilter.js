@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import * as type from 'redux/types/walletTypes';
+import * as type from '../../../redux/types/walletTypes';
 
 export default function useFilter() {
   const dispatch = useDispatch();
