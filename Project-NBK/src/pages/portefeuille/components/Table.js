@@ -80,7 +80,7 @@ function MTable({ handelShow, loading, wallets }) {
   return (
     <TableContainer component={Paper} className={classes.tableContainer}>
       <Table className={classes.table} aria-label="simple table">
-        <TableHead >
+        <TableHead sx={{ color: 'btnBackground' , bg:"#000" }} >
           <TableRow >
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
               id{' '}

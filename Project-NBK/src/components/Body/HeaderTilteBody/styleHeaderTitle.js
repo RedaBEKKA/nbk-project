@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     padding: "0px 15px",
     background: "none",
+    color:'#fff'
   },
   boC: {
     width: "15%",

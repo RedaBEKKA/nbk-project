@@ -13,20 +13,18 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     padding: "5px",
+
   },
   tableHeaderCell: {
     fontWeight: "bold",
-    // backgroundColor: "#14d",
+    backgroundColor: "#000",
     color: theme.palette.getContrastText(theme.palette.primary.dark),
     border: "none",
-    padding: "0px 25px",
-    overflow: "none",
-    boxSizing: "border-box",
-    outline: "hidden",
+
   },
   tableHeaderCellStatus: {
     fontWeight: "bold",
-    // backgroundColor: "#000",
+    backgroundColor: "#000",
     color: theme.palette.getContrastText(theme.palette.primary.dark),
     padding: "0px 0px",
     display: "flex",

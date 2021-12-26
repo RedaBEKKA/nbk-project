@@ -104,6 +104,8 @@ const Portefeuille = () => {
   const [showFormUser, setShowFormUser] = useState(false);
   const [newUser, setNewUser] = useState(false);
   const { wallets, getLoading } = useGetWallets();
+
+  const [showFilter,showSetFilter] = useState(false)
   const handelShowClose = () => {
     setShow(false);
   };
@@ -119,54 +121,36 @@ const Portefeuille = () => {
     setShowFormUser(true);
     setNewUser(true);
   };
+  const handelShowFilters = () =>{
+    showSetFilter(!showFilter)
+  }
   return (
     <div className={classes.Container}>
       <div className="App">
         <Navigation />
       </div>
+      {!matches && <HeaderAppBare  />}
+
 
       <div className={classes.diver}>
         <div className={classes.separator}></div>
-        {!newUser && <UseTitle title={'Gestion des Portefeuille'} />}
+        {!newUser && <UseTitle title={'Gestion des Portefeuille'} 
+        handelShowFilter={handelShowFilters}
+        
+        />}
         {newUser && (
           <UseTitle
             title={'Ajouter des Portefeuille'}
             newUser={newUser}
             CreateUserSHowClose={handelClose}
+            handelOpen={handelOpen}
           />
         )}
 
-        {!matches && <HeaderAppBare title={'Gestion des Portefeuille'} />}
-        <div className={classes.buttonContainer}>
-          <Tooltip title="exporter">
-            <Button
-              className={classes.btn}
-              variant="contained"
-              sx={{
-                bg: 'btnBackground',
-                color: 'inverstText',
-                marginRight: 15,
-              }}
-              startIcon={<ArrowDownward />}
-            >
-              exporter
-            </Button>
-          </Tooltip>
-
-          <Tooltip title="Ajouter">
-            <Button
-              variant="contained"
-              sx={{ bg: 'btnBackground', color: 'inverstText' }}
-              onClick={handelOpen}
-              startIcon={<Add />}
-            >
-              Ajouter
-            </Button>
-          </Tooltip>
-        </div>
+ 
         <div className={classes.containerTable}>
           <Container maxWidth="xl">
-            <Filters></Filters>
+            <Filters showVisible={showFilter}  > </Filters>
             <Table loading={getLoading} wallets={wallets}></Table>
           </Container>
         </div>
