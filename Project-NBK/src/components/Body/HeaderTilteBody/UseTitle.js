@@ -13,12 +13,13 @@ import React from "react";
 import useStyles from "./styleHeaderTitle";
 
 function UseTitle(props) {
-
-     {/* <Box my="20px" display="flex" justifyContent="flex-end">
+  {
+    /* <Box my="20px" display="flex" justifyContent="flex-end">
         <Typography onClick={handleShow} style={{ color: 'green', cursor: 'pointer' }}>
           {show ? 'masquer' : 'afficher'} les filtres
         </Typography>
-      </Box> */}
+      </Box> */
+  }
   const {
     title,
     newUser,
@@ -26,8 +27,8 @@ function UseTitle(props) {
     CreateUserSHowOpen,
     handelOpen,
     showVisible,
-    changeVisibble,
-    handelShowFilter
+    handelShowFilter,
+    changeVisibble
   } = props;
   const classes = useStyles();
   return (
@@ -77,14 +78,23 @@ function UseTitle(props) {
         </div>
       </Paper>
       {showVisible ? (
-        <Box className={classes.boC}  >
-          <Visibility className={classes.iconV}  elevation={3} onClick={handelShowFilter}/>
+        <Box className={classes.boC}>
+          <Visibility
+            className={classes.iconV}
+            elevation={3}
+            onClick={handelShowFilter}
+            onClick={changeVisibble}
+          />
           fermer les filtres
         </Box>
       ) : (
-        <Box className={classes.boC} >
-          <VisibilityOff className={classes.iconV} elevation={3} onClick={handelShowFilter} />
-           afficher les filtres
+        <Box className={classes.boC}>
+          <VisibilityOff
+            className={classes.iconV}
+            elevation={3}
+            onClick={changeVisibble}
+          />
+          afficher les filtres
         </Box>
       )}
     </Paper>
