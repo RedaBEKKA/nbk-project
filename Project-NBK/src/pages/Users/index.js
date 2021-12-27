@@ -82,8 +82,8 @@ const Utilisateurs = () => {
           )} */}
           <div className={classes.containerTable}>
             <Container maxWidth="xl">
-              <Filters changeVisibble={changeVisibble} showVisible={showVisible} > </Filters>
-              <Table loadingUsers={loadingUsers} usersdata={usersdata}></Table>
+      {   !newUser &&     <Filters changeVisibble={changeVisibble} showVisible={showVisible} > </Filters>}
+          { !newUser &&   <Table loadingUsers={loadingUsers} usersdata={usersdata}></Table>}
             </Container>
           </div>
 
