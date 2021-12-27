@@ -22,6 +22,7 @@ export default function StatusFilter() {
       [e.target.value]: e.target.checked,
     }));
     if (e.target.checked) {
+      console.log(`object`, e.target.value)
       dispatch({ type: types.USERS_REQUEST, payload: { userStatus: e.target.value } });
     }
   };

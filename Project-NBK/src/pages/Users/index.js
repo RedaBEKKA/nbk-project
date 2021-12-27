@@ -2,8 +2,13 @@
 
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import { useMediaQuery, useTheme, Grid, Button, Container } from "@material-ui/core";
-import { ArrowDownward, Settings } from "@material-ui/icons";
+import {
+  useMediaQuery,
+  useTheme,
+  Grid,
+  Container,
+} from "@material-ui/core";
+import { Settings } from "@material-ui/icons";
 import FormCreateUsers from "../../components/Body/FormCreateUsers/FormCreateUsers";
 import Visualiser from "../../components/RightSideBares/UseVisualiser/Visualiser";
 import Navigation from "../../components/LeftSideBares/Navigation";
@@ -14,17 +19,14 @@ import useStyles from "./styles";
 import { useColorMode } from "@theme-ui/color-modes";
 import { useSelector, useDispatch } from "react-redux";
 import useGetUses from "./hooks/useGetUsers";
-import { USERS_REQUEST } from "../../redux/types/usersTypes";
 import Filters from "./components/Filter";
-import Table from './components/table'
+import Table from "./components/table";
 const Utilisateurs = () => {
   const [colorMode, setColorMode] = useColorMode();
   const [show, setShow] = useState(false);
   const [newUser, setNewUser] = useState(false);
-  const users = useSelector((state) => state.users);
-  const dispatch = useDispatch();
   const classes = useStyles();
-  const { usersdata , loadingUsers  } = useGetUses();
+  const { usersdata, loadingUsers } = useGetUses();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
   const [showVisible, setshowVisible] = useState(false);
@@ -77,13 +79,22 @@ const Utilisateurs = () => {
         {!matches && <HeaderAppBare title={"Gestion des Utilisateurs"} />}
         {/* table Users */}
         <div className={classes.containerTable}>
-          {/* {!newUser && (
-            <MTable handelShow={handelShow} showVisible={showVisible} />
-          )} */}
           <div className={classes.containerTable}>
             <Container maxWidth="xl">
-      {   !newUser &&     <Filters changeVisibble={changeVisibble} showVisible={showVisible} > </Filters>}
-          { !newUser &&   <Table loadingUsers={loadingUsers} usersdata={usersdata}></Table>}
+              {!newUser && (
+                <Filters
+                  changeVisibble={changeVisibble}
+                  showVisible={showVisible}
+                >
+                  {" "}
+                </Filters>
+              )}
+              {!newUser && (
+                <Table
+                  loadingUsers={loadingUsers}
+                  usersdata={usersdata}
+                ></Table>
+              )}
             </Container>
           </div>
 
