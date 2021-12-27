@@ -7,8 +7,8 @@ function* handleGetAllWallets(values) {
   yield put({ type: type.GET_WALLETS_LOADING });
 
   const { response, error } = yield call(getAllWallets, values.payload);
-  console.log('response', response);
-  console.log('error', error);
+  console.log('response handleGetAllWallets', response);
+  console.log('error handleGetAllWallets', error);
   if (response) yield put({ type: type.SET_WALLETS, payload: response.data });
   //   else yield put({ type: type.LOGIN_FAILED, payload: error.response });
 }
@@ -17,8 +17,8 @@ function* handleGetFilterWallets(values) {
   yield put({ type: type.GET_WALLETS_LOADING });
 
   const { response, error } = yield call(getFilteredWallets, values.payload);
-  console.log('response', response);
-  console.log('error', error);
+  console.log('response handleGetFilterWallets', response);
+  console.log('error handleGetFilterWallets', error);
   if (response) yield put({ type: type.SET_WALLETS, payload: response.data });
   //   else yield put({ type: type.LOGIN_FAILED, payload: error.response });
 }

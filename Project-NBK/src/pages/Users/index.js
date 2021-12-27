@@ -2,7 +2,7 @@
 
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import { useMediaQuery, useTheme, Grid, Button } from "@material-ui/core";
+import { useMediaQuery, useTheme, Grid, Button, Container } from "@material-ui/core";
 import { ArrowDownward, Settings } from "@material-ui/icons";
 import FormCreateUsers from "../../components/Body/FormCreateUsers/FormCreateUsers";
 import Visualiser from "../../components/RightSideBares/UseVisualiser/Visualiser";
@@ -11,11 +11,12 @@ import HeaderAppBare from "../../components/Headers/HeaderAppBare";
 import Separator from "../../components/Reusable/Separator/Separator";
 import UseTitle from "../../components/Body/HeaderTilteBody/UseTitle";
 import useStyles from "./styles";
-import MTable from "../../components/test/table";
 import { useColorMode } from "@theme-ui/color-modes";
 import { useSelector, useDispatch } from "react-redux";
 import useGetUses from "./hooks/useGetUsers";
 import { USERS_REQUEST } from "../../redux/types/usersTypes";
+import Filters from "./components/Filter";
+import Table from './components/table'
 const Utilisateurs = () => {
   const [colorMode, setColorMode] = useColorMode();
   const [show, setShow] = useState(false);
@@ -23,12 +24,11 @@ const Utilisateurs = () => {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const classes = useStyles();
-
+  const { usersdata , loadingUsers  } = useGetUses();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("xs"));
   const [showVisible, setshowVisible] = useState(false);
-  const { usersData } = useGetUses;
-  console.log(`users`, usersData);
+
   // functions
   const handelShow = () => {
     setShow(true);
@@ -45,9 +45,7 @@ const Utilisateurs = () => {
   const changeVisibble = () => {
     setshowVisible(!showVisible);
   };
-  const DipatchUser = ( )=>{
-    dispatch({ type: USERS_REQUEST })
-  }
+
   return (
     <Grid
       className={classes.Container}
@@ -77,21 +75,17 @@ const Utilisateurs = () => {
           />
         )}
         {!matches && <HeaderAppBare title={"Gestion des Utilisateurs"} />}
-
+        {/* table Users */}
         <div className={classes.containerTable}>
-          {!newUser && (
+          {/* {!newUser && (
             <MTable handelShow={handelShow} showVisible={showVisible} />
-          )}
-
-          <Button
-            className={classes.btn}
-            variant="contained"
-            startIcon={<ArrowDownward />}
-            sx={{ bg: "btnBackground", color: "inverstText" }}
-            onClick={DipatchUser}
-          >
-            fetch
-          </Button>
+          )} */}
+          <div className={classes.containerTable}>
+            <Container maxWidth="xl">
+              <Filters changeVisibble={changeVisibble} showVisible={showVisible} > </Filters>
+              <Table loadingUsers={loadingUsers} usersdata={usersdata}></Table>
+            </Container>
+          </div>
 
           {newUser && <FormCreateUsers />}
           <div className={classes.Absoluter}>

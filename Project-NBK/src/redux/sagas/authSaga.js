@@ -20,7 +20,7 @@ function* handleLogout() {
 }
 
 function* handleLogin(values) {
-  console.log("values",values);
+  // console.log("values",values);
   yield put({ type: type.AUTH_LOADING });
   const { response, error } = yield call(login, values.payload);
   if (response) yield put({ type: type.LOGIN, payload: response.data });

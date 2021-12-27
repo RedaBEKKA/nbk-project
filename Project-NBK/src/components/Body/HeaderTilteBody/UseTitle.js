@@ -83,7 +83,7 @@ function UseTitle(props) {
           <Visibility
             className={classes.iconV}
             elevation={3}
-            onClick={handelShowFilter}
+            onClick={changeVisibble || handelShowFilter}
           />
           fermer les filtres
         </Box>
@@ -94,7 +94,7 @@ function UseTitle(props) {
             elevation={3}
             onClick={changeVisibble || handelShowFilter}
           />
-          afficher les filtress
+          afficher les filtres
         </Box>
       )}
     </Paper>

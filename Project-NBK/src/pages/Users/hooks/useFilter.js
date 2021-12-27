@@ -13,8 +13,8 @@ export default function useFilter() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
-    await dispatch({ type: type.USERS_REQUEST, payload: data });
+    console.log("data from onSubmit",data);
+    await dispatch({ type: type.FILTER_USERS_REQUEST, payload: data });
   };
 
   return {

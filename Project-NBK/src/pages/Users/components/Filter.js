@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -10,47 +10,48 @@ import {
   InputLabel,
   MenuItem,
   Paper,
-} from '@material-ui/core';
-import useFilter from '../hooks/useFilter';
+} from "@material-ui/core";
+import useFilter from "../hooks/useFilter";
 
 export default function Filters(props) {
-  const { register, handleSubmit, watch, errors, isSubmitting, onSubmit } = useFilter();
-  const { showVisible } = props
-  
+  const { register, handleSubmit, watch, errors, isSubmitting, onSubmit } =
+    useFilter();
+  const { showVisible } = props;
 
   return (
     <>
-   
       {showVisible && (
-        <Paper style={{ padding: 30, maxWidth: '97%', margin: '10px 10px' }}>
+        <Paper style={{ padding: 30, maxWidth: "97%", margin: "10px 10px" }}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Box flexWrap="none" display="flex" justifyContent="space-between">
-              <TextField
+              {/* <TextField
                 required
                 style={{ margin: 10 }}
                 fullWidth
                 select // tell TextField to render select
-                label="created Date"
+                label="Employee Type"
                 {...register('createdDateFrom', { required: true })}
                 variant="outlined"
               >
-                <MenuItem value={'createdDateFrom'}>createdDate </MenuItem>
-                <MenuItem value={'debut'}>date debut</MenuItem>
-                <MenuItem value={'fin'}>date fin</MenuItem>
+                <MenuItem value={0}>Employee </MenuItem>
+                <MenuItem value={1}>Shareholder</MenuItem>
+                <MenuItem value={2}>Leader</MenuItem>
 
-              </TextField>
+              </TextField> */}
               <TextField
                 required
                 style={{ margin: 10 }}
                 fullWidth
                 select // tell TextField to render select
-                label="employeeType"
-                {...register('employeeType', { required: true })}
+                label="SortBy"
+                {...register("sortBy", { required: true })}
                 variant="outlined"
               >
-                <MenuItem value={'employeeType'}>employeeType</MenuItem>
-                <MenuItem value={'userId'}>userId</MenuItem>
-                <MenuItem value={'userTypeId'}>userTypeId</MenuItem>
+                <MenuItem value={"createdDateFrom"}>createdDateFrom</MenuItem>
+                <MenuItem value={"userId"}>userId</MenuItem>
+                <MenuItem value={"userTypeId"}>userTypeId</MenuItem>
+                <MenuItem value={"updatedDateTo"}>updatedDateTo</MenuItem>
+                <MenuItem value={"updatedDateFrom"}>updatedDateFrom</MenuItem>
               </TextField>
               <TextField
                 required
@@ -58,11 +59,11 @@ export default function Filters(props) {
                 fullWidth
                 select // tell TextField to render select
                 label="sortOrder"
-                {...register('sortOrder', { required: true })}
+                {...register("sortOrder", { required: true })}
                 variant="outlined"
               >
-                <MenuItem value={'DESC'}>DESC</MenuItem>
-                <MenuItem value={'ASC'}>ASC</MenuItem>
+                <MenuItem value={"DESC"}>DESC</MenuItem>
+                <MenuItem value={"ASC"}>ASC</MenuItem>
               </TextField>
             </Box>
 
