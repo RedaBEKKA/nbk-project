@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
+import { useDispatch } from "react-redux";
 
 export function useForm(initialFValues, validateOnChange = false, validate) {
   const [values, setValues] = useState(initialFValues);
   const [errors, setErrors] = useState({});
+  
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -14,7 +17,10 @@ export function useForm(initialFValues, validateOnChange = false, validate) {
     // if (validateOnChange)
     //     validate({ [name]: value })
   };
-
+  const onSubmit = async (data) => {
+    console.log(data);
+    await dispatch({ type: 'REGISTER_REQUEST', payload: data });
+  };
   const resetForm = () => {
     setValues(initialFValues);
     setErrors({});
@@ -27,6 +33,7 @@ export function useForm(initialFValues, validateOnChange = false, validate) {
     setErrors,
     handleInputChange,
     resetForm,
+    onSubmit
   };
 }
 

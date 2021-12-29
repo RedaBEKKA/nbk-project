@@ -20,13 +20,12 @@ function* handleLogout() {
 }
 
 function* handleLogin(values) {
-  console.log(values);
+  // console.log("values",values);
   yield put({ type: type.AUTH_LOADING });
   const { response, error } = yield call(login, values.payload);
   if (response) yield put({ type: type.LOGIN, payload: response.data });
   else yield put({ type: type.LOGIN_FAILED, payload: error.response });
 }
-
 function* handleForgetPassword(values) {
   yield put({ type: type.AUTH_LOADING });
   const { response, error } = yield call(forgetPassword, values.payload.email);
@@ -47,6 +46,7 @@ function* handleGetAppToken() {
   yield put({ type: type.AUTH_LOADING });
   try {
     const res = yield getAppToken();
+    
     yield put({ type: type.SET_APP_TOKEN, payload: res.response });
   } catch (error) {
     console.log(error);

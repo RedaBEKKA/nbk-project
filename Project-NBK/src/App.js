@@ -5,17 +5,13 @@ import Beneficiaires from '../src/pages/Beneficiaires';
 import Cartes from '../src/pages/Cartes';
 import Documents from '../src/pages/Documents';
 import opérations from '../src/pages/opérations';
-import Utilisateurs from '../src/pages/Utilisateurs';
 import portefeuille from '../src/pages/portefeuille/index';
 import Transferts from './pages/Transferts';
-// import portefeuille from 'pages/portefeuille';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { useStyles } from './styles';
-import { ColorMode, ThemeProvider, useColorMode } from 'theme-ui';
-// import { createTheme, ThemeProvider } from '@material-ui/core';
-import { green } from '@material-ui/core/colors';
-
+import { ThemeProvider } from 'theme-ui';
+import Utilisateurs from "../src/pages/Users/index"
 import { useDispatch, useSelector } from 'react-redux';
 import login from './pages/auth/Login';
 import ResetPassword from './pages/auth/ResetPassword';

@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import faker from 'faker';
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import useStyles from '../../../components/test/styleTable';
 import StatusFilter from './StatusFilter';
@@ -12,15 +11,7 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Avatar,
-  Grid,
   Typography,
-  TablePagination,
-  TableFooter,
-  Container,
-  FormGroup,
-  Checkbox,
-  FormControlLabel,
   CircularProgress,
   Box,
 } from '@material-ui/core';
@@ -73,15 +64,14 @@ function MTable({ handelShow, loading, wallets }) {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-
   const handelOpen = (name) => {
     setOpenVisualiser(true);
   };
   return (
     <TableContainer component={Paper} className={classes.tableContainer}>
       <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
+        <TableHead sx={{ color: 'btnBackground' , bg:"#000" }} >
+          <TableRow >
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
               id{' '}
             </TableCell>{' '}
@@ -177,6 +167,19 @@ function MTable({ handelShow, loading, wallets }) {
           </TableBody>
         )}
 
+      </Table>
+      {loading && (
+        <Box padding="100px" width="100%" display="flex" justifyContent="center">
+          <CircularProgress color="primary"></CircularProgress>
+        </Box>
+      )}
+    </TableContainer>
+  );
+}
+
+export default MTable;
+
+
         {/* <TableFooter className={classes.footer}>
           <TablePagination
             rowsPerPageOptions={[5, 8]}
@@ -190,14 +193,3 @@ function MTable({ handelShow, loading, wallets }) {
             labelRowsPerPage={''}
           />
         </TableFooter> */}
-      </Table>
-      {loading && (
-        <Box padding="100px" width="100%" display="flex" justifyContent="center">
-          <CircularProgress color="primary"></CircularProgress>
-        </Box>
-      )}
-    </TableContainer>
-  );
-}
-
-export default MTable;

@@ -1,8 +1,6 @@
 import axios from 'axios';
-import store from '../redux/store';
 
 const baseURL = process.env.REACT_APP_API;
-
 const axiosInstance = axios.create({
   baseURL,
   headers: {
@@ -20,7 +18,7 @@ axiosInstance.interceptors.request.use(function (config) {
   let token =
     JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth)?.accessToken ||
     JSON.parse(JSON.parse(window.localStorage.getItem('persist:root')).auth)?.appToken;
-  config.headers.Authorization = `Bearer ${token}`;
+    config.headers.Authorization = `Bearer ${token}`;
 
   return config;
 });

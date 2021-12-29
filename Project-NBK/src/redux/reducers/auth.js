@@ -36,7 +36,7 @@ export default function auth(state = initialState, action) {
         ResetStatus: null,
       };
     case type.SET_APP_TOKEN:
-      console.log('set app token payload', action.payload);
+      // console.log('set app token payload', action.payload);
       return {
         ...state,
         appToken: action.payload.data.data.AccessToken,

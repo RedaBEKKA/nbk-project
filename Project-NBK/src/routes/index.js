@@ -9,9 +9,8 @@ import SettingsIconActive from '../assets/SettingsIconActive.svg';
 import AccountsIcon from '../assets/AccountsIcon.svg';
 import AccountsIconActive from '../assets/AccountsIconActive.svg';
 import Dashboard from '../pages/Dashboard';
-import Utilisateurs from '../pages/Utilisateurs';
+import Utilisateurs from '../pages/Users/index';
 import Operations from '../pages/opérations';
-// import portefeuille from '../pages/portefeuille';
 import mapActive from '../assets/street-map-svgrepo-active.svg';
 import map from '../assets/street-map-svgrepo.svg';
 import mathActive from '../assets/math-book-svgrepo-active.svg';
@@ -96,6 +95,10 @@ const routes = [
     component: Cartes,
   },
   {
+    label: "Se Déconnecter",
+    path: "/login",
+    icon: SettingsIcon,
+    activeIcon: SettingsIcon,
     label: 'Operations',
     path: null,
     icon: SettingsIcon,

@@ -14,9 +14,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <React.StrictMode>
           <App />
-      </React.StrictMode>
     </PersistGate>
   </Provider>,
   document.getElementById("root")
