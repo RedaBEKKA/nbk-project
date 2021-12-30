@@ -2,7 +2,7 @@
 
 import Dashboard from '../src/pages/Dashboard';
 import Beneficiaires from '../src/pages/Beneficiaires';
-import Cartes from '../src/pages/Cartes';
+import Cartes from 'pages/Cartes';
 import Documents from '../src/pages/Documents';
 import opérations from '../src/pages/opérations';
 import portefeuille from '../src/pages/portefeuille/index';
