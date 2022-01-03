@@ -11,7 +11,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { useStyles } from './styles';
 import { ThemeProvider } from 'theme-ui';
-import Utilisateurs from "../src/pages/Users/index"
+import Utilisateurs from '../src/pages/Users/index';
 import { useDispatch, useSelector } from 'react-redux';
 import login from './pages/auth/Login';
 import ResetPassword from './pages/auth/ResetPassword';
