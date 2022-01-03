@@ -14,10 +14,6 @@ export async function getSingleCarte(payload) {
 }
 export async function getFilteredCartes(payload) {
   const params = {
-    // walletTypeId: 9,
-    // walletStatus: 'validated',
-    // orderBy: 'createdDate',
-    // sortOrder: 'DESC',
     ...payload,
   };
   return api
