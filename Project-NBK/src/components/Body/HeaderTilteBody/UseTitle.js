@@ -1,16 +1,10 @@
 /* eslint-disable */
 
 /** @jsxImportSource theme-ui */
-import { Box, Button, Paper, Tooltip } from "@material-ui/core";
-import {
-  Add,
-  ArrowDownward,
-  KeyboardReturn,
-  Visibility,
-  VisibilityOff,
-} from "@material-ui/icons";
-import React from "react";
-import useStyles from "./styleHeaderTitle";
+import { Box, Button, Paper, Tooltip } from '@material-ui/core';
+import { Add, ArrowDownward, KeyboardReturn, Visibility, VisibilityOff } from '@material-ui/icons';
+import React from 'react';
+import useStyles from './styleHeaderTitle';
 
 function UseTitle(props) {
   {
@@ -29,7 +23,6 @@ function UseTitle(props) {
     showVisible,
     handelShowFilter,
     changeVisibble,
-    
   } = props;
   const classes = useStyles();
   return (
@@ -38,11 +31,11 @@ function UseTitle(props) {
         {newUser && (
           <KeyboardReturn
             sx={{
-              color: "background",
-              paddingTop: "5px",
-              fontSize: "35px",
-              margin: "15px 25px 15px 5px",
-              cursor: "pointer",
+              color: 'background',
+              paddingTop: '5px',
+              fontSize: '35px',
+              margin: '15px 25px 15px 5px',
+              cursor: 'pointer',
             }}
             onClick={CreateUserSHowClose}
           />
@@ -56,7 +49,7 @@ function UseTitle(props) {
                   className={classes.btn}
                   variant="contained"
                   startIcon={<ArrowDownward />}
-                  sx={{ bg: "backgroundS", color: "inverstText" }}
+                  sx={{ bg: 'backgroundS', color: 'inverstText' }}
                 >
                   exporter
                 </Button>
@@ -65,7 +58,7 @@ function UseTitle(props) {
               <Tooltip title="Ajouter">
                 <Button
                   variant="contained"
-                  sx={{ bg: "backgroundS", color: "inverstText" }}
+                  sx={{ bg: 'backgroundS', color: 'inverstText' }}
                   startIcon={<Add />}
                   onClick={CreateUserSHowOpen || handelOpen}
                 >

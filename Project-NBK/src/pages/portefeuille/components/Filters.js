@@ -15,17 +15,15 @@ import useFilter from '../hooks/useFilter';
 
 export default function Filters(props) {
   const { register, handleSubmit, watch, errors, isSubmitting, onSubmit } = useFilter();
-  const { showVisible } = props
-  
+  const { showVisible } = props;
+
   const [show, setShow] = useState(false);
   const handleShow = () => {
     setShow(!show);
   };
 
-
   return (
     <>
-   
       {showVisible && (
         <Paper style={{ padding: 30, maxWidth: '97%', margin: '10px 10px' }}>
           <form onSubmit={handleSubmit(onSubmit)}>

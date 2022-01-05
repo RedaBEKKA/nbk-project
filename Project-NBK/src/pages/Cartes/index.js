@@ -30,6 +30,8 @@ const Cartes = () => {
   const [showFormUser, setShowFormUser] = useState(false);
   const [newUser, setNewUser] = useState(false);
   const { cartes, getAllLoading } = useGetCartes();
+  const [showFilter, showSetFilter] = useState(false);
+
   const handelShowClose = () => {
     setShow(false);
   };
@@ -45,6 +47,10 @@ const Cartes = () => {
     setShowFormUser(true);
     setNewUser(true);
   };
+  const handelShowFilters = () => {
+    console.log('filter');
+    showSetFilter(!showFilter);
+  };
   return (
     <Grid className={classes.Container} sx={{ background: 'primary', color: 'inverstText' }}>
       <div className={classes.Container}>
@@ -54,7 +60,9 @@ const Cartes = () => {
 
         <div className={classes.diver}>
           <div className={classes.separator}></div>
-          {!newUser && <UseTitle title={'Gestion des Cartes'} />}
+          {!newUser && (
+            <UseTitle title={'Gestion des Cartes'} handelShowFilter={handelShowFilters} />
+          )}
           {newUser && (
             <UseTitle
               title={'Ajouter des Cartes'}
@@ -64,36 +72,9 @@ const Cartes = () => {
           )}
 
           {!matches && <HeaderAppBare title={'Gestion des Cartes'} />}
-          <div className={classes.buttonContainer}>
-            <Tooltip title="exporter">
-              <Button
-                className={classes.btn}
-                variant="contained"
-                sx={{
-                  bg: 'btnBackground',
-                  color: 'inverstText',
-                  marginRight: 15,
-                }}
-                startIcon={<ArrowDownward />}
-              >
-                exporter
-              </Button>
-            </Tooltip>
-
-            <Tooltip title="Ajouter">
-              <Button
-                variant="contained"
-                sx={{ bg: 'btnBackground', color: 'inverstText' }}
-                onClick={handelOpen}
-                startIcon={<Add />}
-              >
-                Ajouter
-              </Button>
-            </Tooltip>
-          </div>
           <div className={classes.containerTable}>
             <Container maxWidth="xl">
-              <Filters></Filters>
+              <Filters showVisible={showFilter}></Filters>
               <Table handelShow={handelShow} loading={getAllLoading} cartes={cartes}></Table>
             </Container>
           </div>

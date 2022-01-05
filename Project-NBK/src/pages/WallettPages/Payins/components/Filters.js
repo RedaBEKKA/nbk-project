@@ -13,20 +13,13 @@ import {
 } from '@material-ui/core';
 import useFilter from '../hooks/useFilter';
 
-export default function Filters() {
+export default function Filters(props) {
   const { register, handleSubmit, watch, errors, isSubmitting, onSubmit } = useFilter();
-  const [show, setShow] = useState(false);
-  const handleShow = () => {
-    setShow(!show);
-  };
+  const { showVisible } = props;
+
   return (
     <>
-      <Box my="20px" display="flex" justifyContent="flex-end">
-        <Typography onClick={handleShow} style={{ color: 'green', cursor: 'pointer' }}>
-          {show ? 'masquer' : 'afficher'} les filtres
-        </Typography>
-      </Box>
-      {show && (
+      {showVisible && (
         <Paper style={{ padding: 30, maxWidth: '97%', margin: '10px 10px' }}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Box flexWrap="none" display="flex" justifyContent="space-between">
