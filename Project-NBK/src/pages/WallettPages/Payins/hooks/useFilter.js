@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import * as type from 'redux/types/cartesTypes';
+import * as type from 'redux/types/payinsTypes';
 
 export default function useFilter() {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export default function useFilter() {
       }
     }
     console.log(data);
-    await dispatch({ type: type.FILTER_CARTES_REQUEST, payload: data });
+    await dispatch({ type: type.FILTER_PAYINS_REQUEST, payload: data });
   };
 
   return {

@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as type from 'redux/types/cartesTypes';
+import * as type from 'redux/types/payinsTypes';
 
 export default function useGetSingleCart() {
   const dispatch = useDispatch();
-  const carte = useSelector((state) => state.cartes.carte);
-  const getSingleLoading = useSelector((state) => state.cartes.getSingleLoading);
+  const payin = useSelector((state) => state.payins.payin);
+  const getSingleLoading = useSelector((state) => state.payins.getSingleLoading);
   useEffect(() => {
-    dispatch({ type: type.GET_SINGLE_CARTE_REQUEST });
+    dispatch({ type: type.GET_SINGLE_PAYIN_REQUEST });
   }, [dispatch]);
-  return { carte, getSingleLoading };
+  return { payin, getSingleLoading };
 }

@@ -13,7 +13,7 @@ export default function payins(state = initialState, action) {
     case type.SET_PAYINS:
       return {
         ...state,
-        payins: action?.payload?.data?.cards,
+        payins: action?.payload?.data?.payins,
         getAllLoading: false,
       };
     case type.SET_PAYIN:

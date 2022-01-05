@@ -10,19 +10,28 @@ import {
   InputLabel,
   MenuItem,
   Paper,
+  useMediaQuery,
+  useTheme,
 } from '@material-ui/core';
 import useFilter from '../hooks/useFilter';
 
 export default function Filters(props) {
   const { register, handleSubmit, watch, errors, isSubmitting, onSubmit } = useFilter();
   const { showVisible } = props;
+  const theme = useTheme();
+  const xs = useMediaQuery(theme.breakpoints.down('xs'));
+  const md = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <>
       {showVisible && (
         <Paper style={{ padding: 30, maxWidth: '97%', margin: '10px 10px' }}>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Box flexWrap="none" display="flex" justifyContent="space-between">
+            <Box
+              flexWrap={(xs && 'wrap') || (md && 'none')}
+              display="flex"
+              justifyContent="space-between"
+            >
               <TextField
                 style={{ margin: 10 }}
                 fullWidth

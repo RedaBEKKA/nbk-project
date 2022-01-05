@@ -1,26 +1,21 @@
 /* eslint-disable */
 
 /** @jsxImportSource theme-ui */
-import React, { useState } from "react";
-import {
-  useMediaQuery,
-  useTheme,
-  Grid,
-  Container,
-} from "@material-ui/core";
-import { Settings } from "@material-ui/icons";
-import FormCreateUsers from "../../components/Body/FormCreateUsers/FormCreateUsers";
-import Visualiser from "../../components/RightSideBares/UseVisualiser/Visualiser";
-import Navigation from "../../components/LeftSideBares/Navigation";
-import HeaderAppBare from "../../components/Headers/HeaderAppBare";
-import Separator from "../../components/Reusable/Separator/Separator";
-import UseTitle from "../../components/Body/HeaderTilteBody/UseTitle";
-import useStyles from "./styles";
-import { useColorMode } from "@theme-ui/color-modes";
-import { useSelector, useDispatch } from "react-redux";
-import useGetUses from "./hooks/useGetUsers";
-import Filters from "./components/Filter";
-import Table from "./components/table";
+import React, { useState } from 'react';
+import { useMediaQuery, useTheme, Grid, Container } from '@material-ui/core';
+import { Settings } from '@material-ui/icons';
+import FormCreateUsers from '../../components/Body/FormCreateUsers/FormCreateUsers';
+import Visualiser from '../../components/RightSideBares/UseVisualiser/Visualiser';
+import Navigation from '../../components/LeftSideBares/Navigation';
+import HeaderAppBare from '../../components/Headers/HeaderAppBare';
+import Separator from '../../components/Reusable/Separator/Separator';
+import UseTitle from '../../components/Body/HeaderTilteBody/UseTitle';
+import useStyles from './styles';
+import { useColorMode } from '@theme-ui/color-modes';
+import { useSelector, useDispatch } from 'react-redux';
+import useGetUses from './hooks/useGetUsers';
+import Filters from './components/Filter';
+import Table from './components/table';
 const Utilisateurs = () => {
   const [colorMode, setColorMode] = useColorMode();
   const [show, setShow] = useState(false);
@@ -28,7 +23,7 @@ const Utilisateurs = () => {
   const classes = useStyles();
   const { usersdata, loadingUsers } = useGetUses();
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("xs"));
+  const matches = useMediaQuery(theme.breakpoints.down('xs'));
   const [showVisible, setshowVisible] = useState(false);
 
   // functions
@@ -49,10 +44,7 @@ const Utilisateurs = () => {
   };
 
   return (
-    <Grid
-      className={classes.Container}
-      sx={{ background: "primary", color: "inverstText" }}
-    >
+    <Grid className={classes.Container} sx={{ background: 'primary', color: 'inverstText' }}>
       <div className="App">
         <Navigation />
       </div>
@@ -61,7 +53,7 @@ const Utilisateurs = () => {
         <Separator />
         {!newUser && (
           <UseTitle
-            title={"Gestion des Utilisateurs"}
+            title={'Gestion des Utilisateurs'}
             newUser={newUser}
             CreateUserSHowClose={CreateUserSHowClose}
             CreateUserSHowOpen={CreateUserSHowOpen}
@@ -70,40 +62,32 @@ const Utilisateurs = () => {
         )}
         {newUser && (
           <UseTitle
-            title={"Ajouter des Utilisateurs"}
+            title={'Ajouter des Utilisateurs'}
             newUser={newUser}
             CreateUserSHowClose={CreateUserSHowClose}
             CreateUserSHowOpen={CreateUserSHowOpen}
           />
         )}
-        {!matches && <HeaderAppBare title={"Gestion des Utilisateurs"} />}
+        {!matches && <HeaderAppBare title={'Gestion des Utilisateurs'} />}
         {/* table Users */}
         <div className={classes.containerTable}>
           <div className={classes.containerTable}>
             <Container maxWidth="xl">
               {!newUser && (
-                <Filters
-                  changeVisibble={changeVisibble}
-                  showVisible={showVisible}
-                >
-                  {" "}
+                <Filters changeVisibble={changeVisibble} showVisible={showVisible}>
+                  {' '}
                 </Filters>
               )}
-              {!newUser && (
-                <Table
-                  loadingUsers={loadingUsers}
-                  usersdata={usersdata}
-                ></Table>
-              )}
+              {!newUser && <Table loadingUsers={loadingUsers} usersdata={usersdata}></Table>}
             </Container>
           </div>
 
           {newUser && <FormCreateUsers />}
           <div className={classes.Absoluter}>
             <Settings
-              sx={{ color: "backgroundB", fontSize: 46 }}
+              sx={{ color: 'backgroundB', fontSize: 46 }}
               onClick={() => {
-                setColorMode(colorMode === "light" ? "dark" : "light");
+                setColorMode(colorMode === 'light' ? 'dark' : 'light');
                 console.log(`colorMode`, colorMode);
               }}
             />
@@ -113,10 +97,7 @@ const Utilisateurs = () => {
       {/* Visualer  */}
       {show && (
         <div className={classes.infoScreen}>
-          <Visualiser
-            handelShowClose={handelShowClose}
-            titre={"Visualiser Un Utilisateur"}
-          />
+          <Visualiser handelShowClose={handelShowClose} titre={'Visualiser Un Utilisateur'} />
         </div>
       )}
       {/* Visualer end */}

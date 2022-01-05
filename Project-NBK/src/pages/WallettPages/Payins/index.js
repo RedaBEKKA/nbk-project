@@ -21,7 +21,7 @@ import { Add, ArrowDown, ArrowDownward, CheckCircle, Close } from '@material-ui/
 import Filters from './components/Filters';
 import Table from './components/Table';
 import useGetPayins from './hooks/useGetPayins';
-const Cartes = () => {
+const Payins = () => {
   const [tableData, setTableData] = useState([]);
   const classes = useStyles();
   const theme = useTheme();
@@ -29,7 +29,7 @@ const Cartes = () => {
   const [show, setShow] = useState(false);
   const [showFormUser, setShowFormUser] = useState(false);
   const [newUser, setNewUser] = useState(false);
-  const { cartes, getAllLoading } = useGetPayins();
+  const { payins, getAllLoading } = useGetPayins();
   const [showFilter, showSetFilter] = useState(false);
 
   const handelShowClose = () => {
@@ -76,18 +76,18 @@ const Cartes = () => {
           <div className={classes.containerTable}>
             <Container maxWidth="xl">
               <Filters showVisible={showFilter}></Filters>
-              <Table handelShow={handelShow} loading={getAllLoading} cartes={cartes}></Table>
+              <Table handelShow={handelShow} loading={getAllLoading} payins={payins}></Table>
             </Container>
           </div>
         </div>
       </div>
       {show && (
         <div className={classes.infoScreen}>
-          <Info handelShowClose={handelShowClose} titre={'Visualiser Un Cart'} />
+          <Info handelShowClose={handelShowClose} titre={'Visualiser Un Payin'} />
         </div>
       )}
     </Grid>
   );
 };
 
-export default Cartes;
+export default Payins;

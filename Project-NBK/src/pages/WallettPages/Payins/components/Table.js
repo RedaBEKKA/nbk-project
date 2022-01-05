@@ -27,15 +27,15 @@ import {
 import { ArrowDownward } from '@material-ui/icons';
 import CloseIcon from '@material-ui/icons/Close';
 import { useDispatch } from 'react-redux';
-import * as types from 'redux/types/cartesTypes';
+import * as types from 'redux/types/payinsTypes';
 
-function MTable({ handelShow, loading, cartes }) {
+function MTable({ handelShow, loading, payins }) {
   const classes = useStyles();
-  console.log('cartes table', cartes);
+  console.log('payins table', payins);
   const dispatch = useDispatch();
 
   const setCartInfo = (row) => {
-    dispatch({ type: types.SET_CART_INFO_REQUEST, payload: row });
+    dispatch({ type: types.SET_PAYIN_INFO_REQUEST, payload: row });
     handelShow();
   };
 
@@ -66,7 +66,7 @@ function MTable({ handelShow, loading, cartes }) {
         </TableHead>
         {!loading && (
           <TableBody>
-            {cartes?.map((row) => (
+            {payins?.map((row) => (
               <TableRow
                 onClick={() => setCartInfo(row)}
                 className={classes.rowTable}

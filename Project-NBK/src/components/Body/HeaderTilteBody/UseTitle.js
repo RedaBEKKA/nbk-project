@@ -43,7 +43,7 @@ function UseTitle(props) {
         <text className={classes.TextBox}>{title}</text>
         <div className={classes.buttonContainer}>
           {!newUser ? (
-            <div>
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
               <Tooltip title="exporter">
                 <Button
                   className={classes.btn}

@@ -116,9 +116,7 @@ const Navigation = () => {
           {routes.map((route, index) => {
             return (
               <React.Fragment key={index}>
-                {route.path === "/login" && (
-                  <div className={classes.navigationSpacer}></div>
-                )}
+                {route.path === '/login' && <div className={classes.navigationSpacer}></div>}
                 <MenuItem
                   className={classes.navigationListItem}
                   label={route.label}
@@ -138,6 +136,7 @@ const Navigation = () => {
           <div className={classes.navigationSpacer}></div>
           {open ? (
             <Button
+              style={{ marginBottom: '50px' }}
               startIcon={<ArrowLeft />}
               variant="contained"
               color="primary"
