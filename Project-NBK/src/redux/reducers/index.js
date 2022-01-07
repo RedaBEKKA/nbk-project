@@ -6,6 +6,7 @@ import payins from './payins';
 
 import register from './register';
 import users from './users';
+import deleteDialoge from './deleteDialoge';
 const rootReducer = combineReducers({
   auth,
   wallet,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   users,
   cartes,
   payins,
+  deleteDialoge,
 });
 
 export default rootReducer;

@@ -35,7 +35,7 @@ const Payins = () => {
   const handelShowClose = () => {
     setShow(false);
   };
-  const handelShow = () => {
+  const showInfo = () => {
     setShow(true);
   };
 
@@ -76,7 +76,7 @@ const Payins = () => {
           <div className={classes.containerTable}>
             <Container maxWidth="xl">
               <Filters showVisible={showFilter}></Filters>
-              <Table handelShow={handelShow} loading={getAllLoading} payins={payins}></Table>
+              <Table showInfo={showInfo} loading={getAllLoading} payins={payins}></Table>
             </Container>
           </div>
         </div>

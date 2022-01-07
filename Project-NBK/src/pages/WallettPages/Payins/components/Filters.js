@@ -36,44 +36,6 @@ export default function Filters(props) {
                 style={{ margin: 10 }}
                 fullWidth
                 select // tell TextField to render select
-                label="lock status"
-                {...register('lockStatus')}
-                variant="outlined"
-              >
-                <MenuItem value={''}>none</MenuItem>
-                <MenuItem value={0}>Card Unblocked</MenuItem>
-                <MenuItem value={1}>Card blocked</MenuItem>
-                <MenuItem value={2}>Lost card</MenuItem>
-                <MenuItem value={3}>Stolen card</MenuItem>
-              </TextField>
-              <TextField
-                style={{ margin: 10 }}
-                fullWidth
-                select // tell TextField to render select
-                label="is physical"
-                {...register('isPhysical')}
-                variant="outlined"
-              >
-                <MenuItem value={''}>none</MenuItem>
-                <MenuItem value={0}>Physical card</MenuItem>
-                <MenuItem value={1}>Virtual card</MenuItem>
-              </TextField>
-              <TextField
-                style={{ margin: 10 }}
-                fullWidth
-                select // tell TextField to render select
-                label="is converted"
-                {...register('isConverted')}
-                variant="outlined"
-              >
-                <MenuItem value={''}>none</MenuItem>
-                <MenuItem value={0}>Physical card converted in a virtual card</MenuItem>
-                <MenuItem value={1}>Not converted</MenuItem>
-              </TextField>
-              <TextField
-                style={{ margin: 10 }}
-                fullWidth
-                select // tell TextField to render select
                 label="sortBy"
                 {...register('sortBy')}
                 variant="outlined"

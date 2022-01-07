@@ -70,8 +70,8 @@ function MTable({ handelShow, loading, wallets }) {
   return (
     <TableContainer component={Paper} className={classes.tableContainer}>
       <Table className={classes.table} aria-label="simple table">
-        <TableHead sx={{ color: 'btnBackground' , bg:"#000" }} >
-          <TableRow >
+        <TableHead sx={{ color: 'btnBackground', bg: '#000' }}>
+          <TableRow>
             <TableCell className={classes.tableHeaderCell} sx={{ color: 'btnBackground' }}>
               id{' '}
             </TableCell>{' '}
@@ -151,7 +151,7 @@ function MTable({ handelShow, loading, wallets }) {
                       validé
                     </Typography>
                   )}
-                  {row.walletStatus === 'CANCELLED' && (
+                  {row.walletStatus === 'CANCELED' && (
                     <Typography
                       className={classes.status}
                       style={{
@@ -166,7 +166,6 @@ function MTable({ handelShow, loading, wallets }) {
             ))}
           </TableBody>
         )}
-
       </Table>
       {loading && (
         <Box padding="100px" width="100%" display="flex" justifyContent="center">
@@ -179,8 +178,8 @@ function MTable({ handelShow, loading, wallets }) {
 
 export default MTable;
 
-
-        {/* <TableFooter className={classes.footer}>
+{
+  /* <TableFooter className={classes.footer}>
           <TablePagination
             rowsPerPageOptions={[5, 8]}
             component="div"
@@ -192,4 +191,5 @@ export default MTable;
             anchor="right"
             labelRowsPerPage={''}
           />
-        </TableFooter> */}
+        </TableFooter> */
+}

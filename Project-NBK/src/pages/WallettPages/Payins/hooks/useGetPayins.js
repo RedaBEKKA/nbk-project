@@ -7,7 +7,7 @@ export default function useGetPayins() {
   const payins = useSelector((state) => state.payins.payins);
   const getAllLoading = useSelector((state) => state.payins.getAllLoading);
   useEffect(() => {
-    dispatch({ type: type.GET_PAYINS_REQUEST });
+    dispatch({ type: type.GET_PAYINS_REQUEST, payload: { loading: true } });
   }, [dispatch]);
   console.log('hook get payins', payins);
   return { payins, getAllLoading };
